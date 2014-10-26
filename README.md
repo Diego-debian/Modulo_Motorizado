@@ -1,4 +1,4 @@
 Modulo_Motorizado
 =================
 
-Este es un ejemplo
+Por favor dirijase a la carpeta Descargas para descargar el instalador 
