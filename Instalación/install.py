@@ -63,7 +63,7 @@ class Instalacion:
         if self.preguntar == 's':
             print 'El sistema se esta preparando para reiniciarse'
             time.sleep(5)
-            os.system("sudo reboot")
+            os.system("reboot")
 
         elif self.preguntar == 'n':
             for i in range (0, 5):
