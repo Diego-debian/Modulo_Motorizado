@@ -10,6 +10,8 @@ Bienvenido a este proyecto, el cual tiene como finalidad desarrollar un vehícul
  6. Análisis de datos.
  7. Licencia de software.
 
+Para comenzar la descarga del repositorio así como su instalación haga clic en la carpeta [0. Inicio] (/0. Instalación/)
+
 Objetivos
 =========
 
@@ -65,7 +67,7 @@ Manual del proyecto octave http://www.gnu.org/software/octave/doc/interpreter/
  * Pagina oficial de Scilab http://www.scilab.org/
  * Pagina oficial de los productos  Phywe http://www.phywe.com/448/Product-Catalogue.htm
  
-Para comenzar la descarga del repositorio así como su instalación haga clic en la carpeta [0. Inicio] (/0. Instalación/)
+
 
 
 Mesa de Miembros del Proyecto
