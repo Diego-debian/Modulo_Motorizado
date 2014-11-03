@@ -6,4 +6,7 @@ Bienvenido a este proyecto, el cual tiene como finalidad desarrollar un vehícul
  2. Los planos eléctricos del hardware.
  3. Programación del microcontrolador atmega 328
  4. Programa para la obtención de datos y gratificador en tiempo real de dichos datos.
- 5. encontrara guías de elaboración de los laboratorios propuestos para ilustrar las propiedades de la radiación electromagnética. 
+ 5. Guías de elaboración de los laboratorios propuestos para ilustrar las propiedades de la radiación electromagnética. 
+ 6. Licencia de software.
+
+Para comenzar la descarga del repositorio así como su instalación haga clic en la carpeta [0. Inicio] ( "/0. Instalación/")
