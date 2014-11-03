@@ -31,6 +31,16 @@ Objetivos
  * Encontrar una constante en el patrón de absorción de diferentes materiales que nos permita clasificarlos por su capacidad de absorber radiación infrarroja.
  * Encontrar una constante en el patrón de atenuación la cual nos tiene que llevar a la conclusión de como se atenúa este tipo de radiación a través del espacio.
 
+Metodología 
+===========
+
+ * Diseñar  una placa micro controladora que sea muy parecida a la placa arduino uno, con diodos emisores y receptores infrarrojos, resistencias, condensadores para la creación de los instrumentos de medición.
+ * Construir un modulo motorizado “Vehículo motorizado”, con instrumentos para el análisis de radiación infrarroja, en donde reposara nuestra placa micro controladora y sus respectivos instrumentos de medición.
+ * Utilizar un sistema operativo de software libre como lo es debian 7 Jessie o Linux mint 17, y con programas como  arduino, python, c++, octave, gnuplot, libreoffice, kile, fritzing y emacs para la creación del software.
+ * Crear el software, adaptarlo y configurar bien al hardware para que no surjan errores significativos con las mediciones. 
+ * Crear unas guías de laboratorio la cual sea de fácil comprensión tanto a estudiantes como profesionales que estén relacionados con estos temas.
+Subir nuestro proyecto a www.github.com para que la comunidad tenga fácil acceso a este.
+ 
 Para comenzar la descarga del repositorio así como su instalación haga clic en la carpeta [0. Inicio] (/0. Instalación/)
 
 
