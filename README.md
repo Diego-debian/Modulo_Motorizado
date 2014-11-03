@@ -10,3 +10,13 @@ Bienvenido a este proyecto, el cual tiene como finalidad desarrollar un vehícul
  6. Licencia de software.
 
 Para comenzar la descarga del repositorio así como su instalación haga clic en la carpeta [0. Inicio] (/0. Instalación/)
+
+rzón
+
+
+Mesa de Miembros del Proyecto
+=============================
+
+ 1. Diego Alberto Parra Garzón <diegoestudianteud1@gmail.com> Desarrollador de Contenidos
+
+
