@@ -39,6 +39,31 @@ Metodología
  * Crear el software, adaptarlo y configurar bien al hardware para que no surjan errores significativos con las mediciones. 
  * Crear unas guías de laboratorio la cual sea de fácil comprensión tanto a estudiantes como profesionales que estén relacionados con estos temas.
 
+Referencia Bibliográfica 
+========================
+
+ * Notas del curso, python para el computo científico, curso de actualización académica de la DGAPA-UNAM, Facultad de ciencias, Dr. David P. Sanders, 5 de agosto de 2013. 
+ * Manual básico de uso de minicom http://www.slideshare.net/Metaconta/manual-bsico- minicom-presentation .
+ * Para la placa arduino, se toma de referencia http://www.proyectosarduino.com/ 
+ * Para la programación en la tarjeta micro controladora arduino se utilizara la siguiente referencia http://www.arduino.cc/es/ 
+ * Para la programación en c++ y gcc, GNU/Linux, Programación de sistemas, Pablo Garaizar Sagarminaga, Facultad de Ingeniería -ESIDE, Universidad de Deusto, Bilbao. 
+ * Fundamentos de circuitos eléctricos, tercera edición, editorial Mc Graw Hill, Charles K. Alexander and Matthew N. O. Sadiku. 
+Manual del proyecto octave http://www.gnu.org/software/octave/doc/interpreter/ 
+ * Pagina oficial del proyecto gnuplot http://www.gnuplot.info/ 
+ * Pagina oficial del proyecto Libreoffice http://www.libreoffice.org/ 
+ * Edición de textos científicos Latex, Walter Mora, Alexander Borbon
+ * Escuela de matemática,Instituto Tecnológico de Costa Rica; Revista digital matemática, educación e Internet www.tec-digital.itcr.ac.cr/revistamatematica/ 
+ * Manual del usuario emacs http://www.nongnu.org/emacs-man-es/ 
+ * Pagina oficial del Sistema Operativo debian https://www.debian.org/index.es.html 
+ * Pagina oficial del proyecto fritzing http://fritzing.org/home/ 
+ * Física Macarenha Herrera Aguayo, Edición especial para el ministerio de educación Chileno, editorial Santillana. 
+ * Berkeley Physics Course Vol 3 Ondas (Crawford), editorial Reverte 
+ * Para el integrado microcontrolador atmega328 se utilizara esta pagina  http://www.futurlec.com/Atmel/ATMEGA328P-PU.shtml
+ * Para el uso del TIP 122 se toma de referencia esta pagina http://pdf.datasheetcatalog.com/datasheet/fairchild/TIP122.pdf
+ * Para el modulo Bluetooth HC-06 arduino se toma esta referencia http://42bots.com/tutorials/hc-06-bluetooth-module-datasheet-and-configuration-with-arduino/
+ * Con el transistor LM7805CV se toma de referencia http://www.fairchildsemi.com/ds/LM/LM7805.pdf
+ * Pagina oficial de Scilab http://www.scilab.org/
+ * Pagina oficial de los productos  Phywe http://www.phywe.com/448/Product-Catalogue.htm
  
 Para comenzar la descarga del repositorio así como su instalación haga clic en la carpeta [0. Inicio] (/0. Instalación/)
 
