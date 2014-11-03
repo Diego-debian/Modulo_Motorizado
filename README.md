@@ -9,4 +9,4 @@ Bienvenido a este proyecto, el cual tiene como finalidad desarrollar un vehícul
  5. Guías de elaboración de los laboratorios propuestos para ilustrar las propiedades de la radiación electromagnética. 
  6. Licencia de software.
 
-Para comenzar la descarga del repositorio así como su instalación haga clic en la carpeta [0. Inicio] ( "/0. Instalación/")
+Para comenzar la descarga del repositorio así como su instalación haga clic en la carpeta [0. Inicio] (/0. Instalación/)
