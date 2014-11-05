@@ -5,7 +5,7 @@ Bienvenido a este proyecto, el cual tiene como finalidad desarrollar un vehícul
  1. Instalación de los paquetes de software necesarios.
  2. Los planos eléctricos del hardware.
  3. Programación del microcontrolador atmega 328
- 4. Programa para la obtención de datos y gratificador en tiempo real de dichos datos.
+ 4. Programa para la obtención de datos y graficador en tiempo real de dichos datos.
  5. Guías de elaboración de los laboratorios propuestos para ilustrar las propiedades de la radiación electromagnética. 
  6. Análisis de datos.
  7. Licencia de software.
