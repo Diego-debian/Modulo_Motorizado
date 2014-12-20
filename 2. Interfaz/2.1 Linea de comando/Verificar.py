@@ -107,7 +107,7 @@ class Modulo:
         gp("set yrange [-10: 4000] ")
         arduino=serial.Serial(self.puerto, 9600)
         time.sleep(2)
-        arduino.write('gg')
+        arduino.write('hh')
         time.sleep(2)
         for i in range(0, 1000):
             self.archi = open('datos_sensor_lateral/datos_0.dat', 'a+')
@@ -141,7 +141,7 @@ class Modulo:
         gp("set yrange [-10: 4000] ")
         arduino=serial.Serial(self.puerto, 9600)
         time.sleep(2)
-        arduino.write('hh')
+        arduino.write('ii')
         time.sleep(2)
         for i in range(0, 1000):
             self.archi = open('datos_sensor_lateral/datos_1.dat', 'a+')
@@ -176,7 +176,7 @@ class Modulo:
         gp("set yrange [-10: 4000] ")
         arduino=serial.Serial(self.puerto, 9600)
         time.sleep(2)
-        arduino.write('ii')
+        arduino.write('jj')
         time.sleep(2)
         for i in range(0, 1000):
             self.archi = open('datos_sensor_lateral/datos_2.dat', 'a+')
@@ -210,7 +210,7 @@ class Modulo:
         gp("set yrange [-10: 4000] ")
         arduino=serial.Serial(self.puerto, 9600)
         time.sleep(2)
-        arduino.write('jj')
+        arduino.write('kk')
         time.sleep(2)
         for i in range(0, 1000):
             self.archi = open('datos_sensor_lateral/datos_3.dat', 'a+')
@@ -244,7 +244,7 @@ class Modulo:
         gp("set yrange [-10: 4000] ")
         arduino=serial.Serial(self.puerto, 9600)
         time.sleep(2)
-        arduino.write('kk')
+        arduino.write('ll')
         time.sleep(2)
         for i in range(0, 1000):
             self.archi = open('datos_sensor_lateral/datos_4.dat', 'a+')
@@ -278,7 +278,7 @@ class Modulo:
         gp("set yrange [-10: 4000] ")
         arduino=serial.Serial(self.puerto, 9600)
         time.sleep(2)
-        arduino.write('ll')
+        arduino.write('mm')
         for i in range(0, 1000):
             self.archi = open('datos_sensor_lateral/datos_5.dat', 'a+')
             time.sleep(0.00005)
@@ -308,10 +308,10 @@ class Modulo:
         gp("set xlabel 'Tiempo en milesimas de segundos'") 
         gp("set ylabel 'Voltaje en milivoltios'")
         gp("set xrange [-10: 80000] ")
-        gp("set yrange [-10: 4000] ")
+        gp("set yrange [-10: 3000] ")
         arduino=serial.Serial(self.puerto, 9600)
         time.sleep(2)
-        arduino.write('mm')
+        arduino.write('zz')
         time.sleep(2)
         for i in range(0, 1000):
             self.archi = open('datos_sensor_frontal/datos_0.dat', 'a+')
@@ -334,7 +334,7 @@ class Modulo:
             os.system('sync')
             arduino.close()
         arduino.close()
-        self.Sen_Lateral()
+        self.Sen_Frontal()
 
     def Sen_Fron1(self):
         gp = Gnuplot.Gnuplot()
@@ -342,10 +342,10 @@ class Modulo:
         gp("set xlabel 'Tiempo en milesimas de segundos'") 
         gp("set ylabel 'Voltaje en milivoltios'")
         gp("set xrange [-10: 80000] ")
-        gp("set yrange [-10: 4000] ")
+        gp("set yrange [-10: 3000] ")
         arduino=serial.Serial(self.puerto, 9600)
         time.sleep(2)
-        arduino.write('nn')
+        arduino.write('oo')
         time.sleep(2)
         for i in range(0, 1000):
             self.archi = open('datos_sensor_frontal/datos_1.dat', 'a+')
@@ -369,7 +369,7 @@ class Modulo:
             os.system('sync')
             arduino.close()
         arduino.close()
-        self.Sen_Lateral()
+        self.Sen_Frontal()
 
     def Sen_Fron2(self):
         gp = Gnuplot.Gnuplot()
@@ -377,10 +377,10 @@ class Modulo:
         gp("set xlabel 'Tiempo en milesimas de segundos'") 
         gp("set ylabel 'Voltaje en milivoltios'")
         gp("set xrange [-10: 80000] ")
-        gp("set yrange [-10: 4000] ")
+        gp("set yrange [-10: 3000] ")
         arduino=serial.Serial(self.puerto, 9600)
         time.sleep(2)
-        arduino.write('oo')
+        arduino.write('pp')
         time.sleep(2)
         for i in range(0, 1000):
             self.archi = open('datos_sensor_frontal/datos_2.dat', 'a+')
@@ -403,7 +403,7 @@ class Modulo:
             os.system('sync')
             arduino.close()
         arduino.close()
-        self.Sen_Lateral()
+        self.Sen_Frontal()
 
     def Sen_Fron3(self):
         gp = Gnuplot.Gnuplot()
@@ -411,10 +411,10 @@ class Modulo:
         gp("set xlabel 'Tiempo en milesimas de segundos'") 
         gp("set ylabel 'Voltaje en milivoltios'")
         gp("set xrange [-10: 80000] ")
-        gp("set yrange [-10: 4000] ")
+        gp("set yrange [-10: 3000] ")
         arduino=serial.Serial(self.puerto, 9600)
         time.sleep(2)
-        arduino.write('pp')
+        arduino.write('qq')
         time.sleep(2)
         for i in range(0, 1000):
             self.archi = open('datos_sensor_frontal/datos_3.dat', 'a+')
@@ -437,7 +437,7 @@ class Modulo:
             os.system('sync')
             arduino.close()
         arduino.close()
-        self.Sen_Lateral()
+        self.Sen_Frontal()
 
     def Sen_Fron4(self):
         gp = Gnuplot.Gnuplot()
@@ -445,10 +445,10 @@ class Modulo:
         gp("set xlabel 'Tiempo en milesimas de segundos'") 
         gp("set ylabel 'Voltaje en milivoltios'")
         gp("set xrange [-10: 80000] ")
-        gp("set yrange [-10: 4000] ")
+        gp("set yrange [-10: 3000] ")
         arduino=serial.Serial(self.puerto, 9600)
         time.sleep(2)
-        arduino.write('qq')
+        arduino.write('rr')
         time.sleep(2)
         for i in range(0, 1000):
             self.archi = open('datos_sensor_frontal/datos_4.dat', 'a+')
@@ -471,7 +471,7 @@ class Modulo:
             os.system('sync')
             arduino.close()
         arduino.close()
-        self.Sen_Lateral()
+        self.Sen_Frontal()
 
     def Sen_Fron5(self):
         gp = Gnuplot.Gnuplot()
@@ -479,10 +479,10 @@ class Modulo:
         gp("set xlabel 'Tiempo en milesimas de segundos'") 
         gp("set ylabel 'Voltaje en milivoltios'")
         gp("set xrange [-10: 80000] ")
-        gp("set yrange [-10: 4000] ")
+        gp("set yrange [-10: 3000] ")
         arduino=serial.Serial(self.puerto, 9600)
         time.sleep(2)
-        arduino.write('rr')
+        arduino.write('ss')
         time.sleep(2)
         for i in range(0, 1000):
             self.archi = open('datos_sensor_frontal/datos_5.dat', 'a+')
@@ -505,7 +505,7 @@ class Modulo:
             os.system('sync')
             arduino.close()
         arduino.close()
-        self.Sen_Lateral()
+        self.Sen_Frontal()
 
     def Vel_Motor(self):
         self.Logo()
