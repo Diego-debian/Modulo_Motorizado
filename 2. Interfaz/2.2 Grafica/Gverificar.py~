@@ -1,0 +1,21 @@
+#!/usr/bin/python
+# -*- coding:utf-8 -*-
+
+import serial
+import os
+import subprocess
+import math
+import time
+import Gnuplot
+from Tkinter import *
+import tkMessageBox
+
+class Gramo():
+    def Grafica(self):
+        bicho = Tk()
+        bicho.geometry("700x400+0+0")
+        bicho.config(bg="cap1.png")
+        bicho.mainloop()
+    def __init__(self):
+        self.Grafica()
+modulo  = Gramo()
