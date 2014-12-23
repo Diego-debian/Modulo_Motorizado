@@ -26,15 +26,26 @@ class Gramo():
             exit()
 
         def Iniciar():
-            print "hola"
+            os.system("cd prograsecu && python Gverificar1.py &")
+            exit()
+
+        def Universidad():
+            try:
+                os.system("iceweasel http://www.udistrital.edu.co/ &")
+            except:
+                os.system("midori http://www.udistrital.edu.co/ &")
+                tkMessageBox(bicho, text="Tal vez pueda ir a la siguiente paguinax http://www.udistrital.edu.co/ desde su navegador de internet")       
 
 # Botones con imagenes 
         imgBoton=PhotoImage(file="Image/cap5.gif")
         btnSaludar=Button(bicho, image=imgBoton, command=Saluda, height=150, width =300).place(x=480, y=10)
         imgBoton1=PhotoImage(file="Image/cap7.gif")
-        btnSalir=Button(bicho, image=imgBoton1, command=Salir, height=100, width =240).place(x=20, y=380)
+        btnSalir=Button(bicho, image=imgBoton1, command=Salir, height=50, width =130).place(x=5, y=435)
         imgBoton2=PhotoImage(file="Image/cap6.gif")
         btnIniciar=Button(bicho, image=imgBoton2, command = Iniciar, height=300, width =440).place(x=10,y=10)
+        imgBoton3=PhotoImage(file="Image/cap8.gif")
+        btnUniversidad=Button(bicho, image=imgBoton3, command = Universidad, height=145, width =175).place(x=245,y=330)
+
 
 # Escritos en el texto
         w = Label(bicho, text="| GNU public license ... |", fg = ("blue"), font=("Century Schoolbook L", 9)).place(x=480, y=165)
@@ -43,13 +54,19 @@ class Gramo():
         w3 = Label (bicho, text = "UNIVERSIDAD DISTRITAL FRANCISCO JOSE DE CALDAS", font = ("Century Schoolbook L", 9)).place(x=440, y=430)
         w4 =Label (bicho, text = "COLOMBIA, BOGOTA D.C.", font = ("Century Schoolbook L",8)).place(x=570,y=460)
         w5 =Label (bicho, text = "| Iniciar ... |", fg = ("blue"), font = ("Century Schoolbook L",10)).place(x=10,y=315)
+        w6 =Label (bicho, text = "| Portal ... |", fg = ("blue"), font = ("Century Schoolbook L",10)).place(x=245,y=480)
+
         bicho.mainloop()  
     
-    
-    
-
     def __init__(self):
         self.Grafica()
+        self.__del__()
+
+    def __del__(self):
+        print ("PROGRAMA TERMINADO")
+        
+        
+        
 modulo  = Gramo()
 
 
