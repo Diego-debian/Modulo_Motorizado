@@ -1,0 +1,8 @@
+	0	AT
+	60	AT
+	120	AT+NAME
+	180	BlueDebian
+	240	AT+BAUD
+	300	4
+	360	AT+PIN
+	420	1234

@@ -34,7 +34,7 @@ void Velo0()
 void Velo1()
 {
       int  velocidad = map(velocidad,'0', '5', 0, 255);
-      velocidad = 45;
+      velocidad = 5;
       analogWrite(motor, velocidad);
 }
 

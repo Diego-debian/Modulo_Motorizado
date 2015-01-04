@@ -16,7 +16,8 @@ class Gramo():
         bicho.geometry("810x500+0+0")
         bicho.config(bg="white")
         bicho.title("Interfaz Proyecto Propiedades")
-        
+        bicho.resizable(width=0, height=0)
+                
  
         def Saluda():
             tkMessageBox.showinfo("Saludo", message="<Interfaz gráfica del modulo motorizado para ilustrar propiedades de las ondas electromagnéticas.> \n Copyright (C) 2014  <Diego Alberto Parra Garzón> \n Este programa es software libre. Puede redistribuirlo y/o modificarlo bajo los términos de la Licencia Pública General de GNU según es publicada por la Free Software Foundation, Este programa se distribuye con la esperanza de que sea útil, pero SIN NINGUNA GARANTÍA, incluso sin la garantía MERCANTIL implícita o sin garantizar la CONVENIENCIA PARA UN PROPÓSITO PARTICULAR. Véase la Licencia Pública General de GNU para más detalles.\n Debería haber recibido una copia de la Licencia Pública General junto con este programa. Si no ha sido así, escriba a la Free Software Foundation, Inc., en 675 Mass Ave, Cambridge, MA 02139, EEUU.\n Diegoestudianteud1@gmail.com")
