@@ -33,6 +33,7 @@ class Gramo():
 
         def Prueba2():
             os.system("cd Prueba2 && python Prueba2.py &")
+            exit()
 
         def Prueba3():
             print "SALIO BIEN"

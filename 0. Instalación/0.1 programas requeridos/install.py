@@ -30,7 +30,7 @@ class Instalacion:
     
     def Debian(self):
         print ('Se procede a instalar')
-        os.system("apt-get install  bluez* gcc g++ emacs gnuplot gnuplot-qt evince")
+        os.system("apt-get install  bluez* gcc g++ emacs gnuplot gnuplot-qt evince octave")
         os.system("apt-get install python-matplotlib python-numpy python-tk python-gnuplot python-serial python-visual* libgtkglextmm*  ")
         
         os.system("apt-get install kile")      
@@ -38,7 +38,7 @@ class Instalacion:
         os.system("arduino")
 
     def ubuntu(self):
-        os.system("sudo apt-get install bluez* gcc g++ emacs gnuplot gnuplot-qt evince")
+        os.system("sudo apt-get install bluez* gcc g++ emacs gnuplot gnuplot-qt evince octave")
             
         os.system("sudo apt-get install python-matplotlib python-numpy python-tk python-gnuplot python-serial python-visual* libgtkglextmm*  ")
         
@@ -49,7 +49,7 @@ class Instalacion:
 
     
     def Fedora(self):
-         os.system("yum -y install bluez* gcc g++ emacs gnuplot gnuplot-qt evince")
+         os.system("yum -y install bluez* gcc g++ emacs gnuplot gnuplot-qt evince octave")
          time.sleep(1)
          os.system("yum -y install python-matplotlib python-numpy python-tk python-gnuplot python-serial python-visual* libgtkglextmm*  ")
          time.sleep(1)

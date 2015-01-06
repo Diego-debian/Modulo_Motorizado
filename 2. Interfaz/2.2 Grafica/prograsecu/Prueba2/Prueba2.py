@@ -253,8 +253,8 @@ class Gramo():
 
 
         def Valido1():
-            lblRapidez = Label(bicho, text="PRUEBA RAPIDEZ CON PAUSA", fg = ("red"), font = ("Century Schoolbook L",10)).place(x=30, y=300)
-            btnVelo0= Button(bicho, text= "Detener", width=5, height=1, command= Velo_0).place(x=20, y=350)         
+            lblRapidez = Label(bicho, text="PRUEBA DE INTENSIDAD,  RAPIDEZ CON PAUSA", fg = ("red"), font = ("Century Schoolbook L",10)).place(x=30, y=300)
+            btnVelo0= Button(bicho, text= "Rapidez 0", width=5, height=1, command= Velo_0).place(x=20, y=350)         
             btnVelo1= Button(bicho, text= "Rapidez 1", width=5, height=1, command= Velo_1).place(x=90, y=350)
             btnVelo2= Button(bicho, text= "Rapidez 2", width=5, height=1, command= Velo_2).place(x=160, y=350)
             btnVelo3= Button(bicho, text= "Rapidez 3", width=5, height=1, command= Velo_3).place(x=230, y=350)
@@ -263,35 +263,44 @@ class Gramo():
 
         def Velo_0():
             arduino = serial.Serial(puerto.get(), 9600)
-            arduino.write('aa')
-            print "\n El motor se encuentra detenido"            
+            arduino.write("aa")
             arduino.close()
             
-            
+        
+        def Res1():
+            arduino=serial.Serial(puerto.get(), 9600)
+            time.sleep(2)
+            arduino.write('hh')
+            time.sleep(2)
+            for i in range(0, 1000):
+                archi = open('Datos/dat0/datos_0.dat', 'a+')
+            #   time.sleep(0.00005)
+                x = arduino.readline()
+                z = int(i*60)
+                xo = str(z)
+                yo = str(x)
+                print('{0} {1}').format(xo, yo)
+                archi.write (xo)
+                archi.write (" ")
+                archi.write (yo)
+                archi.close()
+                
+            else:
+                
+                arduino.write('aa')
+                print "El ciclo termino"
+                os.system('sync')
+                arduino.close()
+                arduino.close()
+                Velo_0()
 
         def Velo_1():
-            try:
-                arduino = serial.Serial(puerto.get(), 9600)
-                for i in range (0, 5):
-                    arduino.write('bb')
-                    time.sleep(0.0001)
-                    arduino.write('hh')
-                    print "todo salio bien"
-                    time.sleep(5)
-                    arduino.close
-                arduino = serial.Serial(puerto.get(), 9600)
-                arduino.write('bb')
-                print "\n El motor se encuentra en la velocidad 1"
-                arduino.close()
-
-            except:
-                print ("EL programa fallo")
-                arduino.write('aa')
-                arduino.close()
-                Salir()
-                
-            
-            
+            arduino= serial.Serial(puerto.get(), 9600)
+            for i in range (0, 1):
+                print("aca va la pausa")
+                arduino.write("bb")
+                time.sleep(0.0001)
+                Res1()
             
         def Velo_2():
             try:
@@ -302,7 +311,7 @@ class Gramo():
                     arduino.write('hh')
                     print "todo salio bien"
                     time.sleep(5)
-                    arduino.close
+                    arduino.close()
                 arduino = serial.Serial(puerto.get(), 9600)
                 arduino.write('bb')
                 print "\n El motor se encuentra en la velocidad 2"

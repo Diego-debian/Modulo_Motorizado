@@ -165,7 +165,7 @@ class Gramo():
                     arduino.write('hh')
                     print "todo salio bien"
                     time.sleep(5)
-                    arduino.close
+                    arduino.close()
                 arduino = serial.Serial(puerto.get(), 9600)
                 arduino.write('bb')
                 print "\n El motor se encuentra en la velocidad 3"
@@ -187,7 +187,7 @@ class Gramo():
                     arduino.write('hh')
                     print "todo salio bien"
                     time.sleep(5)
-                    arduino.close
+                    arduino.close()
                 arduino = serial.Serial(puerto.get(), 9600)
                 arduino.write('bb')
                 print "\n El motor se encuentra en la velocidad 4"
