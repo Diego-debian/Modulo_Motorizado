@@ -36,7 +36,9 @@ class Gramo():
             exit()
 
         def Prueba3():
-            print "SALIO BIEN"
+            os.system("cd Prueba3 && python Prueba3.py &")
+            exit()
+
         def Difraccion():
             print "TODO SALIO BIEN"
         def Absorcion():
