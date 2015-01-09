@@ -9,6 +9,7 @@ import time
 import Gnuplot
 from Tkinter import *
 import tkMessageBox
+import Tkinter
 
 class Gramo():
     def Prueba2(self):
@@ -17,7 +18,7 @@ class Gramo():
         bicho.config(bg="white")
         bicho.title("Interfaz Proyecto Propiedades, Prueba intensidad sensor lateral")
         bicho.resizable(width=0, height=0)
-  
+      
         
         def Salir():
             exit()
@@ -247,9 +248,6 @@ class Gramo():
                 os.system('sync')
                 arduino.close()
                 arduino.close()
-                
-                   
-      
 
 
         def Valido1():
@@ -265,132 +263,482 @@ class Gramo():
             arduino = serial.Serial(puerto.get(), 9600)
             arduino.write("aa")
             arduino.close()
+         
             
+               
         
-        def Res1():
-            arduino=serial.Serial(puerto.get(), 9600)
-            time.sleep(2)
-            arduino.write('hh')
-            time.sleep(2)
-            for i in range(0, 1000):
-                archi = open('Datos/dat0/datos_0.dat', 'a+')
-            #   time.sleep(0.00005)
-                x = arduino.readline()
-                z = int(i*60)
-                xo = str(z)
-                yo = str(x)
-                print('{0} {1}').format(xo, yo)
-                archi.write (xo)
-                archi.write (" ")
-                archi.write (yo)
-                archi.close()
-                
-            else:
-                
-                arduino.write('aa')
-                print "El ciclo termino"
-                os.system('sync')
-                arduino.close()
-                arduino.close()
-                Velo_0()
-
         def Velo_1():
             arduino= serial.Serial(puerto.get(), 9600)
-            for i in range (0, 1):
+            for n in range (0, 40):
+                os.system('rm Datos_C/dat1/datos_1.dat')
                 print("aca va la pausa")
                 arduino.write("bb")
                 time.sleep(0.0001)
-                Res1()
+                #Res1()
+                arduino=serial.Serial(puerto.get(), 9600)
+                time.sleep(2)
+                arduino.write('hh')
+                for i in range(0, 50):
+                    arduino=serial.Serial(puerto.get(), 9600)
+                    archi = open('Datos_C/dat1/datos_1.dat', 'a+')
+                #   time.sleep(0.00005)
+                    x = arduino.readline()
+                    z = n
+                    xo = str(z)
+                    yo = str(x)
+                    print('{0} {1}').format(xo, yo)
+                    archi.write (xo)
+                    archi.write (" ")
+                    archi.write (yo)
+                    archi.close()
+                    
+             
+                    
+                else:
+                    os.system("octave Datos_C/prom1.m")
+                    arduino.write('hh')
+                    # Res1_1(self)
+                    arduino.write('aa')
+                    print "El ciclo termino"
+                    os.system('sync')
+                archi = open('Datos_C/dat1/prom.dat', 'a+')
+                print "aca va la lectura"
+                Lectura = archi.read()
+                archi.close() 
+                archi1 = open('Datos_C/dat1/datos1_.dat', 'a+')
+                archi1.write(Lectura)
+                archi1.close()
+                # os.system("gnuplot  Datos_C/dat1/graf.gnp &")
+                os.system('rm Datos_C/dat1/datos_1.dat')    
+                    
+            else:
+                os.system('sync')
+                arduino.close()
+                arduino.close()
+                LoL()           
+     
+        def LoL():
+            bicho1 = Toplevel(bicho)
+            bicho1.title("Codigo Python")
+            bicho1.geometry("400x228+850+0")
+            bicho1.config(bg="white")
+            bicho1.title("Distancia vs Voltaje promedio")
+            bicho1.resizable(width=0, height=0)
+            lblPuerto = Label(bicho1, text="Distancia | Voltaje ", fg = ("blue"), font = ("Century Schoolbook L",10)).place(x=25, y=10)
+            scrollbar = Scrollbar(bicho1)
+            scrollbar.pack( side = RIGHT, fill=Y )
+            archi1 = open('Datos_C/dat1/datos1_.dat', 'a+')
+            lstLecturas = Listbox(bicho1, yscrollcommand = scrollbar.set, width=40)
+            for linea in archi1.readlines():
+                lstLecturas.insert(END, linea)
+            archi1.close()
+            lstLecturas.pack( side = LEFT, fill = BOTH )
+            scrollbar.config( command = lstLecturas.yview )
+            lstLecturas.place(x=10, y=50) 
+            btnGraf= Button(bicho1, text= "Grafica", width=5, height=1, command= LoL1).place(x=180, y=15)            
+            btnInfo= Button(bicho1, text= "Información", width=8, height=1, command= Msg1).place(x=250, y=15)            
+
+        def Msg1():
+            tkMessageBox.showinfo("Información ", message= "Los datos se encuentran en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba2/Datos_C/dat1/datos1_.dat' y la grafica se encuentra en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba2/Image/graf1.gif'")
             
+        def LoL1():
+            gp = Gnuplot.Gnuplot()
+            gp("set title 'ESPACIO VS VOLTAJE'")
+            gp("set xlabel 'Espacio en cm'") 
+            gp("set ylabel 'Voltaje en milivoltios'")
+            gp("set grid")
+            gp("plot 'Datos_C/dat1/datos1_.dat' title ' ' with errorbars")
+            gp("pause mouse")
+            gp("set term png")
+            gp("set output '../../Image/graf1.png'")
+            gp("replot")
+            gp("pause mouse")
+            os.system("rm '../../Image/graf1.gif' ")
+            os.system("convert  '../../Image/graf1.png' '../../Image/graf1.gif'  &")
+            # time.sleep(2)
+           # os.system("eog '../../Image/graf1.gif' &")
+            print "funciono"
+
+
+
+
         def Velo_2():
-            try:
-                arduino = serial.Serial(puerto.get(), 9600)
-                for i in range (0, 5):
-                    arduino.write('dd')
-                    time.sleep(0.0001)
+            arduino= serial.Serial(puerto.get(), 9600)
+            for n in range (0, 40):
+                os.system('rm Datos_C/dat2/datos_2.dat')
+                print("aca va la pausa")
+                arduino.write("dd")
+                time.sleep(0.0001)
+                #Res1()
+                arduino=serial.Serial(puerto.get(), 9600)
+                time.sleep(2)
+                arduino.write('hh')
+                for i in range(0, 50):
+                    arduino=serial.Serial(puerto.get(), 9600)
+                    archi = open('Datos_C/dat2/datos_2.dat', 'a+')
+                #   time.sleep(0.00005)
+                    x = arduino.readline()
+                    z = n
+                    xo = str(z)
+                    yo = str(x)
+                    print('{0} {1}').format(xo, yo)
+                    archi.write (xo)
+                    archi.write (" ")
+                    archi.write (yo)
+                    archi.close()
+                    
+             
+                    
+                else:
+                    os.system("octave Datos_C/prom2.m")
                     arduino.write('hh')
-                    print "todo salio bien"
-                    time.sleep(5)
-                    arduino.close()
-                arduino = serial.Serial(puerto.get(), 9600)
-                arduino.write('bb')
-                print "\n El motor se encuentra en la velocidad 2"
+                    # Res1_1(self)
+                    arduino.write('aa')
+                    print "El ciclo termino"
+                    os.system('sync')
+                archi = open('Datos_C/dat2/prom.dat', 'a+')
+                print "aca va la lectura"
+                Lectura = archi.read()
+                archi.close() 
+                archi1 = open('Datos_C/dat2/datos2_.dat', 'a+')
+                archi1.write(Lectura)
+                archi1.close()
+                # os.system("gnuplot  Datos_C/dat2/graf2.gnp &")
+                os.system('rm Datos_C/dat2/datos_2.dat')    
+                    
+            else:
+                os.system('sync')
                 arduino.close()
+                arduino.close()
+                LoL2()           
+     
+        def LoL2():
+            bicho1 = Toplevel(bicho)
+            bicho1.title("Codigo Python")
+            bicho1.geometry("400x228+850+0")
+            bicho1.config(bg="white")
+            bicho1.title("Distancia vs Voltaje promedio")
+            bicho1.resizable(width=0, height=0)
+            lblPuerto = Label(bicho1, text="Distancia | Voltaje ", fg = ("blue"), font = ("Century Schoolbook L",10)).place(x=25, y=10)
+            scrollbar = Scrollbar(bicho1)
+            scrollbar.pack( side = RIGHT, fill=Y )
+            archi1 = open('Datos_C/dat2/datos2_.dat', 'a+')
+            lstLecturas = Listbox(bicho1, yscrollcommand = scrollbar.set, width=40)
+            for linea in archi1.readlines():
+                lstLecturas.insert(END, linea)
+            archi1.close()
+            lstLecturas.pack( side = LEFT, fill = BOTH )
+            scrollbar.config( command = lstLecturas.yview )
+            lstLecturas.place(x=10, y=50) 
+            btnGraf= Button(bicho1, text= "Grafica", width=5, height=1, command= LoL3).place(x=180, y=15)            
+            btnInfo= Button(bicho1, text= "Información", width=8, height=1, command= Msg2).place(x=250, y=15)            
 
-            except:
-                arduino.write('aa')
-                print ("EL programa fallo")
-                arduino.close()
-                Salir()
+        def Msg2():
+            tkMessageBox.showinfo("Información ", message= "Los datos se encuentran en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba2/Datos_C/dat2/datos2_.dat' y la grafica se encuentra en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba2/Image/graf2.gif'")
             
-            
-            
+        def LoL3():
+            gp = Gnuplot.Gnuplot()
+            gp("set title 'ESPACIO VS VOLTAJE'")
+            gp("set xlabel 'Espacio en cm'") 
+            gp("set ylabel 'Voltaje en milivoltios'")
+            gp("set grid")
+            gp("plot 'Datos_C/dat2/datos2_.dat' title ' ' with errorbars")
+            gp("pause mouse")
+            gp("set term png")
+            gp("set output '../../Image/graf2.png'")
+            gp("replot")
+            gp("pause mouse")
+            os.system("rm '../../Image/graf2.gif' ")
+            os.system("convert  '../../Image/graf2.png' '../../Image/graf2.gif'  &")
+            # time.sleep(2)
+           # os.system("eog '../../Image/graf2.gif' &")
+            print "funciono"
+
+
+
         def Velo_3():
-             try:
-                arduino = serial.Serial(puerto.get(), 9600)
-                for i in range (0, 5):
-                    arduino.write('ee')
-                    time.sleep(0.0001)
+            arduino= serial.Serial(puerto.get(), 9600)
+            for n in range (0, 40):
+                os.system('rm Datos_C/dat3/datos_3.dat')
+                print("aca va la pausa")
+                arduino.write("ee")
+                time.sleep(0.0001)
+                #Res1()
+                arduino=serial.Serial(puerto.get(), 9600)
+                time.sleep(2)
+                arduino.write('hh')
+                for i in range(0, 50):
+                    arduino=serial.Serial(puerto.get(), 9600)
+                    archi = open('Datos_C/dat3/datos_3.dat', 'a+')
+                #   time.sleep(0.00005)
+                    x = arduino.readline()
+                    z = n
+                    xo = str(z)
+                    yo = str(x)
+                    print('{0} {1}').format(xo, yo)
+                    archi.write (xo)
+                    archi.write (" ")
+                    archi.write (yo)
+                    archi.close()
+                    
+             
+                    
+                else:
+                    os.system("octave Datos_C/prom3.m")
                     arduino.write('hh')
-                    print "todo salio bien"
-                    time.sleep(5)
-                    arduino.close
-                arduino = serial.Serial(puerto.get(), 9600)
-                arduino.write('bb')
-                print "\n El motor se encuentra en la velocidad 3"
+                    # Res1_1(self)
+                    arduino.write('aa')
+                    print "El ciclo termino"
+                    os.system('sync')
+                archi = open('Datos_C/dat3/prom.dat', 'a+')
+                print "aca va la lectura"
+                Lectura = archi.read()
+                archi.close() 
+                archi1 = open('Datos_C/dat3/datos3_.dat', 'a+')
+                archi1.write(Lectura)
+                archi1.close()
+                # os.system("gnuplot  Datos_C/dat3/graf3.gnp &")
+                os.system('rm Datos_C/dat3/datos_3.dat')    
+                    
+            else:
+                os.system('sync')
                 arduino.close()
-
-             except:
-                print ("EL programa fallo")
-                arduino.write('aa')
                 arduino.close()
-                Salir()
+                LoL4()           
+     
+        def LoL4():
+            bicho1 = Toplevel(bicho)
+            bicho1.title("Codigo Python")
+            bicho1.geometry("400x228+850+0")
+            bicho1.config(bg="white")
+            bicho1.title("Distancia vs Voltaje promedio")
+            bicho1.resizable(width=0, height=0)
+            lblPuerto = Label(bicho1, text="Distancia | Voltaje ", fg = ("blue"), font = ("Century Schoolbook L",10)).place(x=25, y=10)
+            scrollbar = Scrollbar(bicho1)
+            scrollbar.pack( side = RIGHT, fill=Y )
+            archi1 = open('Datos_C/dat3/datos3_.dat', 'a+')
+            lstLecturas = Listbox(bicho1, yscrollcommand = scrollbar.set, width=40)
+            for linea in archi1.readlines():
+                lstLecturas.insert(END, linea)
+            archi1.close()
+            lstLecturas.pack( side = LEFT, fill = BOTH )
+            scrollbar.config( command = lstLecturas.yview )
+            lstLecturas.place(x=10, y=50) 
+            btnGraf= Button(bicho1, text= "Grafica", width=5, height=1, command= LoL5).place(x=180, y=15)            
+            btnInfo= Button(bicho1, text= "Información", width=8, height=1, command= Msg3).place(x=250, y=15)            
 
-
+        def Msg3():
+            tkMessageBox.showinfo("Información ", message= "Los datos se encuentran en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba2/Datos_C/dat3/datos3_.dat' y la grafica se encuentra en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba2/Image/graf3.gif'")
+            
+        def LoL5():
+            gp = Gnuplot.Gnuplot()
+            gp("set title 'ESPACIO VS VOLTAJE'")
+            gp("set xlabel 'Espacio en cm'") 
+            gp("set ylabel 'Voltaje en milivoltios'")
+            gp("set grid")
+            gp("plot 'Datos_C/dat3/datos3_.dat' title ' ' with errorbars")
+            gp("pause mouse")
+            gp("set term png")
+            gp("set output '../../Image/graf3.png'")
+            gp("replot")
+            gp("pause mouse")
+            os.system("rm '../../Image/graf3.gif' ")
+            os.system("convert  '../../Image/graf3.png' '../../Image/graf3.gif'  &")
+            # time.sleep(2)
+           # os.system("eog '../../Image/graf3.gif' &")
+            print "funciono" 
+    
         def Velo_4():
-            try:
-                arduino = serial.Serial(puerto.get(), 9600)
-                for i in range (0, 5):
-                    arduino.write('ff')
-                    time.sleep(0.0001)
+            arduino= serial.Serial(puerto.get(), 9600)
+            for n in range (0, 2):
+                os.system('rm Datos_C/dat4/datos_4.dat')
+                print("aca va la pausa")
+                arduino.write("ff")
+                time.sleep(0.0001)
+                #Res1()
+                arduino=serial.Serial(puerto.get(), 9600)
+                time.sleep(2)
+                arduino.write('hh')
+                for i in range(0, 50):
+                    arduino=serial.Serial(puerto.get(), 9600)
+                    archi = open('Datos_C/dat4/datos_4.dat', 'a+')
+                #   time.sleep(0.00005)
+                    x = arduino.readline()
+                    z = n
+                    xo = str(z)
+                    yo = str(x)
+                    print('{0} {1}').format(xo, yo)
+                    archi.write (xo)
+                    archi.write (" ")
+                    archi.write (yo)
+                    archi.close()
+                    
+             
+                    
+                else:
+                    os.system("octave Datos_C/prom4.m")
                     arduino.write('hh')
-                    print "todo salio bien"
-                    time.sleep(5)
-                    arduino.close
-                arduino = serial.Serial(puerto.get(), 9600)
-                arduino.write('bb')
-                print "\n El motor se encuentra en la velocidad 4"
+                    # Res1_1(self)
+                    arduino.write('aa')
+                    print "El ciclo termino"
+                    os.system('sync')
+                archi = open('Datos_C/dat4/prom.dat', 'a+')
+                print "aca va la lectura"
+                Lectura = archi.read()
+                archi.close() 
+                archi1 = open('Datos_C/dat4/datos4_.dat', 'a+')
+                archi1.write(Lectura)
+                archi1.close()
+                # os.system("gnuplot  Datos_C/dat4/graf4.gnp &")
+                os.system('rm Datos_C/dat4/datos_4.dat')    
+                    
+            else:
+                os.system('sync')
                 arduino.close()
+                arduino.close()
+                LoL6()           
+     
+        def LoL6():
+            bicho1 = Toplevel(bicho)
+            bicho1.title("Codigo Python")
+            bicho1.geometry("400x228+850+0")
+            bicho1.config(bg="white")
+            bicho1.title("Distancia vs Voltaje promedio")
+            bicho1.resizable(width=0, height=0)
+            lblPuerto = Label(bicho1, text="Distancia | Voltaje ", fg = ("blue"), font = ("Century Schoolbook L",10)).place(x=25, y=10)
+            scrollbar = Scrollbar(bicho1)
+            scrollbar.pack( side = RIGHT, fill=Y )
+            archi1 = open('Datos_C/dat4/datos4_.dat', 'a+')
+            lstLecturas = Listbox(bicho1, yscrollcommand = scrollbar.set, width=40)
+            for linea in archi1.readlines():
+                lstLecturas.insert(END, linea)
+            archi1.close()
+            lstLecturas.pack( side = LEFT, fill = BOTH )
+            scrollbar.config( command = lstLecturas.yview )
+            lstLecturas.place(x=10, y=50) 
+            btnGraf= Button(bicho1, text= "Grafica", width=5, height=1, command= LoL7).place(x=180, y=15)            
+            btnInfo= Button(bicho1, text= "Información", width=8, height=1, command= Msg4).place(x=250, y=15)            
 
-            except:
-                print ("EL programa fallo")
-                arduino.write('aa')
-                arduino.close()
-                Salir()      
+        def Msg4():
+            tkMessageBox.showinfo("Información ", message= "Los datos se encuentran en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba2/Datos_C/dat4/datos4_.dat' y la grafica se encuentra en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba2/Image/graf4.gif'")
+            
+        def LoL7():
+            gp = Gnuplot.Gnuplot()
+            gp("set title 'ESPACIO VS VOLTAJE'")
+            gp("set xlabel 'Espacio en cm'") 
+            gp("set ylabel 'Voltaje en milivoltios'")
+            gp("set grid")
+            gp("plot 'Datos_C/dat4/datos4_.dat' title ' ' with errorbars")
+            gp("pause mouse")
+            gp("set term png")
+            gp("set output '../../Image/graf4.png'")
+            gp("replot")
+            gp("pause mouse")
+            os.system("rm '../../Image/graf4.gif' ")
+            os.system("convert  '../../Image/graf4.png' '../../Image/graf4.gif'  &")
+            # time.sleep(2)
+           # os.system("eog '../../Image/graf4.gif' &")
+            print "funciono"
+
+
 
 
         def Velo_5():
-            try:
-                arduino = serial.Serial(puerto.get(), 9600)
-                for i in range (0, 5):
-                    arduino.write('gg')
-                    time.sleep(0.0001)
+            arduino= serial.Serial(puerto.get(), 9600)
+            for n in range (0, 2):
+                os.system('rm Datos_C/dat5/datos_5.dat')
+                print("aca va la pausa")
+                arduino.write("gg")
+                time.sleep(0.0001)
+                #Res1()
+                arduino=serial.Serial(puerto.get(), 9600)
+                time.sleep(2)
+                arduino.write('hh')
+                for i in range(0, 50):
+                    arduino=serial.Serial(puerto.get(), 9600)
+                    archi = open('Datos_C/dat5/datos_5.dat', 'a+')
+                #   time.sleep(0.00005)
+                    x = arduino.readline()
+                    z = n
+                    xo = str(z)
+                    yo = str(x)
+                    print('{0} {1}').format(xo, yo)
+                    archi.write (xo)
+                    archi.write (" ")
+                    archi.write (yo)
+                    archi.close()
+                    
+             
+                    
+                else:
+                    os.system("octave Datos_C/prom5.m")
                     arduino.write('hh')
-                    print "todo salio bien"
-                    time.sleep(5)
-                    arduino.close
-                arduino = serial.Serial(puerto.get(), 9600)
-                arduino.write('bb')
-                print "\n El motor se encuentra en la velocidad 5"
+                    # Res1_1(self)
+                    arduino.write('aa')
+                    print "El ciclo termino"
+                    os.system('sync')
+                archi = open('Datos_C/dat5/prom.dat', 'a+')
+                print "aca va la lectura"
+                Lectura = archi.read()
+                archi.close() 
+                archi1 = open('Datos_C/dat5/datos5_.dat', 'a+')
+                archi1.write(Lectura)
+                archi1.close()
+                # os.system("gnuplot  Datos_C/dat5/graf5.gnp &")
+                os.system('rm Datos_C/dat5/datos_5.dat')    
+                    
+            else:
+                os.system('sync')
                 arduino.close()
-
-            except:
-                arduino.write('aa')
-                print ("EL programa fallo")
                 arduino.close()
-                Salir()
+                LoL8()           
+     
+        def LoL8():
+            bicho1 = Toplevel(bicho)
+            bicho1.title("Codigo Python")
+            bicho1.geometry("400x228+850+0")
+            bicho1.config(bg="white")
+            bicho1.title("Distancia vs Voltaje promedio")
+            bicho1.resizable(width=0, height=0)
+            lblPuerto = Label(bicho1, text="Distancia | Voltaje ", fg = ("blue"), font = ("Century Schoolbook L",10)).place(x=25, y=10)
+            scrollbar = Scrollbar(bicho1)
+            scrollbar.pack( side = RIGHT, fill=Y )
+            archi1 = open('Datos_C/dat5/datos5_.dat', 'a+')
+            lstLecturas = Listbox(bicho1, yscrollcommand = scrollbar.set, width=40)
+            for linea in archi1.readlines():
+                lstLecturas.insert(END, linea)
+            archi1.close()
+            lstLecturas.pack( side = LEFT, fill = BOTH )
+            scrollbar.config( command = lstLecturas.yview )
+            lstLecturas.place(x=10, y=50) 
+            btnGraf= Button(bicho1, text= "Grafica", width=5, height=1, command= LoL9).place(x=180, y=15)            
+            btnInfo= Button(bicho1, text= "Información", width=8, height=1, command= Msg5).place(x=250, y=15)            
+
+        def Msg5():
+            tkMessageBox.showinfo("Información ", message= "Los datos se encuentran en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba2/Datos_C/dat5/datos5_.dat' y la grafica se encuentra en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba2/Image/graf5.gif'")
+            
+        def LoL9():
+            gp = Gnuplot.Gnuplot()
+            gp("set title 'ESPACIO VS VOLTAJE'")
+            gp("set xlabel 'Espacio en cm'") 
+            gp("set ylabel 'Voltaje en milivoltios'")
+            gp("set grid")
+            gp("plot 'Datos_C/dat5/datos5_.dat' title ' ' with errorbars")
+            gp("pause mouse")
+            gp("set term png")
+            gp("set output '../../Image/graf5.png'")
+            gp("replot")
+            gp("pause mouse")
+            os.system("rm '../../Image/graf5.gif' ")
+            os.system("convert  '../../Image/graf5.png' '../../Image/graf5.gif'  &")
+            # time.sleep(2)
+           # os.system("eog '../../Image/graf5.gif' &")
+            print "funciono"
 
 
+
+
+#Volver al menu
         def Menu():
             os.system("cd ../ && python Gverificar1.py &")
             exit()
@@ -414,11 +762,6 @@ class Gramo():
 #Botones normales
         btnProbar= Button(bicho, text= "Verificar", width=5, height=1, command= Verifica).place(x=520, y=100)            
         bicho.mainloop()  
-
-
-        
-
-
 
 
     

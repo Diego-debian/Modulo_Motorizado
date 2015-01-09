@@ -34,7 +34,7 @@ class Instalacion:
         os.system("apt-get install python-matplotlib python-numpy python-tk python-gnuplot python-serial python-visual* libgtkglextmm*  ")
         
         os.system("apt-get install kile")      
-        os.system("apt-get install arduino fritzing ")
+        os.system("apt-get install arduino fritzing eog")
         os.system("arduino")
 
     def ubuntu(self):
@@ -43,13 +43,13 @@ class Instalacion:
         os.system("sudo apt-get install python-matplotlib python-numpy python-tk python-gnuplot python-serial python-visual* libgtkglextmm*  ")
         
         os.system("sudo apt-get install kile")
-        os.system("sudo apt-get install arduino fritzing ")
+        os.system("sudo apt-get install arduino fritzing eog ")
         os.system("arduino")
 
 
     
     def Fedora(self):
-         os.system("yum -y install bluez* gcc g++ emacs gnuplot gnuplot-qt evince octave")
+         os.system("yum -y install bluez* gcc g++ emacs eog gnuplot gnuplot-qt evince octave")
          time.sleep(1)
          os.system("yum -y install python-matplotlib python-numpy python-tk python-gnuplot python-serial python-visual* libgtkglextmm*  ")
          time.sleep(1)
