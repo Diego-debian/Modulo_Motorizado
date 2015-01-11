@@ -1,5 +1,3 @@
-<p align="center"><img src="https://github.com/Diego-debian/Modulo_Motorizado/blob/master/2.%20Interfaz/2.2%20Grafica/Image/cap6.png" /></p>
-
 Modulo Motorizado
 ==============
 
@@ -13,6 +11,9 @@ Bienvenido a este proyecto, el cual tiene como finalidad desarrollar un vehícul
  7. Licencia de software.
 
 Para comenzar la descarga del repositorio así como su instalación haga clic en la carpeta [0. Inicio] (/0. Instalación/)
+
+
+<p align="center"><img src="https://github.com/Diego-debian/Modulo_Motorizado/blob/master/2.%20Interfaz/2.2%20Grafica/Image/cap6.png" /></p>
 
 Objetivos
 =========
