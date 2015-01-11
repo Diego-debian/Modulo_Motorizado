@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/Diego-debian/Modulo_Motorizado/blob/master/2.%20Interfaz/2.2%20Grafica/Image/cap7.png" /></p>
+<p align="center"><img src="https://github.com/Diego-debian/Modulo_Motorizado/blob/master/2.%20Interfaz/2.2%20Grafica/Image/cap6.png" /></p>
 
 Modulo Motorizado
 ==============
