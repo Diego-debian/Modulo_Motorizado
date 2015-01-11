@@ -1,5 +1,5 @@
 Modulo Motorizado
-==============
+=================
 
 Bienvenido a este proyecto, el cual tiene como finalidad desarrollar un vehículo motorizado para poder ilustrar ciertas propiedades de las ondas electromagnéticas como los son: difracción, absorbción y atenuación; en este repositorio encontrara:
  1. Instalación de los paquetes de software necesarios.
