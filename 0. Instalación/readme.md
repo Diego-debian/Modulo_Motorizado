@@ -23,6 +23,8 @@ Para el correcto funcionamiento del programa es necesario instalar los siguiente
  18. eog
  19. arduino
 
+Si desea o es usuario de un S.O. no mantenido por el script para su auto instalación o si solo desea instalar por su propia cuenta los programas por favor instalelos manualmente y pase a la etapa de clonar el sitio.
+
 lo primero sera instalar git en su S.O. dependiendo su S.O. el comando puede variar en mi caso uso debian y por lo general se instala de la siguiente manera.
     
 Ingresar como usuario root
@@ -36,3 +38,7 @@ Introducir el Password, atención por que cuando escribimos el pass no se escrib
 Luego de instalado debera escribir en una terminal el siguiente comando, esta vez no como superusuario sino como usuario normal para esto escribimos exit, luego oprimimos enter y luego escribimos lo siguiente.
 
     $ git clone https://github.com/Diego-debian/Modulo_Motorizado.git
+
+Despues de clonar el sitio nos dirijimos desde la terminal hasta donde descargamos el modulo git e ingresamos a la carpeta "Modulo_Motorizado/tree/master/0. Instalación/0.1 programas requeridos "
+
+por favor ingrese a la carpeta antes mensionada y siga las instrucciones. 
