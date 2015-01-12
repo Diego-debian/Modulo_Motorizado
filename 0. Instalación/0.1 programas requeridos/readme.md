@@ -14,7 +14,7 @@ Se encuentra en la parte de la instalación, en esta parte se procederá a insta
 
 <p align="center"><img src="https://github.com/Diego-debian/Modulo_Motorizado/blob/master/0.%20Instalaci%C3%B3n/0.2%20Image/install1.png" /></p>
 
- * Escogemos el S.O. que estamos usando, como ya dije de no aparecer el S.O., no hay ningún problema solo debesmos instalar los paquetes antes mensionados manualmente y luego clonar el repositorio,
+ * Escogemos el S.O. que estamos usando, como ya dije de no aparecer el S.O., no hay ningún problema solo debemos instalar los paquetes antes mensionados manualmente y luego clonar el repositorio,
  * De aca en adelante le daremos "Si" a todo, y al finalizar nos aparecera la ventana de la IDE de arduino. 
 
 <p align="center"><img src="https://github.com/Diego-debian/Modulo_Motorizado/blob/master/0.%20Instalaci%C3%B3n/0.2%20Image/install2.png" /></p>
