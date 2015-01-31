@@ -269,17 +269,16 @@ class Gramo():
         
         def Velo_1():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 2):
+            for n in range (0, 40):
                 os.system('rm Datos_C/dat1/datos_1.dat')
                 print("aca va la pausa")
-                arduino.write("bbbbb")
-                time.sleep(0.5)
-                arduino.write("aa")
+                arduino.write("bb")
+                time.sleep(0.0001)
                 #Res1()
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('hh')
-                for i in range(0, 2):
+                for i in range(0, 50):
                     arduino=serial.Serial(puerto.get(), 9600)
                     archi = open('Datos_C/dat1/datos_1.dat', 'a+')
                 #   time.sleep(0.00005)
@@ -365,12 +364,11 @@ class Gramo():
 
         def Velo_2():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 2):
+            for n in range (0, 40):
                 os.system('rm Datos_C/dat2/datos_2.dat')
                 print("aca va la pausa")
                 arduino.write("dd")
-                time.sleep(0.4)
-                arduino.write("aa")
+                time.sleep(0.0001)
                 #Res1()
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
@@ -464,8 +462,8 @@ class Gramo():
                 os.system('rm Datos_C/dat3/datos_3.dat')
                 print("aca va la pausa")
                 arduino.write("ee")
-                time.sleep(0.4)
-                arduino.write("aa")
+                time.sleep(0.0001)
+                #Res1()
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('hh')
@@ -556,8 +554,8 @@ class Gramo():
                 os.system('rm Datos_C/dat4/datos_4.dat')
                 print("aca va la pausa")
                 arduino.write("ff")
-                time.sleep(0.4)
-                arduino.write("aa")
+                time.sleep(0.0001)
+                #Res1()
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('hh')
@@ -651,8 +649,8 @@ class Gramo():
                 os.system('rm Datos_C/dat5/datos_5.dat')
                 print("aca va la pausa")
                 arduino.write("gg")
-                time.sleep(0.4)
-                arduino.write("aa")
+                time.sleep(0.0001)
+                #Res1()
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('hh')

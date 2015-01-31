@@ -12,11 +12,11 @@ import tkMessageBox
 import Tkinter
 
 class Gramo():
-    def Prueba2(self):
+    def Difrac(self):
         bicho = Tk()
         bicho.geometry("810x500+0+0")
         bicho.config(bg="white")
-        bicho.title("Interfaz Proyecto Propiedades, Prueba intensidad sensor lateral")
+        bicho.title("Interfaz Proyecto Propiedades, Difracción")
         bicho.resizable(width=0, height=0)
       
         
@@ -37,7 +37,7 @@ class Gramo():
                 arduino.close()  
         
         def Valido():
-            lblRapidez = Label(bicho, text="PRUEBA DE INTENSIDAD CON RAPIDEZ SIN PAUSA", fg = ("red"), font = ("Century Schoolbook L",10)).place(x=30, y=180)
+            lblRapidez = Label(bicho, text="Difracción", fg = ("red"), font = ("Century Schoolbook L",10)).place(x=30, y=180)
             btnVelo0= Button(bicho, text= "Rapidez_0", width=5, height=1, command= Sen_Lat0).place(x=20, y=230)         
             btnVelo1= Button(bicho, text= "Rapidez_1", width=5, height=1, command= Sen_Lat1).place(x=90, y=230)
             btnVelo2= Button(bicho, text= "Rapidez_2", width=5, height=1, command= Sen_Lat2).place(x=160, y=230)
@@ -269,17 +269,16 @@ class Gramo():
         
         def Velo_1():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 2):
+            for n in range (0, 40):
                 os.system('rm Datos_C/dat1/datos_1.dat')
                 print("aca va la pausa")
-                arduino.write("bbbbb")
-                time.sleep(0.5)
-                arduino.write("aa")
+                arduino.write("bb")
+                time.sleep(0.0001)
                 #Res1()
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('hh')
-                for i in range(0, 2):
+                for i in range(0, 50):
                     arduino=serial.Serial(puerto.get(), 9600)
                     archi = open('Datos_C/dat1/datos_1.dat', 'a+')
                 #   time.sleep(0.00005)
@@ -365,12 +364,11 @@ class Gramo():
 
         def Velo_2():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 2):
+            for n in range (0, 40):
                 os.system('rm Datos_C/dat2/datos_2.dat')
                 print("aca va la pausa")
                 arduino.write("dd")
-                time.sleep(0.4)
-                arduino.write("aa")
+                time.sleep(0.0001)
                 #Res1()
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
@@ -464,8 +462,8 @@ class Gramo():
                 os.system('rm Datos_C/dat3/datos_3.dat')
                 print("aca va la pausa")
                 arduino.write("ee")
-                time.sleep(0.4)
-                arduino.write("aa")
+                time.sleep(0.0001)
+                #Res1()
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('hh')
@@ -556,8 +554,8 @@ class Gramo():
                 os.system('rm Datos_C/dat4/datos_4.dat')
                 print("aca va la pausa")
                 arduino.write("ff")
-                time.sleep(0.4)
-                arduino.write("aa")
+                time.sleep(0.0001)
+                #Res1()
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('hh')
@@ -651,8 +649,8 @@ class Gramo():
                 os.system('rm Datos_C/dat5/datos_5.dat')
                 print("aca va la pausa")
                 arduino.write("gg")
-                time.sleep(0.4)
-                arduino.write("aa")
+                time.sleep(0.0001)
+                #Res1()
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('hh')
@@ -768,7 +766,7 @@ class Gramo():
 
     
     def __init__(self):
-        self.Prueba2()
+        self.Difrac()
         self.__del__()
 
     def __del__(self):
