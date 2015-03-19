@@ -269,17 +269,19 @@ class Gramo():
         
         def Velo_1():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 2):
+            for n in range (0, 10):
                 os.system('rm Datos_C/dat1/datos_1.dat')
                 print("aca va la pausa")
-                arduino.write("bbbbb")
-                time.sleep(0.5)
-                arduino.write("aa")
+                #arduino.write("bbbbb")
+                #time.sleep(0.5)
+                arduino.write("1")
+                #time.sleep(0.5)
+                #arduino.write("aa")
                 #Res1()
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('hh')
-                for i in range(0, 2):
+                for i in range(0, 188):
                     arduino=serial.Serial(puerto.get(), 9600)
                     archi = open('Datos_C/dat1/datos_1.dat', 'a+')
                 #   time.sleep(0.00005)

@@ -25,56 +25,108 @@ void setup()
 
 void Velo0()
 {
-      int  velocidad = map(velocidad,'0', '5', 0, 255);
-      velocidad = 0;
-      analogWrite(motor, velocidad);
+      //int  velocidad = map(velocidad,'0', '5', 0, 255);
+      //velocidad = 0;
+      //analogWrite(motor, velocidad);
+      analogWrite(motor, 0);
       delay(20);
 }
 
 void Velo1()
 {
-      int  velocidad = map(velocidad,'0', '5', 0, 255);
-      velocidad = 5;
-      analogWrite(motor, velocidad);
+      //int  velocidad = map(velocidad,'0', '255', 0, 255);
+      //velocidad = '150';
+      //analogWrite(motor, velocidad);
+       analogWrite(motor, 50);
+      delay(20);
 }
 
 void Velo2()
 {
-      int  velocidad = map(velocidad,'0', '5', 0, 255);
-      velocidad = 60;
-      analogWrite(motor, velocidad);
+      //int  velocidad = map(velocidad,'0', '255', 0, 255);
+      //velocidad = '160';
+      //analogWrite(motor, velocidad);
+      analogWrite(motor, 53);
+      delay(20);
 }
 
 void Velo3()
 {
-      int  velocidad = map(velocidad,'0', '5', 0, 255);
-      velocidad = 75;
-      analogWrite(motor, velocidad);
+      //int  velocidad = map(velocidad,'0', '255', 0, 255);
+      //velocidad = '170';
+      //analogWrite(motor, velocidad);
+      analogWrite(motor, 56);
+      delay(20);
 }
 
 void Velo4()
 {
-      int  velocidad = map(velocidad,'0', '5', 0, 255);
-      velocidad = 90;
-      analogWrite(motor, velocidad);
+      //int  velocidad = map(velocidad,'0', '255', 0, 255);
+      //velocidad = '180';
+      //analogWrite(motor, velocidad);
+      analogWrite(motor, 59);
+      delay(20);
 }
 
 void Velo5()
 {
-      int  velocidad = map(velocidad,'0', '5', 0, 255);
-      velocidad = 105;
-      analogWrite(motor, velocidad);
+      //int  velocidad = map(velocidad,'0', '255', 0, 255);
+      //velocidad = '190';
+      //analogWrite(motor, velocidad);
+       analogWrite(motor, 61);
+      delay(20);
 }
 
 void Velo6()
 {
-      int  velocidad = map(velocidad,'0', '5', 0, 255);
-      velocidad = 120;
-      analogWrite(motor, velocidad);
-      
+      //int  velocidad = map(velocidad,'0', '255', 0, 255);
+      //velocidad = '200';
+      //analogWrite(motor, velocidad);
+       analogWrite(motor, 64);
+      delay(20);
 }
 
-void Inten1()
+void Vepa1()
+{
+  analogWrite(motor, 68);
+  delay(88);
+  Velo0();
+  delay(1000);
+}
+
+void Vepa2()
+{
+  analogWrite(motor, 68);
+  delay(87);
+  Velo0();
+  delay(1000);
+}
+
+void Vepa3()
+{
+  analogWrite(motor, 68);
+  delay(86);
+  Velo0();
+  delay(1000);
+}
+
+void Vepa4()
+{
+  analogWrite(motor, 68);
+  delay(85);
+  Velo0();
+  delay(1000);
+}
+
+void Vepa5()
+{
+  analogWrite(motor, 68);
+  delay(84);
+  Velo0();
+  delay(1000);
+}
+
+void Inten1()  
 {
   miliVolts1 = (analogRead(sensor1) *3000L) /1023; //opteniendo el valor sensor
   intensidad1 =miliVolts1;
@@ -315,7 +367,37 @@ void Menu()
                 Menu();              
               }
               break; 
- 
+     case '1':
+               {
+                 Vepa1();
+                 Menu();
+               }
+               break;
+  
+     case '2':
+              {
+                Vepa2();
+                Menu();
+               }
+               break;
+    case '3':
+              {
+                Vepa3();
+                Menu();
+               }
+               break;
+    case '4':
+              {
+                Vepa4();
+                Menu();
+               }
+               break;
+    case '5':
+              {
+                Vepa5();
+                Menu();
+               }
+               break;
    }
   
 }
