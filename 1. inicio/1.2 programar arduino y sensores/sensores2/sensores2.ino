@@ -88,7 +88,7 @@ void Velo6()
 
 void Vepa1()
 {
-  analogWrite(motor, 68);
+  analogWrite(motor, 70);
   delay(88);
   Velo0();
   delay(1000);
@@ -96,7 +96,7 @@ void Vepa1()
 
 void Vepa2()
 {
-  analogWrite(motor, 68);
+  analogWrite(motor, 70);
   delay(87);
   Velo0();
   delay(1000);
@@ -104,7 +104,7 @@ void Vepa2()
 
 void Vepa3()
 {
-  analogWrite(motor, 68);
+  analogWrite(motor, 70);
   delay(86);
   Velo0();
   delay(1000);
@@ -112,7 +112,7 @@ void Vepa3()
 
 void Vepa4()
 {
-  analogWrite(motor, 68);
+  analogWrite(motor, 70);
   delay(85);
   Velo0();
   delay(1000);
@@ -120,7 +120,7 @@ void Vepa4()
 
 void Vepa5()
 {
-  analogWrite(motor, 68);
+  analogWrite(motor, 70);
   delay(84);
   Velo0();
   delay(1000);

@@ -269,7 +269,7 @@ class Gramo():
         
         def Velo_1():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 10):
+            for n in range (0, 188):
                 os.system('rm Datos_C/dat1/datos_1.dat')
                 print("aca va la pausa")
                 #arduino.write("bbbbb")
@@ -281,7 +281,7 @@ class Gramo():
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('hh')
-                for i in range(0, 188):
+                for i in range(0, 100):
                     arduino=serial.Serial(puerto.get(), 9600)
                     archi = open('Datos_C/dat1/datos_1.dat', 'a+')
                 #   time.sleep(0.00005)
@@ -367,17 +367,17 @@ class Gramo():
 
         def Velo_2():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 2):
+            for n in range (0, 80):
                 os.system('rm Datos_C/dat2/datos_2.dat')
                 print("aca va la pausa")
-                arduino.write("dd")
-                time.sleep(0.4)
-                arduino.write("aa")
+                arduino.write("1")
+                #time.sleep(0.4)
+                #arduino.write("aa")
                 #Res1()
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('hh')
-                for i in range(0, 50):
+                for i in range(0, 148):
                     arduino=serial.Serial(puerto.get(), 9600)
                     archi = open('Datos_C/dat2/datos_2.dat', 'a+')
                 #   time.sleep(0.00005)
@@ -462,16 +462,16 @@ class Gramo():
 
         def Velo_3():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 40):
+            for n in range (0, 80):
                 os.system('rm Datos_C/dat3/datos_3.dat')
                 print("aca va la pausa")
-                arduino.write("ee")
-                time.sleep(0.4)
-                arduino.write("aa")
+                #arduino.write("ee")
+                #time.sleep(0.4)
+                arduino.write("1")
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('hh')
-                for i in range(0, 50):
+                for i in range(0, 88):
                     arduino=serial.Serial(puerto.get(), 9600)
                     archi = open('Datos_C/dat3/datos_3.dat', 'a+')
                 #   time.sleep(0.00005)
@@ -557,13 +557,13 @@ class Gramo():
             for n in range (0, 2):
                 os.system('rm Datos_C/dat4/datos_4.dat')
                 print("aca va la pausa")
-                arduino.write("ff")
-                time.sleep(0.4)
-                arduino.write("aa")
+                #arduino.write("ff")
+                #time.sleep(0.4)
+                arduino.write("1")
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('hh')
-                for i in range(0, 50):
+                for i in range(0, 48):
                     arduino=serial.Serial(puerto.get(), 9600)
                     archi = open('Datos_C/dat4/datos_4.dat', 'a+')
                 #   time.sleep(0.00005)
@@ -649,16 +649,16 @@ class Gramo():
 
         def Velo_5():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 2):
+            for n in range (0, 80):
                 os.system('rm Datos_C/dat5/datos_5.dat')
                 print("aca va la pausa")
-                arduino.write("gg")
-                time.sleep(0.4)
-                arduino.write("aa")
+                #arduino.write("gg")
+                #time.sleep(0.4)
+                arduino.write("1")
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('hh')
-                for i in range(0, 50):
+                for i in range(0, 15):
                     arduino=serial.Serial(puerto.get(), 9600)
                     archi = open('Datos_C/dat5/datos_5.dat', 'a+')
                 #   time.sleep(0.00005)
