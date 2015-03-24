@@ -43,7 +43,6 @@ class Gramo():
             btnVelo2= Button(bicho, text= "Rapidez_2", width=5, height=1, command= Sen_Lat2).place(x=160, y=230)
             btnVelo3= Button(bicho, text= "Rapidez_3", width=5, height=1, command= Sen_Lat3).place(x=230, y=230)
             btnVelo4= Button(bicho, text= "Rapidez_4", width=5, height=1, command= Sen_Lat4).place(x=300, y=230)
-            btnVelo5= Button(bicho, text= "Rapidez_5", width=5, height=1, command= Sen_Lat5).place(x=370, y=230)
    
 
         def Sen_Lat0():
@@ -72,6 +71,14 @@ class Gramo():
                 archi.close()
                 gp("plot 'Datos/dat0/datos_0.dat' with lines")
             else:
+                gp("plot 'Datos/dat0/datos_0.dat' with lines")
+                gp("pause mouse")
+                gp("set term png")
+                gp("set output '../../Image/graf10.png'")
+                gp("replot")
+                gp("pause mouse")
+                os.system("rm '../../Image/graf10.gif' ")
+                os.system("convert  '../../Image/graf10.png' '../../Image/graf10.gif'  &")
                 gp("exit")
                 arduino.write('aa')
                 print "El ciclo termino"
@@ -85,8 +92,8 @@ class Gramo():
             gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO LATERAL'")
             gp("set xlabel 'Tiempo en milesimas de segundos'") 
             gp("set ylabel 'Voltaje en milivoltios'")
-            gp("set xrange [-10: 800] ")
-            gp("set yrange [-10: 150] ")
+            gp("set xrange [-10: 100] ")
+            gp("set yrange [-10: 1500] ")
             arduino=serial.Serial(puerto.get(), 9600)
             time.sleep(2)
             arduino.write('ii')
@@ -106,6 +113,14 @@ class Gramo():
                 archi.close()
                 gp("plot 'Datos/dat1/datos_1.dat' with lines ")
             else:
+                gp("plot 'Datos/dat1/datos_1.dat' with lines")
+                gp("pause mouse")
+                gp("set term png")
+                gp("set output '../../Image/graf11.png'")
+                gp("replot")
+                gp("pause mouse")
+                os.system("rm '../../Image/graf11.gif' ")
+                os.system("convert  '../../Image/graf11.png' '../../Image/graf11.gif'  &")
                 gp("exit")
             #time.sleep(1)
                 arduino.write('aa')
@@ -116,12 +131,14 @@ class Gramo():
         
                 
         def Sen_Lat2():
+
+            print "la falla esta aca pendejo"
             gp = Gnuplot.Gnuplot()
             gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO LATERAL'")
             gp("set xlabel 'Tiempo en milesimas de segundos'") 
             gp("set ylabel 'Voltaje en milivoltios'")
-            gp("set xrange [-10: 80000] ")
-            gp("set yrange [-10: 150] ")
+            gp("set xrange [-10: 100] ")
+            gp("set yrange [-10: 1500] ")
             arduino=serial.Serial(puerto.get(), 9600)
             time.sleep(2)
             arduino.write('jj')
@@ -141,6 +158,14 @@ class Gramo():
                 archi.close()
                 gp("plot 'Datos/dat2/datos_2.dat' with lines")
             else:
+                gp("plot 'Datos/dat2/datos_2.dat' with lines")
+                gp("pause mouse")
+                gp("set term png")
+                gp("set output '../../Image/graf12.png'")
+                gp("replot")
+                gp("pause mouse")
+                os.system("rm '../../Image/graf12.gif' ")
+                os.system("convert  '../../Image/graf12.png' '../../Image/graf12.gif'  &")
                 gp("exit")
                 arduino.write('aa')
                 print "El ciclo termino"
@@ -154,8 +179,8 @@ class Gramo():
             gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO LATERAL'")
             gp("set xlabel 'Tiempo en milesimas de segundos'") 
             gp("set ylabel 'Voltaje en milivoltios'")
-            gp("set xrange [-10: 80000] ")
-            gp("set yrange [-10: 4000] ")
+            gp("set xrange [-10: 100] ")
+            gp("set yrange [-10: 1500] ")
             arduino=serial.Serial(puerto.get(), 9600)
             time.sleep(2)
             arduino.write('kk')
@@ -175,6 +200,14 @@ class Gramo():
                 archi.close()
                 gp("plot 'Datos/dat3/datos_3.dat' with lines")
             else:
+                gp("plot 'Datos/dat3/datos_3.dat' with lines")
+                gp("pause mouse")
+                gp("set term png")
+                gp("set output '../../Image/graf13.png'")
+                gp("replot")
+                gp("pause mouse")
+                os.system("rm '../../Image/graf13.gif' ")
+                os.system("convert  '../../Image/graf13.png' '../../Image/graf13.gif'  &")
                 gp("exit")
                 arduino.write('aa')
                 print "El ciclo termino"
@@ -188,8 +221,8 @@ class Gramo():
             gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO LATERAL'")
             gp("set xlabel 'Tiempo en milesimas de segundos'") 
             gp("set ylabel 'Voltaje en milivoltios'")
-            gp("set xrange [-10: 80000] ")
-            gp("set yrange [-10: 4000] ")
+            gp("set xrange [-10: 100] ")
+            gp("set yrange [-10: 1500] ")
             arduino=serial.Serial(puerto.get(), 9600)
             time.sleep(2)
             arduino.write('ll')
@@ -209,6 +242,14 @@ class Gramo():
                 archi.close()
                 gp("plot 'Datos/dat4/datos_4.dat' with lines")
             else:
+                gp("plot 'Datos/dat4/datos_4.dat' with lines")
+                gp("pause mouse")
+                gp("set term png")
+                gp("set output '../../Image/graf14.png'")
+                gp("replot")
+                gp("pause mouse")
+                os.system("rm '../../Image/graf14.gif' ")
+                os.system("convert  '../../Image/graf14.png' '../../Image/graf14.gif'  &")
                 gp("exit")
                 arduino.write('aa')
                 print "El ciclo termino"
@@ -217,38 +258,7 @@ class Gramo():
                 arduino.close()
         
 
-        def Sen_Lat5():
-            gp = Gnuplot.Gnuplot()
-            gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO LATERAL'")
-            gp("set xlabel 'Tiempo en milesimas de segundos'") 
-            gp("set ylabel 'Voltaje en milivoltios'")
-            gp("set xrange [-10: 80000] ")
-            gp("set yrange [-10: 4000] ")
-            arduino=serial.Serial(puerto.get(), 9600)
-            time.sleep(2)
-            arduino.write('ll')
-            for i in range(0, 40):
-                archi = open('Datos/dat5/datos_5.dat', 'a+')
-                time.sleep(0.00005)
-                x = arduino.readline()
-                z = int(i )
-                xo = str(z)
-                yo = str(x)
-                print('{0} {1}').format(xo, yo)
-                archi.write ("\t")
-                archi.write (xo)
-                archi.write ("\t")
-                archi.write (yo)
-                archi.close()
-                gp("plot 'Datos/dat5/datos_5.dat' with lines")
-            else:
-                gp("exit")
-                arduino.write('aa')
-                print "El ciclo termino"
-                os.system('sync')
-                arduino.close()
-                arduino.close()
-
+        
 
         def Valido1():
             lblRapidez = Label(bicho, text="PRUEBA DE INTENSIDAD,  RAPIDEZ CON PAUSA", fg = ("red"), font = ("Century Schoolbook L",10)).place(x=30, y=300)
@@ -357,7 +367,7 @@ class Gramo():
             os.system("rm '../../Image/graf1.gif' ")
             os.system("convert  '../../Image/graf1.png' '../../Image/graf1.gif'  &")
             # time.sleep(2)
-           # os.system("eog '../../Image/graf1.gif' &")
+           # os.system("eog '../../Image/2graf1.gif' &")
             print "funciono"
 
 
@@ -451,7 +461,7 @@ class Gramo():
             os.system("rm '../../Image/graf2.gif' ")
             os.system("convert  '../../Image/graf2.png' '../../Image/graf2.gif'  &")
             # time.sleep(2)
-           # os.system("eog '../../Image/graf2.gif' &")
+           # os.system("eog '../../Image/2graf2.gif' &")
             print "funciono"
 
 
@@ -546,7 +556,7 @@ class Gramo():
             os.system("rm '../../Image/graf3.gif' ")
             os.system("convert  '../../Image/graf3.png' '../../Image/graf3.gif'  &")
             # time.sleep(2)
-           # os.system("eog '../../Image/graf3.gif' &")
+           # os.system("eog '../../Image/2graf3.gif' &")
             print "funciono" 
     
         def Velo_4():
@@ -735,7 +745,7 @@ class Gramo():
             os.system("rm '../../Image/graf5.gif' ")
             os.system("convert  '../../Image/graf5.png' '../../Image/graf5.gif'  &")
             # time.sleep(2)
-           # os.system("eog '../../Image/graf5.gif' &")
+           # os.system("eog '../../Image/2graf5.gif' &")
             print "funciono"
 
 

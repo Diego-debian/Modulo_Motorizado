@@ -12,11 +12,11 @@ import tkMessageBox
 import Tkinter
 
 class Gramo():
-    def Prueba3(self):
+    def Prueba2(self):
         bicho = Tk()
         bicho.geometry("810x500+0+0")
         bicho.config(bg="white")
-        bicho.title("Interfaz Proyecto Propiedades, Prueba intensidad sensor Frontal")
+        bicho.title("Interfaz Proyecto Propiedades, Prueba intensidad sensor frontal")
         bicho.resizable(width=0, height=0)
       
         
@@ -38,17 +38,16 @@ class Gramo():
         
         def Valido():
             lblRapidez = Label(bicho, text="PRUEBA DE INTENSIDAD CON RAPIDEZ SIN PAUSA", fg = ("red"), font = ("Century Schoolbook L",10)).place(x=30, y=180)
-            btnVelo0= Button(bicho, text= "Rapidez_0", width=5, height=1, command= Sen_Fro0).place(x=20, y=230)         
-            btnVelo1= Button(bicho, text= "Rapidez_1", width=5, height=1, command= Sen_Fro1).place(x=90, y=230)
-            btnVelo2= Button(bicho, text= "Rapidez_2", width=5, height=1, command= Sen_Fro2).place(x=160, y=230)
-            btnVelo3= Button(bicho, text= "Rapidez_3", width=5, height=1, command= Sen_Fro3).place(x=230, y=230)
-            btnVelo4= Button(bicho, text= "Rapidez_4", width=5, height=1, command= Sen_Fro4).place(x=300, y=230)
-            btnVelo5= Button(bicho, text= "Rapidez_5", width=5, height=1, command= Sen_Fro5).place(x=370, y=230)
+            btnVelo0= Button(bicho, text= "Rapidez_0", width=5, height=1, command= Sen_Lat0).place(x=20, y=230)         
+            btnVelo1= Button(bicho, text= "Rapidez_1", width=5, height=1, command= Sen_Lat1).place(x=90, y=230)
+            btnVelo2= Button(bicho, text= "Rapidez_2", width=5, height=1, command= Sen_Lat2).place(x=160, y=230)
+            btnVelo3= Button(bicho, text= "Rapidez_3", width=5, height=1, command= Sen_Lat3).place(x=230, y=230)
+            btnVelo4= Button(bicho, text= "Rapidez_4", width=5, height=1, command= Sen_Lat4).place(x=300, y=230)
    
 
-        def Sen_Fro0():
+        def Sen_Lat0():
             gp = Gnuplot.Gnuplot()
-            gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO FRONTAL'")
+            gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO LATERAL'")
             gp("set xlabel 'Tiempo en milesimas de segundos'") 
             gp("set ylabel 'Voltaje en milivoltios'")
             gp("set xrange [-10: 80000] ")
@@ -72,6 +71,14 @@ class Gramo():
                 archi.close()
                 gp("plot 'Datos/dat0/datos_0.dat' with lines")
             else:
+                gp("plot 'Datos/dat0/datos_0.dat' with lines")
+                gp("pause mouse")
+                gp("set term png")
+                gp("set output '../../Image/graf20.png'")
+                gp("replot")
+                gp("pause mouse")
+                os.system("rm '../../Image/graf20.gif' ")
+                os.system("convert  '../../Image/graf20.png' '../../Image/graf20.gif'  &")
                 gp("exit")
                 arduino.write('aa')
                 print "El ciclo termino"
@@ -80,22 +87,22 @@ class Gramo():
                 arduino.close()
                 
                 
-        def Sen_Fro1():
+        def Sen_Lat1():
             gp = Gnuplot.Gnuplot()
-            gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO FRONTAL'")
+            gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO LATERAL'")
             gp("set xlabel 'Tiempo en milesimas de segundos'") 
             gp("set ylabel 'Voltaje en milivoltios'")
-            gp("set xrange [-10: 80000] ")
-            gp("set yrange [-10: 4000] ")
+            gp("set xrange [-10: 100] ")
+            gp("set yrange [-10: 1500] ")
             arduino=serial.Serial(puerto.get(), 9600)
             time.sleep(2)
             arduino.write('oo')
             time.sleep(2)
-            for i in range(0, 1000):
+            for i in range(0, 58):
                 archi = open('Datos/dat1/datos_1.dat', 'a+')
             #     time.sleep(0.00005)
                 x = arduino.readline()
-                z = int(i*60)
+                z = int(i*58/40)
                 xo = str(z)
                 yo = str(x)
                 print('{0} {1}').format(xo, yo)
@@ -106,6 +113,14 @@ class Gramo():
                 archi.close()
                 gp("plot 'Datos/dat1/datos_1.dat' with lines ")
             else:
+                gp("plot 'Datos/dat1/datos_1.dat' with lines")
+                gp("pause mouse")
+                gp("set term png")
+                gp("set output '../../Image/graf21.png'")
+                gp("replot")
+                gp("pause mouse")
+                os.system("rm '../../Image/graf21.gif' ")
+                os.system("convert  '../../Image/graf21.png' '../../Image/graf21.gif'  &")
                 gp("exit")
             #time.sleep(1)
                 arduino.write('aa')
@@ -115,22 +130,24 @@ class Gramo():
                 arduino.close()
         
                 
-        def Sen_Fro2():
+        def Sen_Lat2():
+
+            print "la falla esta aca pendejo"
             gp = Gnuplot.Gnuplot()
-            gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO FRONTAL'")
+            gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO LATERAL'")
             gp("set xlabel 'Tiempo en milesimas de segundos'") 
             gp("set ylabel 'Voltaje en milivoltios'")
-            gp("set xrange [-10: 80000] ")
-            gp("set yrange [-10: 4000] ")
+            gp("set xrange [-10: 100] ")
+            gp("set yrange [-10: 1500] ")
             arduino=serial.Serial(puerto.get(), 9600)
             time.sleep(2)
             arduino.write('pp')
             time.sleep(2)
-            for i in range(0, 1000):
+            for i in range(0, 50):
                 archi = open('Datos/dat2/datos_2.dat', 'a+')
             #        time.sleep(0.00005)
                 x = arduino.readline()
-                z = int(i*60)
+                z = int(i*50/40)
                 xo = str(z)
                 yo = str(x)
                 print('{0} {1}').format(xo, yo)
@@ -141,6 +158,14 @@ class Gramo():
                 archi.close()
                 gp("plot 'Datos/dat2/datos_2.dat' with lines")
             else:
+                gp("plot 'Datos/dat2/datos_2.dat' with lines")
+                gp("pause mouse")
+                gp("set term png")
+                gp("set output '../../Image/graf22.png'")
+                gp("replot")
+                gp("pause mouse")
+                os.system("rm '../../Image/graf22.gif' ")
+                os.system("convert  '../../Image/graf22.png' '../../Image/graf22.gif'  &")
                 gp("exit")
                 arduino.write('aa')
                 print "El ciclo termino"
@@ -149,22 +174,22 @@ class Gramo():
                 arduino.close()
                 
 
-        def Sen_Fro3():
+        def Sen_Lat3():
             gp = Gnuplot.Gnuplot()
-            gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO FRONTAL'")
+            gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO LATERAL'")
             gp("set xlabel 'Tiempo en milesimas de segundos'") 
             gp("set ylabel 'Voltaje en milivoltios'")
-            gp("set xrange [-10: 80000] ")
-            gp("set yrange [-10: 4000] ")
+            gp("set xrange [-10: 100] ")
+            gp("set yrange [-10: 1500] ")
             arduino=serial.Serial(puerto.get(), 9600)
             time.sleep(2)
             arduino.write('qq')
             time.sleep(2)
-            for i in range(0, 1000):
+            for i in range(0, 44):
                 archi = open('Datos/dat3/datos_3.dat', 'a+')
                 time.sleep(0.00005)
                 x = arduino.readline()
-                z = int(i*60)
+                z = int(i*44/40)
                 xo = str(z)
                 yo = str(x)
                 print('{0} {1}').format(xo, yo)
@@ -175,6 +200,14 @@ class Gramo():
                 archi.close()
                 gp("plot 'Datos/dat3/datos_3.dat' with lines")
             else:
+                gp("plot 'Datos/dat3/datos_3.dat' with lines")
+                gp("pause mouse")
+                gp("set term png")
+                gp("set output '../../Image/graf23.png'")
+                gp("replot")
+                gp("pause mouse")
+                os.system("rm '../../Image/graf23.gif' ")
+                os.system("convert  '../../Image/graf23.png' '../../Image/graf23.gif'  &")
                 gp("exit")
                 arduino.write('aa')
                 print "El ciclo termino"
@@ -183,22 +216,22 @@ class Gramo():
                 arduino.close()
     
 
-        def Sen_Fro4():
+        def Sen_Lat4():
             gp = Gnuplot.Gnuplot()
-            gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO FRONTAL'")
+            gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO LATERAL'")
             gp("set xlabel 'Tiempo en milesimas de segundos'") 
             gp("set ylabel 'Voltaje en milivoltios'")
-            gp("set xrange [-10: 80000] ")
-            gp("set yrange [-10: 4000] ")
+            gp("set xrange [-10: 100] ")
+            gp("set yrange [-10: 1500] ")
             arduino=serial.Serial(puerto.get(), 9600)
             time.sleep(2)
             arduino.write('rr')
             time.sleep(2)
-            for i in range(0, 1000):
+            for i in range(0, 40):
                 archi = open('Datos/dat4/datos_4.dat', 'a+')
                 time.sleep(0.00005)
                 x = arduino.readline()
-                z = int(i*60)
+                z = int(i)
                 xo = str(z)
                 yo = str(x)
                 print('{0} {1}').format(xo, yo)
@@ -209,6 +242,14 @@ class Gramo():
                 archi.close()
                 gp("plot 'Datos/dat4/datos_4.dat' with lines")
             else:
+                gp("plot 'Datos/dat4/datos_4.dat' with lines")
+                gp("pause mouse")
+                gp("set term png")
+                gp("set output '../../Image/graf24.png'")
+                gp("replot")
+                gp("pause mouse")
+                os.system("rm '../../Image/graf24.gif' ")
+                os.system("convert  '../../Image/graf24.png' '../../Image/graf24.gif'  &")
                 gp("exit")
                 arduino.write('aa')
                 print "El ciclo termino"
@@ -217,38 +258,7 @@ class Gramo():
                 arduino.close()
         
 
-        def Sen_Fro5():
-            gp = Gnuplot.Gnuplot()
-            gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO FRONTAL'")
-            gp("set xlabel 'Tiempo en milesimas de segundos'") 
-            gp("set ylabel 'Voltaje en milivoltios'")
-            gp("set xrange [-10: 80000] ")
-            gp("set yrange [-10: 4000] ")
-            arduino=serial.Serial(puerto.get(), 9600)
-            time.sleep(2)
-            arduino.write('ss')
-            for i in range(0, 1000):
-                archi = open('Datos/dat5/datos_5.dat', 'a+')
-                time.sleep(0.00005)
-                x = arduino.readline()
-                z = int(i*60)
-                xo = str(z)
-                yo = str(x)
-                print('{0} {1}').format(xo, yo)
-                archi.write ("\t")
-                archi.write (xo)
-                archi.write ("\t")
-                archi.write (yo)
-                archi.close()
-                gp("plot 'Datos/dat5/datos_5.dat' with lines")
-            else:
-                gp("exit")
-                arduino.write('aa')
-                print "El ciclo termino"
-                os.system('sync')
-                arduino.close()
-                arduino.close()
-
+        
 
         def Valido1():
             lblRapidez = Label(bicho, text="PRUEBA DE INTENSIDAD,  RAPIDEZ CON PAUSA", fg = ("red"), font = ("Century Schoolbook L",10)).place(x=30, y=300)
@@ -269,21 +279,22 @@ class Gramo():
         
         def Velo_1():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 40):
+            for n in range (0, 129):
                 os.system('rm Datos_C/dat1/datos_1.dat')
                 print("aca va la pausa")
-                arduino.write("bb")
-                time.sleep(0.0001)
-                #Res1()
+                #arduino.write("bbbbb")
+                #time.sleep(0.5)
+                arduino.write("1")
+                time.sleep(1)
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('zz')
-                for i in range(0, 50):
+                for i in range(0, 100):
                     arduino=serial.Serial(puerto.get(), 9600)
                     archi = open('Datos_C/dat1/datos_1.dat', 'a+')
                 #   time.sleep(0.00005)
                     x = arduino.readline()
-                    z = n
+                    z = 0.3*2*(129-n)
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
@@ -296,7 +307,7 @@ class Gramo():
                     
                 else:
                     os.system("octave Datos_C/prom1.m")
-                    arduino.write('zz')
+                    arduino.write('hh')
                     # Res1_1(self)
                     arduino.write('aa')
                     print "El ciclo termino"
@@ -339,24 +350,24 @@ class Gramo():
             btnInfo= Button(bicho1, text= "Información", width=8, height=1, command= Msg1).place(x=250, y=15)            
 
         def Msg1():
-            tkMessageBox.showinfo("Información ", message= "Los datos se encuentran en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba3/Datos_C/dat1/datos1_.dat' y la grafica se encuentra en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba3/Image/graF1.gif'")
+            tkMessageBox.showinfo("Información ", message= "Los datos se encuentran en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba3/Datos_C/dat1/datos1_.dat' y la grafica se encuentra en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba3/Image/2graf1.gif'")
             
         def LoL1():
             gp = Gnuplot.Gnuplot()
             gp("set title 'ESPACIO VS VOLTAJE'")
-            gp("set xlabel 'Espacio en cm'") 
+            gp("set xlabel 'Espacio en mm'") 
             gp("set ylabel 'Voltaje en milivoltios'")
             gp("set grid")
-            gp("plot 'Datos_C/dat1/datos1_.dat' title ' ' with errorbars")
+            gp("plot 'Datos_C/dat1/datos1_.dat' title ' ' ")
             gp("pause mouse")
             gp("set term png")
-            gp("set output '../../Image/grafF1.png'")
+            gp("set output '../../Image/2graf1.png'")
             gp("replot")
             gp("pause mouse")
-            os.system("rm '../../Image/grafF1.gif' ")
-            os.system("convert  '../../Image/graF1.png' '../../Image/graF1.gif'  &")
+            os.system("rm '../../Image/2graf1.gif' ")
+            os.system("convert  '../../Image/2graf1.png' '../../Image/2graf1.gif'  &")
             # time.sleep(2)
-           # os.system("eog '../../Image/graF1.gif' &")
+           # os.system("eog '../../Image/2graf1.gif' &")
             print "funciono"
 
 
@@ -364,21 +375,20 @@ class Gramo():
 
         def Velo_2():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 40):
+            for n in range (0, 129):
                 os.system('rm Datos_C/dat2/datos_2.dat')
                 print("aca va la pausa")
-                arduino.write("dd")
-                time.sleep(0.0001)
-                #Res1()
+                arduino.write("1")
+                time.sleep(1)
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('zz')
-                for i in range(0, 50):
+                for i in range(0, 100):
                     arduino=serial.Serial(puerto.get(), 9600)
                     archi = open('Datos_C/dat2/datos_2.dat', 'a+')
                 #   time.sleep(0.00005)
                     x = arduino.readline()
-                    z = n
+                    z = 0.3*2(n-129)
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
@@ -391,7 +401,7 @@ class Gramo():
                     
                 else:
                     os.system("octave Datos_C/prom2.m")
-                    arduino.write('zz')
+                    arduino.write('hh')
                     # Res1_1(self)
                     arduino.write('aa')
                     print "El ciclo termino"
@@ -434,45 +444,46 @@ class Gramo():
             btnInfo= Button(bicho1, text= "Información", width=8, height=1, command= Msg2).place(x=250, y=15)            
 
         def Msg2():
-            tkMessageBox.showinfo("Información ", message= "Los datos se encuentran en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba3/Datos_C/dat2/datos2_.dat' y la grafica se encuentra en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba3/Image/graF2.gif'")
+            tkMessageBox.showinfo("Información ", message= "Los datos se encuentran en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba3/Datos_C/dat2/datos2_.dat' y la grafica se encuentra en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba3/Image/2graf2.gif'")
             
         def LoL3():
             gp = Gnuplot.Gnuplot()
             gp("set title 'ESPACIO VS VOLTAJE'")
-            gp("set xlabel 'Espacio en cm'") 
+            gp("set xlabel 'Espacio en mm'") 
             gp("set ylabel 'Voltaje en milivoltios'")
             gp("set grid")
-            gp("plot 'Datos_C/dat2/datos2_.dat' title ' ' with errorbars")
+            gp("plot 'Datos_C/dat2/datos2_.dat' title ' ' ")
             gp("pause mouse")
             gp("set term png")
-            gp("set output '../../Image/graF2.png'")
+            gp("set output '../../Image/2graf2.png'")
             gp("replot")
             gp("pause mouse")
-            os.system("rm '../../Image/graF2.gif' ")
-            os.system("convert  '../../Image/graF2.png' '../../Image/graF2.gif'  &")
+            os.system("rm '../../Image/2graf2.gif' ")
+            os.system("convert  '../../Image/2graf2.png' '../../Image/2graf2.gif'  &")
             # time.sleep(2)
-           # os.system("eog '../../Image/graF2.gif' &")
+           # os.system("eog '../../Image/2graf2.gif' &")
             print "funciono"
 
 
 
         def Velo_3():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 40):
+            for n in range (0, 129):
                 os.system('rm Datos_C/dat3/datos_3.dat')
                 print("aca va la pausa")
-                arduino.write("ee")
-                time.sleep(0.0001)
-                #Res1()
+                #arduino.write("ee")
+                #time.sleep(0.4)
+                arduino.write("1")
+                time.sleep(1)
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('zz')
-                for i in range(0, 50):
+                for i in range(0, 100):
                     arduino=serial.Serial(puerto.get(), 9600)
                     archi = open('Datos_C/dat3/datos_3.dat', 'a+')
                 #   time.sleep(0.00005)
                     x = arduino.readline()
-                    z = n
+                    z = 0.3*2*(129-n)
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
@@ -485,7 +496,7 @@ class Gramo():
                     
                 else:
                     os.system("octave Datos_C/prom3.m")
-                    arduino.write('zz')
+                    arduino.write('hh')
                     # Res1_1(self)
                     arduino.write('aa')
                     print "El ciclo termino"
@@ -528,34 +539,35 @@ class Gramo():
             btnInfo= Button(bicho1, text= "Información", width=8, height=1, command= Msg3).place(x=250, y=15)            
 
         def Msg3():
-            tkMessageBox.showinfo("Información ", message= "Los datos se encuentran en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba3/Datos_C/dat3/datos3_.dat' y la grafica se encuentra en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba3/Image/graF3.gif'")
+            tkMessageBox.showinfo("Información ", message= "Los datos se encuentran en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba3/Datos_C/dat3/datos3_.dat' y la grafica se encuentra en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba3/Image/2graf3.gif'")
             
         def LoL5():
             gp = Gnuplot.Gnuplot()
             gp("set title 'ESPACIO VS VOLTAJE'")
-            gp("set xlabel 'Espacio en cm'") 
+            gp("set xlabel 'Espacio en mm'") 
             gp("set ylabel 'Voltaje en milivoltios'")
             gp("set grid")
-            gp("plot 'Datos_C/dat3/datos3_.dat' title ' ' with errorbars")
+            gp("plot 'Datos_C/dat3/datos3_.dat' title ' '")
             gp("pause mouse")
             gp("set term png")
-            gp("set output '../../Image/graF3.png'")
+            gp("set output '../../Image/2graf3.png'")
             gp("replot")
             gp("pause mouse")
-            os.system("rm '../../Image/graF3.gif' ")
-            os.system("convert  '../../Image/graF3.png' '../../Image/graF3.gif'  &")
+            os.system("rm '../../Image/2graf3.gif' ")
+            os.system("convert  '../../Image/2graf3.png' '../../Image/2graf3.gif'  &")
             # time.sleep(2)
-           # os.system("eog '../../Image/graF3.gif' &")
+           # os.system("eog '../../Image/2graf3.gif' &")
             print "funciono" 
     
         def Velo_4():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 2):
+            for n in range (0, 129):
                 os.system('rm Datos_C/dat4/datos_4.dat')
                 print("aca va la pausa")
-                arduino.write("ff")
-                time.sleep(0.0001)
-                #Res1()
+                #arduino.write("ff")
+                #time.sleep(0.4)
+                arduino.write("1")
+                time.sleep(1)
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('zz')
@@ -564,7 +576,7 @@ class Gramo():
                     archi = open('Datos_C/dat4/datos_4.dat', 'a+')
                 #   time.sleep(0.00005)
                     x = arduino.readline()
-                    z = n
+                    z = 0.3*2*(129-n)
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
@@ -577,7 +589,7 @@ class Gramo():
                     
                 else:
                     os.system("octave Datos_C/prom4.m")
-                    arduino.write('hh')
+                    arduino.write('zz')
                     # Res1_1(self)
                     arduino.write('aa')
                     print "El ciclo termino"
@@ -620,24 +632,24 @@ class Gramo():
             btnInfo= Button(bicho1, text= "Información", width=8, height=1, command= Msg4).place(x=250, y=15)            
 
         def Msg4():
-            tkMessageBox.showinfo("Información ", message= "Los datos se encuentran en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba3/Datos_C/dat4/datos4_.dat' y la grafica se encuentra en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba3/Image/graF4.gif'")
+            tkMessageBox.showinfo("Información ", message= "Los datos se encuentran en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba3/Datos_C/dat4/datos4_.dat' y la grafica se encuentra en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba3/Image/2graf4.gif'")
             
         def LoL7():
             gp = Gnuplot.Gnuplot()
             gp("set title 'ESPACIO VS VOLTAJE'")
-            gp("set xlabel 'Espacio en cm'") 
+            gp("set xlabel 'Espacio en mm'") 
             gp("set ylabel 'Voltaje en milivoltios'")
             gp("set grid")
-            gp("plot 'Datos_C/dat4/datos4_.dat' title ' ' with errorbars")
+            gp("plot 'Datos_C/dat4/datos4_.dat' title ' ' ")
             gp("pause mouse")
             gp("set term png")
-            gp("set output '../../Image/graF4.png'")
+            gp("set output '../../Image/2graf4.png'")
             gp("replot")
             gp("pause mouse")
-            os.system("rm '../../Image/graF4.gif' ")
-            os.system("convert  '../../Image/graF4.png' '../../Image/graF4.gif'  &")
+            os.system("rm '../../Image/2graf4.gif' ")
+            os.system("convert  '../../Image/2graf4.png' '../../Image/2graf4.gif'  &")
             # time.sleep(2)
-           # os.system("eog '../../Image/graF4.gif' &")
+           # os.system("eog '../../Image/2graf4.gif' &")
             print "funciono"
 
 
@@ -645,21 +657,22 @@ class Gramo():
 
         def Velo_5():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 2):
+            for n in range (0, 129):
                 os.system('rm Datos_C/dat5/datos_5.dat')
                 print("aca va la pausa")
-                arduino.write("gg")
-                time.sleep(0.0001)
-                #Res1()
+                #arduino.write("gg")
+                time.sleep(1)
+                arduino.write("1")
+                time.sleep(1)
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('zz')
-                for i in range(0, 50):
+                for i in range(0, 20):
                     arduino=serial.Serial(puerto.get(), 9600)
                     archi = open('Datos_C/dat5/datos_5.dat', 'a+')
                 #   time.sleep(0.00005)
                     x = arduino.readline()
-                    z = n
+                    z =  0.3*2*(129-n)
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
@@ -672,7 +685,7 @@ class Gramo():
                     
                 else:
                     os.system("octave Datos_C/prom5.m")
-                    arduino.write('hh')
+                    arduino.write('zz')
                     # Res1_1(self)
                     arduino.write('aa')
                     print "El ciclo termino"
@@ -715,24 +728,24 @@ class Gramo():
             btnInfo= Button(bicho1, text= "Información", width=8, height=1, command= Msg5).place(x=250, y=15)            
 
         def Msg5():
-            tkMessageBox.showinfo("Información ", message= "Los datos se encuentran en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba3/Datos_C/dat5/datos5_.dat' y la grafica se encuentra en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba3/Image/graF5.gif'")
+            tkMessageBox.showinfo("Información ", message= "Los datos se encuentran en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba3/Datos_C/dat5/datos5_.dat' y la grafica se encuentra en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba3/Image/2graf5.gif'")
             
         def LoL9():
             gp = Gnuplot.Gnuplot()
             gp("set title 'ESPACIO VS VOLTAJE'")
-            gp("set xlabel 'Espacio en cm'") 
+            gp("set xlabel 'Espacio en mm'") 
             gp("set ylabel 'Voltaje en milivoltios'")
             gp("set grid")
-            gp("plot 'Datos_C/dat5/datos5_.dat' title ' ' with errorbars")
+            gp("plot 'Datos_C/dat5/datos5_.dat' title ' ' ")
             gp("pause mouse")
             gp("set term png")
-            gp("set output '../../Image/graF5.png'")
+            gp("set output '../../Image/2graf5.png'")
             gp("replot")
             gp("pause mouse")
-            os.system("rm '../../Image/graF5.gif' ")
-            os.system("convert  '../../Image/graF5.png' '../../Image/graF5.gif'  &")
+            os.system("rm '../../Image/2graf5.gif' ")
+            os.system("convert  '../../Image/2graf5.png' '../../Image/2graf5.gif'  &")
             # time.sleep(2)
-           # os.system("eog '../../Image/graF5.gif' &")
+           # os.system("eog '../../Image/2graf5.gif' &")
             print "funciono"
 
 
@@ -766,7 +779,7 @@ class Gramo():
 
     
     def __init__(self):
-        self.Prueba3()
+        self.Prueba2()
         self.__del__()
 
     def __del__(self):

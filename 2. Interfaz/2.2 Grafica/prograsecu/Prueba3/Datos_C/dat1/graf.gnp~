@@ -1,0 +1,10 @@
+set title 'ESPACIO VS VOLTAJE'
+set xlabel 'Espacio en cm' 
+set ylabel 'Voltaje en milivoltios'
+set grid
+plot 'Datos_C/dat1/datos1_.dat' title " " with errorbars
+set term png
+set output ../../Image/raf1.png'
+replot
+exit
+
