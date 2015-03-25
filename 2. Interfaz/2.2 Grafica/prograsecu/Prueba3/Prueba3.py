@@ -279,7 +279,7 @@ class Gramo():
         
         def Velo_1():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 129):
+            for n in range (0, 49):
                 os.system('rm Datos_C/dat1/datos_1.dat')
                 print("aca va la pausa")
                 #arduino.write("bbbbb")
@@ -375,7 +375,7 @@ class Gramo():
 
         def Velo_2():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 129):
+            for n in range (0, 49):
                 os.system('rm Datos_C/dat2/datos_2.dat')
                 print("aca va la pausa")
                 arduino.write("1")
@@ -468,7 +468,7 @@ class Gramo():
 
         def Velo_3():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 129):
+            for n in range (0, 49):
                 os.system('rm Datos_C/dat3/datos_3.dat')
                 print("aca va la pausa")
                 #arduino.write("ee")
@@ -561,7 +561,7 @@ class Gramo():
     
         def Velo_4():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 129):
+            for n in range (0, 49):
                 os.system('rm Datos_C/dat4/datos_4.dat')
                 print("aca va la pausa")
                 #arduino.write("ff")
@@ -657,7 +657,7 @@ class Gramo():
 
         def Velo_5():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 129):
+            for n in range (0, 123):
                 os.system('rm Datos_C/dat5/datos_5.dat')
                 print("aca va la pausa")
                 #arduino.write("gg")
@@ -671,15 +671,15 @@ class Gramo():
                     arduino=serial.Serial(puerto.get(), 9600)
                     archi = open('Datos_C/dat5/datos_5.dat', 'a+')
                 #   time.sleep(0.00005)
-                    x = arduino.readline()
-                    z =  0.3*2*(129-n)
+                    x =  arduino.readline() 
+                    z =  0.3*2*(133-n)
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
                     archi.write (xo)
                     archi.write (" ")
                     archi.write (yo)
-                    archi.close()
+                archi.close()
                     
              
                     
@@ -733,7 +733,7 @@ class Gramo():
         def LoL9():
             gp = Gnuplot.Gnuplot()
             gp("set title 'ESPACIO VS VOLTAJE'")
-            gp("set xlabel 'Espacio en mm'") 
+            gp("set xlabel 'Espacio en cm'") 
             gp("set ylabel 'Voltaje en milivoltios'")
             gp("set grid")
             gp("plot 'Datos_C/dat5/datos5_.dat' title ' ' ")
