@@ -279,12 +279,12 @@ class Gramo():
         
         def Velo_1():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 49):
+            for n in range (0, 129):
                 os.system('rm Datos_C/dat1/datos_1.dat')
                 print("aca va la pausa")
                 #arduino.write("bbbbb")
                 #time.sleep(0.5)
-                arduino.write("1")
+                arduino.write("2")
                 time.sleep(1)
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
@@ -294,7 +294,7 @@ class Gramo():
                     archi = open('Datos_C/dat1/datos_1.dat', 'a+')
                 #   time.sleep(0.00005)
                     x = arduino.readline()
-                    z = 0.3*2*(129-n)
+                    z = 0.3*2*(133-n)
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
@@ -375,10 +375,10 @@ class Gramo():
 
         def Velo_2():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 49):
+            for n in range (0, 129):
                 os.system('rm Datos_C/dat2/datos_2.dat')
                 print("aca va la pausa")
-                arduino.write("1")
+                arduino.write("2")
                 time.sleep(1)
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
@@ -388,7 +388,7 @@ class Gramo():
                     archi = open('Datos_C/dat2/datos_2.dat', 'a+')
                 #   time.sleep(0.00005)
                     x = arduino.readline()
-                    z = 0.3*2(n-129)
+                    z = 0.3*2*(133-n)
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
@@ -561,7 +561,7 @@ class Gramo():
     
         def Velo_4():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 49):
+            for n in range (0, 129):
                 os.system('rm Datos_C/dat4/datos_4.dat')
                 print("aca va la pausa")
                 #arduino.write("ff")
@@ -576,7 +576,7 @@ class Gramo():
                     archi = open('Datos_C/dat4/datos_4.dat', 'a+')
                 #   time.sleep(0.00005)
                     x = arduino.readline()
-                    z = 0.3*2*(129-n)
+                    z = 0.3*2*(133-n)
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
@@ -662,7 +662,7 @@ class Gramo():
                 print("aca va la pausa")
                 #arduino.write("gg")
                 time.sleep(1)
-                arduino.write("1")
+                arduino.write("2")
                 time.sleep(1)
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
@@ -679,7 +679,7 @@ class Gramo():
                     archi.write (xo)
                     archi.write (" ")
                     archi.write (yo)
-                archi.close()
+                    archi.close()
                     
              
                     

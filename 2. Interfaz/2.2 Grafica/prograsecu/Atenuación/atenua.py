@@ -12,11 +12,11 @@ import tkMessageBox
 import Tkinter
 
 class Gramo():
-    def Prueba2(self):
+    def Atenua(self):
         bicho = Tk()
         bicho.geometry("810x500+0+0")
         bicho.config(bg="white")
-        bicho.title("Interfaz Proyecto Propiedades, Difracción")
+        bicho.title("Interfaz Proyecto Propiedades, Atenuación")
         bicho.resizable(width=0, height=0)
       
         
@@ -50,22 +50,22 @@ class Gramo():
         
         def Velo_1():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 89):
+            for n in range (0, 160):
                 os.system('rm Datos_C/dat1/datos_1.dat')
                 print("aca va la pausa")
                 arduino.write("aa")
-                time.sleep(0.5)
-                arduino.write("1")
+                time.sleep(1)
+                arduino.write("2")
                 time.sleep(1)
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
-                arduino.write('hh')
-                for i in range(0, 10):
+                arduino.write('zz')
+                for i in range(0, 200):
                     arduino=serial.Serial(puerto.get(), 9600)
                     archi = open('Datos_C/dat1/datos_1.dat', 'a+')
-                #   time.sleep(0.00005)
+                    time.sleep(0.005)
                     x = arduino.readline()
-                    z = 0.35*(n)
+                    z = 0.21*2*(191-n)
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
@@ -126,7 +126,7 @@ class Gramo():
         def LoL1():
             gp = Gnuplot.Gnuplot()
             gp("set title 'ESPACIO VS VOLTAJE'")
-            gp("set xlabel 'Espacio en mm'") 
+            gp("set xlabel 'Espacio en cm'") 
             gp("set ylabel 'Voltaje en milivoltios'")
             gp("set grid")
             gp("plot 'Datos_C/dat1/datos1_.dat' title ' ' ")
@@ -174,7 +174,7 @@ class Gramo():
 
     
     def __init__(self):
-        self.Prueba2()
+        self.Atenua()
         self.__del__()
 
     def __del__(self):

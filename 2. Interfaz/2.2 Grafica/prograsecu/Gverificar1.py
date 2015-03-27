@@ -40,10 +40,15 @@ class Gramo():
             exit()
 
         def Difraccion():
-            print "TODO SALIO BIEN"
-        def Absorcion():
-            print "TODO SALIO BIEN"
+            os.system("cd Difracción && python difrac.py &")
+            exit()           
+
+
         def Atenuacion():
+            os.system("cd Atenuación && python atenua.py &")
+            exit()
+
+        def Absorcion():
             print "TODO SALIO BIEN"
 
 

@@ -120,7 +120,7 @@ void Vepa4()
 
 void Vepa5()
 {
-  analogWrite(motor, 90);
+  analogWrite(motor, 96);
   delay(40);
   Velo0();
   delay(1000);
@@ -130,11 +130,11 @@ void Inten1()
 {
   miliVolts1 = (analogRead(sensor1) *3000L) /1023; //opteniendo el valor sensor
   intensidad1 =miliVolts1;
-  brillo1 = map(intensidad1, 0, 250, 0, 255); //funcion map (mapeo) convierte la variable y le da un rango y un dominio
+  brillo1 = map(intensidad1, 0, 2000, 0, 255); //funcion map (mapeo) convierte la variable y le da un rango y un dominio
   brillo1 = constrain(brillo1, 0, 255); //funcion constrain o contenido en el intervalo de analogWrite (0, 255)
-  analogWrite(ledAzul, brillo1 ); //Salida del led si esta el obstaculo esta lejos
+  analogWrite(ledAzul, brillo1 );   //Salida del led si esta el obstaculo esta lejos
   analogWrite(ledVerde, 255 - brillo1 ); //Salida del led si el obstaculo esta cerca
-  Serial.print(" "); //salida al Serialport
+  Serial.print(" "); //salida al Serialporth
   Serial.print(intensidad1);
   Serial.println(" ");
   delay (60);
@@ -143,8 +143,8 @@ void Inten1()
 void Inten2()
 {
   miliVolts2 = (analogRead(sensor2) *5000L) /1023; //opteniendo el valor sensor
-  intensidad2 =miliVolts2;
-  brillo2 = map(intensidad2, 0, 250, 0, 255); //funcion map (mapeo) convierte la variable y le da un rango y un dominio
+  intensidad2 =miliVolts2-1000;
+  brillo2 = map(intensidad2, 0, 5000, 0, 255); //funcion map (mapeo) convierte la variable y le da un rango y un dominio
   brillo2 = constrain(brillo2, 0, 255); //funcion constrain o contenido en el intervalo de analogWrite (0, 255)
   digitalWrite(ledEmisor, 200);
   analogWrite(ledAzul, brillo2 ); //Salida del led si esta el obstaculo esta lejos
