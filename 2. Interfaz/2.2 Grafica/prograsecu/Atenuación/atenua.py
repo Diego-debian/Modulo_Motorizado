@@ -50,22 +50,25 @@ class Gramo():
         
         def Velo_1():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 160):
+            for n in range (0, 104):
+                time.sleep(2)
+                arduino= serial.Serial(puerto.get(), 9600)
                 os.system('rm Datos_C/dat1/datos_1.dat')
                 print("aca va la pausa")
                 arduino.write("aa")
                 time.sleep(1)
-                arduino.write("2")
-                time.sleep(1)
+                arduino.write('2')
+                time.sleep(1.3)
+                arduino.close()
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('zz')
-                for i in range(0, 200):
+                for i in range(0, 100):
                     arduino=serial.Serial(puerto.get(), 9600)
                     archi = open('Datos_C/dat1/datos_1.dat', 'a+')
                     time.sleep(0.005)
                     x = arduino.readline()
-                    z = 0.21*2*(191-n)
+                    z = 0.2*2*(136-n)
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
@@ -73,6 +76,8 @@ class Gramo():
                     archi.write (" ")
                     archi.write (yo)
                     archi.close()
+                  
+
                     
              
                     
@@ -90,8 +95,8 @@ class Gramo():
                 archi1 = open('Datos_C/dat1/datos1_.dat', 'a+')
                 archi1.write(Lectura)
                 archi1.close()
-                # os.system("gnuplot  Datos_C/dat1/graf.gnp &")
-                os.system('rm Datos_C/dat1/datos_1.dat')    
+                # os.system("gnuplot  Datos_C/dat1/agraf.gnp &")
+                os.system('rm Datos_C/dat1/datos_1.dat')  
                     
             else:
                 os.system('sync')
@@ -121,7 +126,7 @@ class Gramo():
             btnInfo= Button(bicho1, text= "Información", width=8, height=1, command= Msg1).place(x=250, y=15)            
 
         def Msg1():
-            tkMessageBox.showinfo("Información ", message= "Los datos se encuentran en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba2/Datos_C/dat1/datos1_.dat' y la grafica se encuentra en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba2/Image/graf1.gif'")
+            tkMessageBox.showinfo("Información ", message= "Los datos se encuentran en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba2/Datos_C/dat1/datos1_.dat' y la grafica se encuentra en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba2/Image/agraf1.gif'")
             
         def LoL1():
             gp = Gnuplot.Gnuplot()
@@ -132,13 +137,13 @@ class Gramo():
             gp("plot 'Datos_C/dat1/datos1_.dat' title ' ' ")
             gp("pause mouse")
             gp("set term png")
-            gp("set output '../../Image/graf1.png'")
+            gp("set output '../../Image/agraf1.png'")
             gp("replot")
             gp("pause mouse")
-            os.system("rm '../../Image/graf1.gif' ")
-            os.system("convert  '../../Image/graf1.png' '../../Image/graf1.gif'  &")
+            os.system("rm '../../Image/agraf1.gif' ")
+            os.system("convert  '../../Image/agraf1.png' '../../Image/agraf1.gif'  &")
             # time.sleep(2)
-           # os.system("eog '../../Image/2graf1.gif' &")
+           # os.system("eog '../../Image/2agraf1.gif' &")
             print "funciono"
 
         
