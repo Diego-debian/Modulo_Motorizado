@@ -45,30 +45,27 @@ class Gramo():
             arduino.write("aa")
             arduino.close()
          
-            
-               
-        
-        def Velo_1():
+        def Conteo1():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 104):
+            for n in range (0, 93):
                 time.sleep(2)
                 arduino= serial.Serial(puerto.get(), 9600)
                 os.system('rm Datos_C/dat1/datos_1.dat')
                 print("aca va la pausa")
                 arduino.write("aa")
                 time.sleep(1)
-                arduino.write('2')
+                arduino.write('3')
                 time.sleep(1.3)
                 arduino.close()
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('zz')
-                for i in range(0, 100):
+                for i in range(0, 70):
                     arduino=serial.Serial(puerto.get(), 9600)
                     archi = open('Datos_C/dat1/datos_1.dat', 'a+')
-                    time.sleep(0.005)
+                    time.sleep(0.000005)
                     x = arduino.readline()
-                    z = 0.2*2*(136-n)
+                    z = 0.27*2*(185-n)
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
@@ -76,11 +73,6 @@ class Gramo():
                     archi.write (" ")
                     archi.write (yo)
                     archi.close()
-                  
-
-                    
-             
-                    
                 else:
                     os.system("octave Datos_C/prom1.m")
                     arduino.write('hh')
@@ -102,7 +94,64 @@ class Gramo():
                 os.system('sync')
                 arduino.close()
                 arduino.close()
-                LoL()           
+               
+        
+        def Conteo2():
+            arduino= serial.Serial(puerto.get(), 9600)
+            for n in range (0, 82):
+                time.sleep(2)
+                arduino= serial.Serial(puerto.get(), 9600)
+                os.system('rm Datos_C/dat1/datos_2.dat')
+                print("aca va la pausa")
+                arduino.write("aa")
+                time.sleep(1)
+                arduino.write('3')
+                time.sleep(1.3)
+                arduino.close()
+                arduino=serial.Serial(puerto.get(), 9600)
+                time.sleep(2)
+                arduino.write('zz')
+                for i in range(0, 70):
+                    arduino=serial.Serial(puerto.get(), 9600)
+                    archi = open('Datos_C/dat1/datos_2.dat', 'a+')
+                    time.sleep(0.000005)
+                    x = arduino.readline()
+                    z = 0.27*2*(92-n)
+                    xo = str(z)
+                    yo = str(x)
+                    print('{0} {1}').format(xo, yo)
+                    archi.write (xo)
+                    archi.write (" ")
+                    archi.write (yo)
+                    archi.close()
+                else:
+                    os.system("octave Datos_C/prom2.m")
+                    arduino.write('hh')
+                    # Res1_1(self)
+                    arduino.write('aa')
+                    print "El ciclo termino"
+                    os.system('sync')
+                archi = open('Datos_C/dat1/prom2.dat', 'a+')
+                print "aca va la lectura"
+                Lectura1 = archi.read()
+                archi.close() 
+                archi1 = open('Datos_C/dat1/datos1_.dat', 'a+')
+                archi1.write(Lectura1)
+                archi1.close()
+                # os.system("gnuplot  Datos_C/dat1/agraf.gnp &")
+                os.system('rm Datos_C/dat1/datos_2.dat')  
+                    
+            else:
+                os.system('sync')
+                arduino.close()
+                arduino.close()
+
+        def Velo_1():
+            Conteo1()
+            print "Esperando 1 minuto antes de continuar, disculpe las molestias"
+            time.sleep(60)
+            Conteo2()
+            LoL()           
      
         def LoL():
             bicho1 = Toplevel(bicho)
@@ -145,10 +194,6 @@ class Gramo():
             # time.sleep(2)
            # os.system("eog '../../Image/2agraf1.gif' &")
             print "funciono"
-
-        
-
-
 
 
 #Volver al menu

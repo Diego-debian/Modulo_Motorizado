@@ -88,7 +88,7 @@ void Velo6()
 
 void Vepa1()
 {
-  analogWrite(motor, 80);
+  analogWrite(motor, 82);
   delay(55);
   Velo0();
   delay(1000);
@@ -96,7 +96,7 @@ void Vepa1()
 
 void Vepa2()
 {
-  analogWrite(motor, 80);
+  analogWrite(motor, 82);
   delay(50);
   Velo0();
   delay(1000);
@@ -104,7 +104,7 @@ void Vepa2()
 
 void Vepa3()
 {
-  analogWrite(motor, 80);
+  analogWrite(motor, 82);
   delay(45);
   Velo0();
   delay(1000);
@@ -112,7 +112,7 @@ void Vepa3()
 
 void Vepa4()
 {
-  analogWrite(motor, 80);
+  analogWrite(motor, 82);
   delay(40);
   Velo0();
   delay(1000);
@@ -120,8 +120,8 @@ void Vepa4()
 
 void Vepa5()
 {
-  analogWrite(motor, 96);
-  delay(40);
+  analogWrite(motor, 85);
+  delay(48);
   Velo0();
   delay(1000);
 }
@@ -146,7 +146,7 @@ void Inten2()
   intensidad2 =miliVolts2-1000;
   brillo2 = map(intensidad2, 0, 5000, 0, 255); //funcion map (mapeo) convierte la variable y le da un rango y un dominio
   brillo2 = constrain(brillo2, 0, 255); //funcion constrain o contenido en el intervalo de analogWrite (0, 255)
-  digitalWrite(ledEmisor, 200);
+  digitalWrite(ledEmisor, 230);
   analogWrite(ledAzul, brillo2 ); //Salida del led si esta el obstaculo esta lejos
   analogWrite(ledVerde, 255 - brillo2 ); //Salida del led si el obstaculo esta cerca
   Serial.print(" "); //salida al Serialport

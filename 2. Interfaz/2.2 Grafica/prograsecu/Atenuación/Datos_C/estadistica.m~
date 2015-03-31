@@ -1,0 +1,26 @@
+f = load ('/Datos_C/dat1/datos1_.dat');
+X = f(:,1);
+Y = f(:,2);
+U = log(X);
+V = log(Y);
+U2 = U .* U;
+UV = U .* V; 
+sumX = sum(X);
+sumY = sum(Y);
+sumU = sum(U);
+sumV = sum(V);
+sumU2 = sum(U2);
+sumUV = sum(UV);
+promX = sumX/81;
+promY = sumY/81;
+promU = sumU/81;
+promV = sumV/81;
+promU2 = sumU2/81;
+promUV = sumUV/81;
+Suv = promUV - promU*promV;
+Su2 = promU2 - promU*promU;
+b = Suv / Su2
+A = promV - b*promU
+a = exp(A)
+
+
