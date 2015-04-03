@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.3.8)  2 APR 2015 23:03
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.3)  3 APR 2015 16:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -518,11 +518,23 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip48
 )
-(/usr/share/texlive/texmf-dist/tex/latex/hyphenat/hyphenat.sty
-Package: hyphenat 2009/09/02 v2.3c hyphenation utilities
-\langwohyphens=\language3
-LaTeX Info: Redefining \_ on input line 43.
-)
+
+! LaTeX Error: File `hyphenat.sty' not found.
+
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name: 
+
+! LaTeX Error: Unknown option `none' for package `hyphenat'.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.17 \newenvironment
+                    {Figure}
+? 
 
 LaTeX Warning: Unused global option(s):
     [12].
@@ -703,11 +715,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 110--113
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 110--113
-\OT1/cmr/m/n/10 Colocamos un bot^^Son[][][] para reini-ciar nue-stro
- []
-
 <img/bluetoothesq.png, id=54, 692.186pt x 564.509pt>
 File: img/bluetoothesq.png Graphic file (type png)
 
@@ -749,13 +756,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 145--146
 []\OT1/cmr/m/n/10 Arduino, pag-ina ofi-cial, proyecto ar-duino
  []
 
-[3 <./img/esquematrans.png> <./img/montajetr5V.png> <./img/bluetoothesq.png> <.
-/img/bluetoothmon.png> <./img/montajemot.png> <./img/esquemamotor.png>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 146--147
 []\OT1/cmr/m/n/10 Hoja de datos tran-sis-tor lm 7805CV
  []
 
 
+Package multicol Warning: I moved some lines to the next page.
+(multicol)                Footnotes on page 3 might be wrong on input line 147.
+
+
+[3 <./img/esquematrans.png> <./img/montajetr5V.png> <./img/bluetoothesq.png> <.
+/img/bluetoothmon.png> <./img/montajemot.png> <./img/esquemamotor.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 147--148
 []\OT1/cmr/m/n/10 Hoja de datos del tran-sis-tor tip 122
  []
@@ -780,10 +792,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 151.
  ) 
 Here is how much of TeX's memory you used:
- 7283 strings out of 495028
- 108424 string characters out of 6181498
- 200680 words of memory out of 5000000
- 10377 multiletter control sequences out of 15000+600000
+ 7253 strings out of 495028
+ 107987 string characters out of 6181498
+ 199171 words of memory out of 5000000
+ 10350 multiletter control sequences out of 15000+600000
  12110 words of font info for 47 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  36i,12n,41p,1010b,584s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -798,7 +810,7 @@ blic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on arti.pdf (4 pages, 988990 bytes).
+Output written on arti.pdf (4 pages, 989041 bytes).
 PDF statistics:
  123 PDF objects out of 1000 (max. 8388607)
  91 compressed objects within 1 object stream
