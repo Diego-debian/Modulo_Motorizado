@@ -106,6 +106,15 @@ Luego es necesario hacer un transformador de 9 voltios a 5 voltios, esto lo hace
 El modulo bluetooth se debe conectar de la siguiente manera: el pin 2 de la tarjeta arduino es el Rx este va conectado al Tx del blueetooth, el pin 3 del microcontrolador es el Tx y va conectado al pin Rx del bluetooth, como se muestra en la figura 2.A y 2.B , conectamos el GND del bluetooth al pin 8  o 16 de nuestro microcontrolador , ahora conectamos el pin de Vcc del bluetooth al pin 7 o 14 del microcontrolador. \\\\
 Necesitamos colocar un oscilador de 16 mHz el cual lo dejaremos siempre en el microcontrolador, esto  con el fin de ajustar los tres relojes internos que trae nuestro integrado atmega 328 P-Pu, para esto utilizamos el cristal de 16 mHz junto con los dos condensadores cerámicos de 12 picofaradios \footnote{Ver figura 2.A y 2.B}, uno de los pines del cristal debe conectarse al pin 9 del microcontrolador y el otro extremo del cristal al pin 10, conectamos un capacitor a cada extremo del cristal y estos al pin 8 o 16 del microcontrolador de tal forma que los capacitores quedan en paralelo. \\\\
 Colocamos un botón\footnote{Como se muestra en la figura 2.A y 2.B} para reiniciar nuestro microcontrolador en caso de que lo necesitamos, esto lo hacemos colocando uno de los extremos del botón al pin 1 del microcontrolador que es el pin de reset, el otro extremo del botón lo conectamos a una resistencia de 1 Komhs y el extremo de la resistencia a tierra.\\\\
+Las conexiones del motor son las siguientes, como vamos a utilizar un transistor tip\cite{TIP122} 122, los pines mostrados en la figura 2.B.  están de la siguiente manera: 
+
+\begin{enumerate}
+\item[*] El pin del lado izquierdo del transistor es la base.
+\item[*] El pin del centro es el colector.
+\item[*] El pin de la derecha es el emisor.
+\end{enumerate}
+
+Conectamos una resistencia de 1 $k \Omega $ 
 
 \begin{Figure}
 \center
@@ -117,17 +126,8 @@ Colocamos un botón\footnote{Como se muestra en la figura 2.A y 2.B} para reinic
 \captionof{figure}{En la figura 2.A se muestra el circuito eléctrico de un bluetooth conectado a un microcontrolador atmega 328 P-PU junto con un cristal, dos capacitores cerámicos, un botón de reset y una resistencia de 1 Komhs. En la figura 2.B esta  el circuito eléctrico en protoboard, los cables negros son tierra, los cables rojos son voltaje, y los cables amarillos son conexiones.}
 \label{fig:g2}
 \end{Figure}
-\vspace{0.2cm}
+\vspace{0.6cm}
 
-Las conexiones del motor son las siguientes, como vamos a utilizar un transistor tip\cite{TIP122} 122, los pines mostrados en la figura 2.B.  están de la siguiente manera: 
-
-\begin{enumerate}
-\item[*] El pin del lado izquierdo del transistor es la base.
-\item[*] El pin del centro es el colector.
-\item[*] El pin de la derecha es el emisor.
-\end{enumerate}
-
-Conectamos una resistencia de 1 $k \Omega $ al pin base del transistor y este a su vez al pin numero 5 del integrado atmega328P-PU\footnote{Como se aprecia en la figura 2.B}, luego conectamos el pin del colector del tip122 a +5V, asegurandonos de colocar el diodo regulador entre el colector y uno de los extremos del motor; a continuación conectamos el pin emisor del transistor  junto con el otro extremo de la conexión del motor a tierra; ahora colocamos las conexiones del condensador ceramico entre las conexiones del motor.\footnote{Observar figuras 2.A. y 2.B.}
 
 
 \begin{Figure}
