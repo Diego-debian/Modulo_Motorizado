@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.3)  3 APR 2015 18:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.3)  5 APR 2015 03:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -527,7 +527,11 @@ LaTeX Info: Redefining \_ on input line 43.
 LaTeX Warning: Unused global option(s):
     [12].
 
-(./arti.aux)
+(./arti.aux
+
+LaTeX Warning: Label `fig:g3' multiply defined.
+
+)
 \openout1 = `arti.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
@@ -623,6 +627,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--53
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--53
+\OT1/cmr/bx/n/9 Descriptores: \OT1/cmr/m/n/9 Mod-ulo mo-tor-izado, sen-sores in
+-frar-ro-jos, mi-cro-con-tro-lador, mod-ulo blue-tooth, on-das
+ []
+
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
@@ -642,76 +652,86 @@ do el pro-ceso para que-mar el mi-cro-con-tro-lador
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--92
+Underfull \hbox (badness 10000) in paragraph at lines 87--91
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--92
+Underfull \hbox (badness 10000) in paragraph at lines 87--91
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--92
+Underfull \hbox (badness 10000) in paragraph at lines 87--91
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--92
+Underfull \hbox (badness 10000) in paragraph at lines 87--91
 
  []
 
-<img/esquematrans.png, id=33, 447.271pt x 217.613pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--91
+
+ []
+
+<img/esquematrans.png, id=34, 447.271pt x 217.613pt>
 File: img/esquematrans.png Graphic file (type png)
 
 <use img/esquematrans.png>
-Package pdftex.def Info: img/esquematrans.png used on input line 98.
+Package pdftex.def Info: img/esquematrans.png used on input line 97.
 (pdftex.def)             Requested size: 113.8103pt x 113.81021pt.
- <img/montajetr5V.png, id=35, 408.727pt x 326.821pt>
+ <img/montajetr5V.png, id=36, 408.727pt x 326.821pt>
 File: img/montajetr5V.png Graphic file (type png)
 
 <use img/montajetr5V.png>
-Package pdftex.def Info: img/montajetr5V.png used on input line 98.
+Package pdftex.def Info: img/montajetr5V.png used on input line 97.
 (pdftex.def)             Requested size: 113.81287pt x 113.81058pt.
 
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 101.
+(caption)                particular \caption on input line 100.
 See the caption package documentation for explanation.
 
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 106--109
+
+Underfull \hbox (badness 10000) in paragraph at lines 105--109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--109
+Underfull \hbox (badness 10000) in paragraph at lines 105--109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--109
+Underfull \hbox (badness 10000) in paragraph at lines 105--109
 \OT1/cmr/m/n/10 Colocamos un bot^^Son[][][] para reini-ciar nue-stro
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--109
+Underfull \hbox (badness 10000) in paragraph at lines 105--109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--109
+Underfull \hbox (badness 10000) in paragraph at lines 105--109
 
  []
 
-<img/bluetoothesq.png, id=54, 692.186pt x 564.509pt>
+
+Package multicol Warning: I moved some lines to the next page.
+(multicol)                Footnotes on page 2 might be wrong on input line 109.
+
+
+[2] <img/bluetoothesq.png, id=57, 692.186pt x 564.509pt>
 File: img/bluetoothesq.png Graphic file (type png)
 
 <use img/bluetoothesq.png>
 Package pdftex.def Info: img/bluetoothesq.png used on input line 114.
 (pdftex.def)             Requested size: 113.8044pt x 113.80423pt.
 
-<img/bluetoothmon.png, id=55, 675.323pt x 395.879pt>
+<img/bluetoothmon.png, id=58, 675.323pt x 395.879pt>
 File: img/bluetoothmon.png Graphic file (type png)
 
 <use img/bluetoothmon.png>
@@ -723,13 +743,13 @@ Package caption Warning: The option `hypcap=true' will be ignored for this
 (caption)                particular \caption on input line 117.
 See the caption package documentation for explanation.
 
-<img/esquemamotor.png, id=59, 597.432pt x 353.32pt>
+<img/esquemamotor.png, id=62, 597.432pt x 353.32pt>
 File: img/esquemamotor.png Graphic file (type png)
  <use img/esquemamotor.png>
 Package pdftex.def Info: img/esquemamotor.png used on input line 137.
 (pdftex.def)             Requested size: 113.80496pt x 113.80869pt.
 
-<img/montajemot.png, id=60, 297.11pt x 236.082pt>
+<img/montajemot.png, id=63, 297.11pt x 236.082pt>
 File: img/montajemot.png Graphic file (type png)
  <use img/montajemot.png>
 Package pdftex.def Info: img/montajemot.png used on input line 137.
@@ -742,62 +762,97 @@ See the caption package documentation for explanation.
 
 [3 <./img/esquematrans.png> <./img/montajetr5V.png> <./img/bluetoothesq.png> <.
 /img/bluetoothmon.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 148--149
-[]\OT1/cmr/m/n/10 Arduino, pag-ina ofi-cial, proyecto ar-duino
+Underfull \hbox (badness 10000) in paragraph at lines 145--149
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 149--150
-[]\OT1/cmr/m/n/10 Hoja de datos tran-sis-tor lm 7805CV
+Underfull \hbox (badness 10000) in paragraph at lines 145--149
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 150--151
-[]\OT1/cmr/m/n/10 Hoja de datos del tran-sis-tor tip 122
+Underfull \hbox (badness 10000) in paragraph at lines 145--149
+
+ []
+
+<img/ledesq.png, id=86, 652.839pt x 350.911pt>
+File: img/ledesq.png Graphic file (type png)
+ <use img/ledesq.png>
+Package pdftex.def Info: img/ledesq.png used on input line 153.
+(pdftex.def)             Requested size: 113.81023pt x 113.80911pt.
+
+<img/ledmont.png, id=87, 497.86pt x 187.902pt>
+File: img/ledmont.png Graphic file (type png)
+ <use img/ledmont.png>
+Package pdftex.def Info: img/ledmont.png used on input line 153.
+(pdftex.def)             Requested size: 113.80649pt x 113.81151pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 156.
+See the caption package documentation for explanation.
+
+<img/rgbesq.png, id=89, 484.209pt x 350.911pt>
+File: img/rgbesq.png Graphic file (type png)
+ <use img/rgbesq.png>
+Package pdftex.def Info: img/rgbesq.png used on input line 168.
+(pdftex.def)             Requested size: 113.8113pt x 113.80911pt.
+
+<img/rgbmont.png, id=90, 469.755pt x 187.099pt>
+File: img/rgbmont.png Graphic file (type png)
+ <use img/rgbmont.png>
+Package pdftex.def Info: img/rgbmont.png used on input line 168.
+(pdftex.def)             Requested size: 113.81151pt x 113.81331pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 171.
+See the caption package documentation for explanation.
+
+[4 <./img/esquemamotor.png> <./img/montajemot.png> <./img/ledesq.png> <./img/le
+dmont.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 178--179
+[]\OT1/cmr/m/n/10 Arduino, pag-ina ofi-cial, proyecto ar-duino.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 151--152
-[]\OT1/cmr/m/n/10 Hoja de datos diodo reg-u-lador 1N4001
+Underfull \hbox (badness 10000) in paragraph at lines 179--180
+[]\OT1/cmr/m/n/10 Hoja de datos tran-sis-tor lm 7805CV.
  []
 
 
-Overfull \vbox (29.61159pt too high) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 180--181
+[]\OT1/cmr/m/n/10 Hoja de datos del tran-sis-tor tip 122.
+ []
 
 
-Overfull \vbox (28.61159pt too high) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 181--182
+[]\OT1/cmr/m/n/10 Hoja de datos diodo reg-u-lador 1N4001.
+ []
 
-
-Overfull \vbox (27.61159pt too high) has occurred while \output is active []
-
-
-Overfull \vbox (26.61159pt too high) has occurred while \output is active []
-
-
-Overfull \vbox (25.61159pt too high) has occurred while \output is active []
-
-
-Overfull \vbox (24.61159pt too high) has occurred while \output is active []
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 154.
-
-[4 <./img/esquemamotor.png> <./img/montajemot.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 154.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 185.
+[5 <./img/rgbesq.png> <./img/rgbmont.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 185.
  (./arti.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 154.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 154.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 185.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 185.
 Package rerunfilecheck Info: File `arti.out' has not changed.
 (rerunfilecheck)             Checksum: 35B9B839EF9837681766DCEDE9389CB7;114.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 154.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 185.
  ) 
 Here is how much of TeX's memory you used:
- 7286 strings out of 495028
- 108454 string characters out of 6181498
- 201171 words of memory out of 5000000
- 10378 multiletter control sequences out of 15000+600000
+ 7320 strings out of 495028
+ 108946 string characters out of 6181498
+ 205613 words of memory out of 5000000
+ 10397 multiletter control sequences out of 15000+600000
  12110 words of font info for 47 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 36i,12n,41p,1010b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,12n,41p,1010b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
@@ -809,10 +864,10 @@ blic/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on arti.pdf (4 pages, 992151 bytes).
+Output written on arti.pdf (5 pages, 1621566 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
- 96 compressed objects within 1 object stream
- 21 named destinations out of 1000 (max. 500000)
- 47 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 164 PDF objects out of 1000 (max. 8388607)
+ 122 compressed objects within 2 object streams
+ 32 named destinations out of 1000 (max. 500000)
+ 67 words of extra memory for PDF output out of 10000 (max. 10000000)
 

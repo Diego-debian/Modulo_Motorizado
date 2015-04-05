@@ -33,7 +33,7 @@ class Instalacion:
         os.system("apt-get install  bluez* gcc g++ emacs gnuplot gnuplot-qt evince octave")
         os.system("apt-get install python-matplotlib python-numpy python-tk python-gnuplot python-serial python-visual* libgtkglextmm*  ")
         
-        os.system("apt-get install kile")      
+        os.system("apt-get install kile texlive-latex-recommended texlive-latex-extra")      
         os.system("apt-get install arduino fritzing eog")
         os.system("arduino")
 
@@ -42,7 +42,7 @@ class Instalacion:
             
         os.system("sudo apt-get install python-matplotlib python-numpy python-tk python-gnuplot python-serial python-visual* libgtkglextmm*  ")
         
-        os.system("sudo apt-get install kile")
+        os.system("sudo apt-get install kile texlive-latex-recommended texlive-latex-extra")
         os.system("sudo apt-get install arduino fritzing eog ")
         os.system("arduino")
 
@@ -53,7 +53,7 @@ class Instalacion:
          time.sleep(1)
          os.system("yum -y install python-matplotlib python-numpy python-tk python-gnuplot python-serial python-visual* libgtkglextmm*  ")
          time.sleep(1)
-         os.system("yum -y install kile")
+         os.system("yum -y install kile texlive-latex-recommended texlive-latex-extra")
          os.system("yum -y install arduino fritzing ")
          os.system("arduino")
 
