@@ -47,15 +47,15 @@ class Gramo():
          
         def Conteo1():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 56):
-                time.sleep(2)
+            for n in range (0, 93):
+                #time.sleep(2)
                 arduino= serial.Serial(puerto.get(), 9600)
                 os.system('rm Datos_C/dat1/datos_1.dat')
                 print("aca va la pausa")
                 arduino.write("aa")
-                time.sleep(1)
+                #time.sleep(1)
                 arduino.write('3')
-                time.sleep(1.3)
+                #time.sleep(1.3)
                 arduino.close()
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
@@ -65,7 +65,7 @@ class Gramo():
                     archi = open('Datos_C/dat1/datos_1.dat', 'a+')
                     time.sleep(0.000005)
                     x = arduino.readline()
-                    z = 0.27*2*(148-n)
+                    z = 0.27*2*(104-n)
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
@@ -95,65 +95,12 @@ class Gramo():
                 arduino.close()
                 arduino.close()
                
-        
-        def Conteo2():
-            arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 56):
-                time.sleep(2)
-                arduino= serial.Serial(puerto.get(), 9600)
-                os.system('rm Datos_C/dat1/datos_1.dat')
-                print("aca va la pausa")
-                arduino.write("aa")
-                time.sleep(1)
-                arduino.write('3')
-                time.sleep(1.3)
-                arduino.close()
-                arduino=serial.Serial(puerto.get(), 9600)
-                time.sleep(2)
-                arduino.write('zz')
-                for i in range(0, 140):
-                    arduino=serial.Serial(puerto.get(), 9600)
-                    archi = open('Datos_C/dat1/datos_1.dat', 'a+')
-                    time.sleep(0.000005)
-                    x = arduino.readline()
-                    z = 0.27*2*(93-n)
-                    xo = str(z)
-                    yo = str(x)
-                    print('{0} {1}').format(xo, yo)
-                    archi.write (xo)
-                    archi.write (" ")
-                    archi.write (yo)
-                    archi.close()
-                else:
-                    os.system("octave Datos_C/prom1.m")
-                    arduino.write('hh')
-                    # Res1_1(self)
-                    arduino.write('aa')
-                    print "El ciclo termino"
-                    os.system('sync')
-                archi = open('Datos_C/dat1/prom.dat', 'a+')
-                print "aca va la lectura"
-                Lectura = archi.read()
-                archi.close() 
-                archi1 = open('Datos_C/dat1/datos1_.dat', 'a+')
-                archi1.write(Lectura)
-                archi1.close()
-                # os.system("gnuplot  Datos_C/dat1/agraf.gnp &")
-                os.system('rm Datos_C/dat1/datos_1.dat')  
-                    
-            else:
-                os.system('sync')
-                arduino.close()
-                arduino.close()
-
         def Velo_1():
             Conteo1()
             arduino= serial.Serial(puerto.get(), 9600)
             arduino.write('aaaaaaa')
-            print "Esperando 1 minuto antes de continuar, disculpe las molestias"
 	    arduino.close()
             time.sleep(2)
-            Conteo2()
             LoL()           
      
         def LoL():
