@@ -32,18 +32,19 @@ class Instalacion:
         print ('Se procede a instalar')
         os.system("apt-get install  bluez* gcc g++ emacs gnuplot gnuplot-qt evince octave")
         os.system("apt-get install python-matplotlib python-numpy python-tk python-gnuplot python-serial python-visual* libgtkglextmm*  ")
-        
         os.system("apt-get install kile texlive-latex-recommended texlive-latex-extra")      
         os.system("apt-get install arduino fritzing eog")
+        time.sleep(1)
+        os.system("exit")
         os.system("arduino")
 
     def ubuntu(self):
-        os.system("sudo apt-get install bluez* gcc g++ emacs gnuplot gnuplot-qt evince octave")
-            
+        os.system("sudo apt-get install bluez* gcc g++ emacs gnuplot gnuplot-qt evince octave")         
         os.system("sudo apt-get install python-matplotlib python-numpy python-tk python-gnuplot python-serial python-visual* libgtkglextmm*  ")
-        
         os.system("sudo apt-get install kile texlive-latex-recommended texlive-latex-extra")
         os.system("sudo apt-get install arduino fritzing eog ")
+        time.sleep(1)
+        os.system("exit")
         os.system("arduino")
 
 
@@ -55,6 +56,8 @@ class Instalacion:
          time.sleep(1)
          os.system("yum -y install kile texlive-latex-recommended texlive-latex-extra")
          os.system("yum -y install arduino fritzing ")
+         time.sleep(1)
+         os.system("exit")
          os.system("arduino")
 
     def menu_Secundario(self):

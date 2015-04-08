@@ -1,18 +1,16 @@
 int motor = 3;
-const int sensor1 = A0;
-const int sensor2 = A5;
+const int sensor1 = A3;
+const int sensor2 = A0;
 const int ledRojo = 12;
-const int ledAzul = 9;
+const int ledAzul = 11;
 const int ledVerde = 10;
 const int ledEmisor = 6;
 
 //variables
 long miliVolts1;
-long miliVolts2;
 long intensidad1;
-long intensidad2;
 int brillo1;
-int brillo2;
+
 
 void setup()
 {
@@ -142,17 +140,17 @@ void Inten1()
 
 void Inten2()
 {
-  miliVolts2 = (analogRead(sensor2) *4000L) /1023; //opteniendo el valor sensor
-  intensidad2 =miliVolts2;
-  brillo2 = map(intensidad2, 0, 4000, 0, 255); //funcion map (mapeo) convierte la variable y le da un rango y un dominio
-  brillo2 = constrain(brillo2, 0, 255); //funcion constrain o contenido en el intervalo de analogWrite (0, 255)
-  digitalWrite(ledEmisor, HIGH);
-  analogWrite(ledAzul, brillo2 ); //Salida del led si esta el obstaculo esta lejos
-  analogWrite(ledVerde, 255 - brillo2 ); //Salida del led si el obstaculo esta cerca
+  miliVolts1 = (analogRead(sensor2) *5000L) /1023; //opteniendo el valor sensor
+  intensidad1 =miliVolts1;
+  brillo1 = map(intensidad1, 0, 5000, 0, 255); //funcion map (mapeo) convierte la variable y le da un rango y un dominio
+  brillo1 = constrain(brillo1, 0, 255); //funcion constrain o contenido en el intervalo de analogWrite (0, 255)
+  analogWrite(ledEmisor,   255);
+  analogWrite(ledAzul, brillo1 ); //Salida del led si esta el obstaculo esta lejos
+  analogWrite(ledVerde, 255 - brillo1 ); //Salida del led si el obstaculo esta cerca
   Serial.print(" "); //salida al Serialport
-  Serial.print(intensidad2);
+  Serial.print(intensidad1);
   Serial.println(" ");
-  delay (20);
+  delay (60);
 }
 
 void inicio()
@@ -309,7 +307,6 @@ void Menu()
               {
                 Velo0();
                 Inten2();
-                Velo0();
                 Menu();              
               }
               break;

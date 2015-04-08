@@ -58,6 +58,9 @@ class Gramo():
             arduino = serial.Serial(puerto.get(), 9600)
             arduino.write('bb')
             print "\n El motor se encuentra en la velocidad 1"
+            time.sleep(5)
+            arduino.write('aa')
+            print "\n El motor se encuentra detenido"            
             arduino.close()
             
             
@@ -66,6 +69,9 @@ class Gramo():
             arduino = serial.Serial(puerto.get(), 9600)
             arduino.write('dd')
             print "EL motor esta a la velocidad 2"
+            time.sleep(5)
+            print "\n El motor se encuentra detenido"            
+            arduino.write('aa') 
             arduino.close()
             
             
@@ -74,6 +80,9 @@ class Gramo():
             arduino = serial.Serial(puerto.get(), 9600)
             arduino.write('ee')
             print "\n El motor se encuentra en la velocidad 3"
+            time.sleep(5)
+            arduino.write('aa')
+            print "\n El motor se encuentra detenido"            
             arduino.close()
                       
             
@@ -81,16 +90,20 @@ class Gramo():
             arduino = serial.Serial(puerto.get(), 9600)
             arduino.write('ff')
             print "\n El motor se encuentra en la velocidad 4"
+            time.sleep(5)
+            arduino.write('aa')
             arduino.close()
 
         def Vel_5():
             arduino = serial.Serial(puerto.get(), 9600)
             arduino.write("gg")
             print "\n El motor se encuentra en la velocidad 5"
+            time.sleep(5)
+            arduino.write('aa')
+            print "\n El motor se encuentra detenido"            
             arduino.close()
                    
       
-
 
         def Valido1():
             lblRapidez = Label(bicho, text="PRUEBA RAPIDEZ CON PAUSA", fg = ("red"), font = ("Century Schoolbook L",10)).place(x=30, y=300)
@@ -112,17 +125,15 @@ class Gramo():
         def Velo_1():
             try:
                 arduino = serial.Serial(puerto.get(), 9600)
-                for i in range (0, 5):
-                    arduino.write('bb')
+                time.sleep(2)
+                for i in range (0, 20):
+                    arduino = serial.Serial(puerto.get(), 9600)
+                    arduino.write('1')
                     time.sleep(0.0001)
-                    arduino.write('hh')
-                    print "todo salio bien"
-                    time.sleep(5)
-                    arduino.close
-                arduino = serial.Serial(puerto.get(), 9600)
-                arduino.write('bb')
-                print "\n El motor se encuentra en la velocidad 1"
-                arduino.close()
+                    arduino.close()
+                    print "El motor avanzo ", i
+                else:
+                    arduino.close()
 
             except:
                 print ("EL programa fallo")
@@ -136,88 +147,80 @@ class Gramo():
         def Velo_2():
             try:
                 arduino = serial.Serial(puerto.get(), 9600)
-                for i in range (0, 5):
-                    arduino.write('dd')
+                time.sleep(2)
+                for i in range (0, 20):
+                    arduino = serial.Serial(puerto.get(), 9600)
+                    arduino.write('2')
                     time.sleep(0.0001)
-                    arduino.write('hh')
-                    print "todo salio bien"
-                    time.sleep(5)
-                    arduino.close
-                arduino = serial.Serial(puerto.get(), 9600)
-                arduino.write('bb')
-                print "\n El motor se encuentra en la velocidad 2"
-                arduino.close()
+                    arduino.close()
+                    print "El motor avanzo ", i
+                else:
+                    arduino.close()
 
             except:
-                arduino.write('aa')
                 print ("EL programa fallo")
+                arduino.write('aa')
                 arduino.close()
                 Salir()
             
             
             
         def Velo_3():
-             try:
+            try:
                 arduino = serial.Serial(puerto.get(), 9600)
-                for i in range (0, 5):
-                    arduino.write('ee')
+                time.sleep(2)
+                for i in range (0, 20):
+                    arduino = serial.Serial(puerto.get(), 9600)
+                    arduino.write('3')
                     time.sleep(0.0001)
-                    arduino.write('hh')
-                    print "todo salio bien"
-                    time.sleep(5)
                     arduino.close()
-                arduino = serial.Serial(puerto.get(), 9600)
-                arduino.write('bb')
-                print "\n El motor se encuentra en la velocidad 3"
-                arduino.close()
+                    print "El motor avanzo ", i
+                else:
+                    arduino.close()
 
-             except:
+            except:
                 print ("EL programa fallo")
                 arduino.write('aa')
                 arduino.close()
                 Salir()
 
-
+           
         def Velo_4():
             try:
                 arduino = serial.Serial(puerto.get(), 9600)
-                for i in range (0, 5):
-                    arduino.write('ff')
+                time.sleep(2)
+                for i in range (0, 20):
+                    arduino = serial.Serial(puerto.get(), 9600)
+                    arduino.write('4')
                     time.sleep(0.0001)
-                    arduino.write('hh')
-                    print "todo salio bien"
-                    time.sleep(5)
                     arduino.close()
-                arduino = serial.Serial(puerto.get(), 9600)
-                arduino.write('bb')
-                print "\n El motor se encuentra en la velocidad 4"
-                arduino.close()
+                    print "El motor avanzo ", i
+                else:
+                    arduino.close()
 
             except:
                 print ("EL programa fallo")
                 arduino.write('aa')
                 arduino.close()
-                Salir()      
+                Salir()   
 
 
         def Velo_5():
             try:
                 arduino = serial.Serial(puerto.get(), 9600)
-                for i in range (0, 5):
-                    arduino.write('gg')
+                time.sleep(2)
+                for i in range (0, 20):
+                    arduino = serial.Serial(puerto.get(), 9600)
+                    arduino.write('5')
                     time.sleep(0.0001)
-                    arduino.write('hh')
-                    print "todo salio bien"
-                    time.sleep(5)
-                    arduino.close
-                arduino = serial.Serial(puerto.get(), 9600)
-                arduino.write('bb')
-                print "\n El motor se encuentra en la velocidad 5"
-                arduino.close()
+                    arduino.close()
+                    print "El motor avanzo ", i
+                else:
+                    arduino.close()
 
             except:
-                arduino.write('aa')
                 print ("EL programa fallo")
+                arduino.write('aa')
                 arduino.close()
                 Salir()
 

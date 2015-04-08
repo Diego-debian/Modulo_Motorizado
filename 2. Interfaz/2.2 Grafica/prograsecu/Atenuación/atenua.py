@@ -55,7 +55,7 @@ class Gramo():
                 arduino.write("aa")
                 #time.sleep(1)
                 arduino.write('3')
-                #time.sleep(1.3)
+                time.sleep(1.3)
                 arduino.close()
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)

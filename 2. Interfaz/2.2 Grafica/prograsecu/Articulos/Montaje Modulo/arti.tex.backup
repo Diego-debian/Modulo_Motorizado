@@ -87,7 +87,8 @@ Para la realización de este montaje se utilizaron los siguientes materiales:
 {\bf{2.2 Montaje experimental}}\\\\
 {\bf{2.2.1 Circuito electrónico}}\\\\
 A continuación se explica paso a paso como armar el circuito eléctrico, el montaje se realiza en fritzing\footnote{Enlace a la pagina oficial del proyecto fritzing http://www.fritzing.org/home/}. Cabe recordar que se explicara parte por parte del circuito y luego todas deben unirse en una sola.\\\\
-Lo primero que se hará, sera preparar el microcontrolador para su primer uso, debido a que los microcontroladores atmega 328 P-PU no vienen listos para comenzar a programar; es necesario hacer un stand alone\footnote{En el siguiente enlace se encuentra muy bien explicado el proceso para quemar el microcontrolador https://arduinoelectronics.wordpress.com/2012/02/10/standalone-atmega-without-arduino-bootloader/.} sobre el microcontrolador.\\\\
+Cabe mencionar que los esquemas de las figuras de la 1 a la 8 fueron tomadas de la pagina principal del proyecto arduino. \cite{ARDUINO} \\\\
+Lo primero que se hará, sera preparar el microcontrolador para su primer uso, debido a que los microcontroladores atmega 328 P-PU no vienen listos para comenzar a programar; es necesario hacer un stand alone\footnote{Enlace a un bootloader https://arduinoelectronics.wordpress.com/2012/02/10/standalone-atmega-without-arduino-bootloader/.} sobre el microcontrolador.\\\\
 
 
 \begin{Figure}
@@ -114,7 +115,7 @@ Colocamos un botón\footnote{Como se muestra en la figura 2.A y 2.B} para reinic
 \includegraphics[width=4cm, height=4cm]{img/bluetoothesq.png} & \includegraphics[width=4cm, height=4cm]{img/bluetoothmon.png} \\ \hline
 2.A. & 2.B. \\ \hline
 \end{tabular}
-\captionof{figure}{En la figura 2.A se muestra el circuito eléctrico de un bluetooth conectado a un microcontrolador atmega 328 P-PU junto con un cristal, dos capacitores cerámicos, un botón de reset y una resistencia de 1 Komhs. En la figura 2.B esta  el circuito eléctrico en protoboard, los cables negros son tierra, los cables rojos son voltaje, y los cables amarillos son conexiones.}
+\captionof{figure}{En la figura 2.A se muestra el circuito eléctrico de un bluetooth conectado a un microcontrolador atmega 328 P-PU junto con un cristal, dos capacitores cerámicos, un botón de reset y una resistencia de 1 Komhs. En la figura 2.B esta  el montaje en protoboard, los cables negros son tierra, los cables rojos son voltaje, y los cables amarillos son conexiones.}
 \label{fig:g2}
 \end{Figure}
 \vspace{0.2cm}
@@ -137,14 +138,14 @@ Conectamos una resistencia de 1 $k \Omega $ al pin base del transistor y este a 
 \includegraphics[width=4cm, height=4cm]{img/esquemamotor.png} & \includegraphics[width=4cm, height=4cm]{img/montajemot.png} \\ \hline
 3.A. & 3.B. \\ \hline
 \end{tabular}
-\captionof{figure}{En la figura 3.A se muestra el circuito eléctrico del motor conectado a la tarjeta atmega 328 P-PU, junto con un tip 122 encargado de controlar la corriente que circula por el  motor consiguiendo de esta manera controlar la velocidad de este, también lleva un diodo regulador, un capacitor cerámico de  12 picofaradios y una resistencia de 1 Komhs. En la figura 3.B esta  el circuito eléctrico en protoboard, los cables negros son tierra, los cables rojos son voltaje, y los cables naranjas son conexiones.}
+\captionof{figure}{En la figura 3.A se muestra el circuito eléctrico del motor conectado a la tarjeta atmega 328 P-PU, junto con un tip 122 encargado de controlar la corriente que circula por el  motor consiguiendo de esta manera controlar la velocidad de este, también lleva un diodo regulador, un capacitor cerámico de  12 picofaradios y una resistencia de 1 Komhs. En la figura 3.B esta  el montaje en protoboard, los cables negros son tierra, los cables rojos son voltaje, y los cables naranjas son conexiones.}
 \label{fig:g3}
 \end{Figure}
-\vspace{0.6cm}
 
 Procedemos hacer las conexiones del sensor receptor lateral \footnote{Se aprecia en la figura 4.A. y en la figura 4.B.} el cual es un diodo led receptor de luz infrarroja \cite{INFRARED}, conectamos una resistencia de $1 k\Omega$ al ánodo del led y el otro extremo de la resistencia a tierra, luego conectamos el pin 28 \footnote{Este pin es la entrada analógica numero cero del microcontrolador atmega} del microcontrolador en un punto intermedio entre la resistencia y el ánodo del diodo led, el cátodo del diodo lo conectamos a +5V.\\\\
 Para las conexiones del sensor receptor frontal \footnote{Se aprecia en la figura 4.A. y en la figura 4.B., en la parte donde estan los dos diodos led} el cual es un diodo led receptor de luz infrarroja \cite{INFRARED}, conectamos una resistencia de $1 k\Omega$ al ánodo del led y el otro extremo de la resistencia a tierra, luego conectamos el pin 22 \footnote{Este pin es la entrada analógica numero cinco del microcontrolador atmega} del microcontrolador en un punto intermedio entre la resistencia y el ánodo del diodo led, el cátodo del diodo lo conectamos a +5V.\\\\
-Para la conexión de la fuente\footnote{Ver figura 4.B. y su esquema en la figura 4.A.} emisora de fotones infrarrojos o radiación infrarroja se utiliza un diodo led emisor en el infrarrojo, el cátodo del diodo lo conectamos a una resistencia de $350 \Omega$ a $500 \Omega$ y el otro extremo de la resistencia lo conectamos a tierra, el ánodo del diodo lo conectamos al pin 12\footnote{Salida D6 PWM} del microcontrolador. \\\\
+Para la conexión de la fuente\footnote{Ver figura 4.B. y su esquema en la figura 4.A.} emisora de fotones infrarrojos o radiación infrarroja se utiliza un diodo led emisor en el infrarrojo, el cátodo del diodo lo conectamos a una resistencia de $350 \Omega$ a $500 \Omega$ y el otro extremo de la resistencia lo conectamos a tierra, el ánodo del diodo lo conectamos al pin 12\footnote{Salida D6 PWM} del microcontrolador.
+
 \begin{Figure}
 \center
 \begin{tabular}{|l|r|}
@@ -152,22 +153,85 @@ Para la conexión de la fuente\footnote{Ver figura 4.B. y su esquema en la figur
 \includegraphics[width=4cm, height=4cm]{img/ledesq.png} & \includegraphics[width=4cm, height=4cm]{img/ledmont.png} \\ \hline
 4.A. & 4.B. \\ \hline
 \end{tabular}
-\captionof{figure}{En la figura omhs. En la figura 3.B esta  el circuito eléctrico en protoboard, los cables negros son tierra, los cables rojos son voltaje, y los cables naranjas son conexiones.}
-\label{fig:g3}
+\captionof{figure}{En la figura 4.A se observa las conexiones de los diodos tanto receptores como el emisor, conectanos al microcontrolador atmega328P-PU. En la figura 4.B esta  el montaje en protoboard, los cables negros son tierra, los cables rojos son voltaje, el cable azul es la conexión entre el ánodo del diodo led emisor infrarrojo frontal y el pin 6 del microcontrolador, el cable naranja es la conexión entre el pin 23 del microcontrolador y el punto de conexión entre el ánodo del  diodo receptor infrarrojo lateral con la resistencia, el cable gris  es la conexión entre el pin 28 del microcontrolador y el punto de conexión entre el ánodo del diodo receptor infrarrojo frontal con la resistencia.}
+\label{fig:g4}
 \end{Figure}
 
-
-\begin{Figure}
+Las conexiones\footnote{Ver los esquemas de la figura 5.A. y 5.B.} del diodo rgb de ánodo común es la siguiente: conectamos el ánodo del diodo rgb a +5V, el pin rojo del diodo rgb lo conectamos a una resistencia de $500\Omega$ y el otro extremo de la resistencia conectado al pin 18 del microcontrolador, el pin verde del diodo rgb lo conectamos a una resistencia de $500\Omega$ y el otro extremo de la resistencia conectado al pin 16 del microcontrolador, el pin azul del diodo rgb lo conectamos a una resistencia de $500\Omega$ y el otro extremo de la resistencia conectado al pin 15 del microcontrolador.\\\\
+Una vez terminadas las conexiones solo resta soldarlas en una baquela. Por ultimo pero no menos importante es conseguir icopor y hacer unas bases para que en ellas repose nuestro circuito de esta manera nos aseguramos en caso de cualquier incidente que las placas no se vayan a estropear ni que las conexiones vayan a quedar haciendo corto.
+\begin{Figure}	
 \center
 \begin{tabular}{|l|r|}
 \hline
 \includegraphics[width=4cm, height=4cm]{img/rgbesq.png} & \includegraphics[width=4cm, height=4cm]{img/rgbmont.png} \\ \hline
 5.A. & 5.B. \\ \hline
 \end{tabular}
-\captionof{figure}{En la figura 3.A se muestra el circuito eléctrico del motor conectado a la tarjeta atmega 328 P-PU, junto con un tip 122 encargado de controlar la corriente que circula por el  motor consiguiendo de esta manera controlar la velocidad de este, también lleva un diodo regulador, un capacitor cerámico de  12 picofaradios y una resistencia de 1 Komhs. En la figura 3.B esta  el circuito eléctrico en protoboard, los cables negros son tierra, los cables rojos son voltaje, y los cables naranjas son conexiones.}
-\label{fig:g3}
+\captionof{figure}{En la figura 5.A. se muestra el circuito eléctrico del diodo rgb conectado al microcontrolador atmega 328 P-PU. En la figura 5.B esta  el esquema  del diodo rgb en protoboard.}
+\label{fig:g5}
 \end{Figure}
+\vspace{0.6 cm}
 
+Esa era la parte eléctrica ahora los esquemas eléctricos deben unirse para formar un solo circuito\footnote{Ver figura 6.A., y 6.B.}, antes de soldar el microcontrolador atmega 328P-PU es necesario cargar el archivo de control del hardware, cuyos pasos son los siguientes:
+\begin{enumerate}
+\item[*] Instalar git \footnote{Enlace para instalar git  http://git-scm.com/download/linux }
+\item[*] Descargar el repositorio de este proyecto \footnote{En una terminal escribimos git  clone https://github.com/Diego-debian/Modulo\_Motorizado.git}.
+\item[*] Una vez descargado el repositorio hay que ir desde la terminal de linux a la carpeta donde se encuentra alojado el repositorio que acaba de descargar; si usted clono el repositorio en su carpeta home, solo coloque la siguiente linea en una terminal  sin la primera y ultima comilla “cd "Modulo\_Motorizado/0. Instalación/0.1 programas requeridos/"”.
+\item[*] Acceda como usuario root y a continuación escriba en la terminal la siguiente linea sin las comillas “python install.py”, se abrirá el programa de instalación del proyecto, ahora siga las instrucciones del programa.
+\item[*] Al terminar el programa le pedira si desea reiniciar el ordenador, escriba n y luego presione enter.
+\item[*] Escriba sin las comillas “exit” y oprima enter, luego escriba “arduino” y oprima enter, abrirá una ventana donde debe seleccionar la opción add. Luego de esto vera la IDE de arduino, ciérrela y reinicie el ordenador.
+\item[*] Desde nuestro navegador de archivos del sistema\footnote{Puede estar utilizando los siguientes en su distribución linux, nautilus, thunar o algún otro.}  entramos a la carpeta Modulo\_Motorizado/1. Inicio/ 1.2 programar arduino y sensores, allí encontraremos el archivo sensores2.ino, lo seleccionamos y oprimimos enter.
+\item[*] Conectamos la tarjeta arduino junto con el microcontrolador que vamos a dejar en el proyecto, en la IDE de arduino vamos a la opción herramientas,  tarjeta y seleccionamos arduino uno;  ahora nuevamente en herramientas, damos click en puerto serial y seleccionamos el puerto que nos aparece,  ahora oprimimos la tecla ctrl y la tecla “u” \footnote{Sin las comillas} al mismo tiempo y esperamos mientras carga el sketch, una vez cargado retiramos el microcontrolador y lo colocamos en la parte del proyecto donde se le dispuso su sitio.   
+\end{enumerate}
+
+\begin{Figure}	
+\center
+\begin{tabular}{|l|r|}
+\hline
+\includegraphics[width=4cm, height=4cm]{img/montajep.png} & \includegraphics[width=4cm, height=4cm]{img/esquemap.png} \\ \hline
+6.A. & 6.B. \\ \hline
+\end{tabular}
+\captionof{figure}{En la figura 6.A. se muestra el circuito eléctrico del proyecto. En la figura 5.B esta  el esquema  del proyecto.}
+\label{fig:g6}
+\end{Figure}
+\vspace{0.6 cm}
+
+{\bf{2.2.1 Montaje mecánico}}\\\\
+Lo primero sera tomar la tabla de madera o acrílico y hacer un chasis  como el que aparece en la figura 7, para montar nuestro sistema de transmisión\footnote{Ver figura 8.B}, el circuito eléctrico, y el sistema de rodamiento delantero\footnote{Ver figura 8.A. y 8.B.}.
+\begin{Figure}	
+\center
+\includegraphics[width=9cm, height=5.7cm]{img/chasis.png} 
+\captionof{figure}{En esta figura se observan las dimensiones del chasis que va servir de base del circuito eléctrico y donde reposara el sistema de transmisión del proyecto.}
+\label{fig:g7}
+\end{Figure}
+\vspace{0.6 cm}
+
+Después de tener todo montado como se aprecia en la figura 9, hemos terminado toda la parte del montaje del modulo motorizado.\\\\
+
+\begin{Figure}	
+\center
+\begin{tabular}{|l|r|}
+\hline
+\includegraphics[width=4cm, height=4cm]{img/montaje1.png} & \includegraphics[width=4cm, height=4cm]{img/montaje2.png} \\ \hline
+8.A. & 8.B. \\ \hline
+\end{tabular}
+\captionof{figure}{En la figura 8.A. se muestra la vista superior del montaje del vehiculo motorizado, solo falta colocar la parte electrica. En la figura 8.B se muestra el montaje del vehiculo motorizado con una vista inferior, junto al sistema de transmisión, y el rodamiento delantero.}
+\label{fig:g8}
+\end{Figure}
+\vspace{0.6 cm}
+
+Este vehículo se encuentra en una etapa alpha, de esta manera hace falta montar toda la parte estética del vehículo, esto se deja a disposición de cada persona, pues lo realmente importante del vehículo es sus funciones, pero no hay que olvidar que la parte estética es y sera muy importante si este producto quisiera comercializarse.  \\\\
+
+\begin{Figure}	
+\center
+\includegraphics[width=9cm, height=5.7cm]{img/cap6.png} 
+\captionof{figure}{Este el montaje final del vehiculo motorizado.}
+\label{fig:g9}
+\end{Figure}
+\vspace{0.6 cm}
+
+\section{Experiencia de laboratorio}
+
+Una vez descargado nuestro repositorio del proyecto, y teniendo listo el montaje del mismo, es necesario hacer las respectivas pruebas de rapidez e intensidad de radiación del vehículo, para poder realizar estos análisis fue necesario crear una interfaz gráfica en python que fuera capaz de controlar el  vehículo, obtener datos de este y hacer sus respectivos análisis.\\\\
 
 \begin{thebibliography}{99}
 \bibitem{ARDUINO} Arduino, pagina oficial, proyecto arduino. http://www.arduino.cc/
