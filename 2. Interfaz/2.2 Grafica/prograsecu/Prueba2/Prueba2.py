@@ -37,30 +37,34 @@ class Gramo():
                 arduino.close()  
         
         def Valido():
-            lblRapidez = Label(bicho, text="PRUEBA DE INTENSIDAD CON RAPIDEZ SIN PAUSA", fg = ("red"), font = ("Century Schoolbook L",10)).place(x=30, y=180)
-            btnVelo0= Button(bicho, text= "Rapidez_0", width=5, height=1, command= Sen_Lat0).place(x=20, y=230)         
-            btnVelo1= Button(bicho, text= "Rapidez_1", width=5, height=1, command= Sen_Lat1).place(x=90, y=230)
-            btnVelo2= Button(bicho, text= "Rapidez_2", width=5, height=1, command= Sen_Lat2).place(x=160, y=230)
-            btnVelo3= Button(bicho, text= "Rapidez_3", width=5, height=1, command= Sen_Lat3).place(x=230, y=230)
-            btnVelo4= Button(bicho, text= "Rapidez_4", width=5, height=1, command= Sen_Lat4).place(x=300, y=230)
+            rx = 0
+            ry = 0
+#------------------------------------------------Botones----------------------------------------------------------
+            lblRapidez = Label(bicho, text="PRUEBA DE INTENSIDAD, RAPIDEZ SIN PAUSA", fg = ("red"), font = ("Century Schoolbook L",10)).place(x=30, y=180-ry/2)
+            btnVelo0= Button(bicho, text= "Rapidez_0", width=5, height=1, command= Sen_Lat0).place(x=20+rx, y=230+ry)         
+            btnVelo1= Button(bicho, text= "Rapidez_1", width=5, height=1, command= Sen_Lat1).place(x=90+rx, y=230+ry)
+            btnVelo2= Button(bicho, text= "Rapidez_2", width=5, height=1, command= Sen_Lat2).place(x=160+rx, y=230+ry)
+            btnVelo3= Button(bicho, text= "Rapidez_3", width=5, height=1, command= Sen_Lat3).place(x=230+rx, y=230+ry)	
+            btnVelo4= Button(bicho, text= "Rapidez_4", width=5, height=1, command= Sen_Lat4).place(x=300+rx, y=230+ry)
+            
+            
    
-
         def Sen_Lat0():
             gp = Gnuplot.Gnuplot()
             gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO LATERAL'")
-            gp("set xlabel 'Tiempo en milesimas de segundos'") 
+            gp("set xlabel 'Dato '") 
             gp("set ylabel 'Voltaje en milivoltios'")
-            gp("set xrange [-10: 80000] ")
-            gp("set yrange [-10: 4000] ")
+            gp("set yrange[0:4000]")
             arduino=serial.Serial(puerto.get(), 9600)
             time.sleep(2)
             arduino.write('hh')
             time.sleep(2)
-            for i in range(0, 1000):
+            self.t1 = float(time.time())
+            for i in range(0, 200):
                 archi = open('Datos/dat0/datos_0.dat', 'a+')
             #   time.sleep(0.00005)
                 x = arduino.readline()
-                z = int(i*60)
+                z = int (i)
                 xo = str(z)
                 yo = str(x)
                 print('{0} {1}').format(xo, yo)
@@ -71,6 +75,12 @@ class Gramo():
                 archi.close()
                 gp("plot 'Datos/dat0/datos_0.dat' with lines")
             else:
+                self.t2 = float(time.time())
+                self.tt = self.t2 -self.t1
+                self.Cd = 200/self.tt
+                self.t0 = float(self.tt/200)
+                print "El tiempo total en la captura de datos fue",self.tt
+                print "Se captura 1 dato cada" , self.t0 , "segundos"
                 gp("plot 'Datos/dat0/datos_0.dat' with lines")
                 gp("pause mouse")
                 gp("set term png")
@@ -85,24 +95,34 @@ class Gramo():
                 os.system('sync')
                 arduino.close()
                 arduino.close()
-                
+            self.t0 = float(self.tt/200)
+            print "El tiempo total en la captura de datos fue", self.tt
+            print "Se captura 1 dato cada" , self.t0 , "segundos" 
+            M1=float((0.3/0.0795))
+            self.N1=int(M1/self.t0)
+            M2=float((0.3/0.0965))
+            self.N2=int(M2/self.t0)
+            M3=float((0.3/0.1005))
+            self.N3=int(M3/self.t0)
+            M4=float((0.3/0.1180))
+            self.N4=int(M4/self.t0)
+        
                 
         def Sen_Lat1():
             gp = Gnuplot.Gnuplot()
             gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO LATERAL'")
-            gp("set xlabel 'Tiempo en milesimas de segundos'") 
+            gp("set xlabel 'Distancia en metros'") 
             gp("set ylabel 'Voltaje en milivoltios'")
-            gp("set xrange [-10: 100] ")
-            gp("set yrange [-10: 1500] ")
+            gp("set yrange[0:4000]")
             arduino=serial.Serial(puerto.get(), 9600)
             time.sleep(2)
             arduino.write('ii')
             time.sleep(2)
-            for i in range(0, 58):
+            for i in range(0, self.N1):
                 archi = open('Datos/dat1/datos_1.dat', 'a+')
             #     time.sleep(0.00005)
                 x = arduino.readline()
-                z = int(i*58/40)
+                z = float(0.0795*i*self.t0)
                 xo = str(z)
                 yo = str(x)
                 print('{0} {1}').format(xo, yo)
@@ -112,6 +132,7 @@ class Gramo():
                 archi.write (yo)
                 archi.close()
                 gp("plot 'Datos/dat1/datos_1.dat' with lines ")
+
             else:
                 gp("plot 'Datos/dat1/datos_1.dat' with lines")
                 gp("pause mouse")
@@ -137,17 +158,16 @@ class Gramo():
             gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO LATERAL'")
             gp("set xlabel 'Tiempo en milesimas de segundos'") 
             gp("set ylabel 'Voltaje en milivoltios'")
-            gp("set xrange [-10: 100] ")
-            gp("set yrange [-10: 1500] ")
+            gp("set yrange[0:4000]")
             arduino=serial.Serial(puerto.get(), 9600)
             time.sleep(2)
             arduino.write('jj')
             time.sleep(2)
-            for i in range(0, 50):
+            for i in range(0,   self.N2):
                 archi = open('Datos/dat2/datos_2.dat', 'a+')
             #        time.sleep(0.00005)
                 x = arduino.readline()
-                z = int(i*50/40)
+                z = float(0.0965*i*self.t0)
                 xo = str(z)
                 yo = str(x)
                 print('{0} {1}').format(xo, yo)
@@ -179,17 +199,16 @@ class Gramo():
             gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO LATERAL'")
             gp("set xlabel 'Tiempo en milesimas de segundos'") 
             gp("set ylabel 'Voltaje en milivoltios'")
-            gp("set xrange [-10: 100] ")
-            gp("set yrange [-10: 1500] ")
+            gp("set yrange[0:4000]")
             arduino=serial.Serial(puerto.get(), 9600)
             time.sleep(2)
             arduino.write('kk')
             time.sleep(2)
-            for i in range(0, 44):
+            for i in range(0,   self.N3):
                 archi = open('Datos/dat3/datos_3.dat', 'a+')
                 time.sleep(0.00005)
                 x = arduino.readline()
-                z = int(i*44/40)
+                z = float(0.1005*i*self.t0)
                 xo = str(z)
                 yo = str(x)
                 print('{0} {1}').format(xo, yo)
@@ -221,17 +240,16 @@ class Gramo():
             gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO LATERAL'")
             gp("set xlabel 'Tiempo en milesimas de segundos'") 
             gp("set ylabel 'Voltaje en milivoltios'")
-            gp("set xrange [-10: 100] ")
-            gp("set yrange [-10: 1500] ")
+            gp("set yrange[0:4000]")
             arduino=serial.Serial(puerto.get(), 9600)
             time.sleep(2)
             arduino.write('ll')
             time.sleep(2)
-            for i in range(0, 40):
+            for i in range(0,   self.N4):
                 archi = open('Datos/dat4/datos_4.dat', 'a+')
                 time.sleep(0.00005)
                 x = arduino.readline()
-                z = int(i)
+                z = float(0.180*i*self.t0)
                 xo = str(z)
                 yo = str(x)
                 print('{0} {1}').format(xo, yo)
@@ -294,7 +312,7 @@ class Gramo():
                     archi = open('Datos_C/dat1/datos_1.dat', 'a+')
                 #   time.sleep(0.00005)
                     x = arduino.readline()
-                    z = 0.3*n
+                    z = 0.45*n
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
@@ -388,7 +406,7 @@ class Gramo():
                     archi = open('Datos_C/dat2/datos_2.dat', 'a+')
                 #   time.sleep(0.00005)
                     x = arduino.readline()
-                    z = 0.3*n
+                    z = 0.35*n
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
@@ -483,7 +501,7 @@ class Gramo():
                     archi = open('Datos_C/dat3/datos_3.dat', 'a+')
                 #   time.sleep(0.00005)
                     x = arduino.readline()
-                    z = 0.3*n
+                    z = 0.27*n
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
@@ -672,7 +690,7 @@ class Gramo():
                     archi = open('Datos_C/dat5/datos_5.dat', 'a+')
                 #   time.sleep(0.00005)
                     x = arduino.readline()
-                    z = 0.309*n
+                    z = 0.37*n
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
