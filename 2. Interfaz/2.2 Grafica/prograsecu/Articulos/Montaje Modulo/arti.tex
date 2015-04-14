@@ -4,6 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{epsfig}
+\usepackage{multirow}
 \usepackage{multicol,caption}
 \usepackage{amsthm} % Theorem Formatting
 \usepackage{amssymb}    % Math symbols such as \mathbb
@@ -75,7 +76,7 @@ Para la realización de este montaje se utilizaron los siguientes materiales:
 \item[h.] Dos resistencia de 500 ohms.
 \item[i.] Tres resistencias de 1 komhs.
 \item[j.] Diodo rectificador de referencia 1N4001. \cite{DIODO}
-\item[k.] Dos capacitores ceramicos de 12 picofaradios.
+\item[k.] Dos capacitores cerámicos de 12 picofaradios.
 \item[l.] Dos capacitores de 10 microfaradios.
 \item[m.] Sistema de engranajes de eje móvil, para realizar el movimiento del vehículo.
 \item[n.] Cuatro llantas de carros de juguetes.
@@ -86,9 +87,9 @@ Para la realización de este montaje se utilizaron los siguientes materiales:
 
 {\bf{2.2 Montaje experimental}}\\\\
 {\bf{2.2.1 Circuito electrónico}}\\\\
-A continuación se explica paso a paso como armar el circuito eléctrico, el montaje se realiza en fritzing\footnote{Enlace a la pagina oficial del proyecto fritzing http://www.fritzing.org/home/}. Cabe recordar que se explicara parte por parte del circuito y luego todas deben unirse en una sola.\\\\
+A continuación se explica paso a paso como armar el circuito eléctrico, el montaje se realiza en fritzing\footnote{Enlace a la pagina oficial del proyecto fritzing http://www.fritzing.org/home/}. Se explicara parte por parte del circuito y luego todas deben unirse en una sola.\\\\
 Cabe mencionar que los esquemas de las figuras de la 1 a la 8 fueron tomadas de la pagina principal del proyecto arduino\cite{ARDUINO}, y modificadas en fritzing\cite{FRITZING}  \\\\
-Lo primero que se hará, sera preparar el microcontrolador para su primer uso, debido a que los microcontroladores atmega 328 P-PU no vienen listos para comenzar a programar; es necesario hacer un stand alone\footnote{Enlace a un bootloader https://arduinoelectronics.wordpress.com/2012/02/10/standalone-atmega-without-arduino-bootloader/.} sobre el microcontrolador.\\\\
+Lo primero que se hará, sera preparar el microcontrolador para su primer uso, debido a que los microcontroladores atmega 328 P-PU no vienen listos para comenzar a programar; es necesario hacer un stand alone\footnote{Enlace a un bootloader https://arduinoelectronics.wordpress.com/2012/02/10/standalone-atmega-without-arduino-bootloader/} sobre el microcontrolador.\\\\
 
 
 \begin{Figure}
@@ -105,8 +106,8 @@ Lo primero que se hará, sera preparar el microcontrolador para su primer uso, d
 
 Montamos un transformador de 9 voltios a 5 voltios, esto lo hacemos con dos capacitores electrolíticos de 10 microfaradios  y el transistor lm7805\cite{REGULADOR} cv. Ambos  capacitores deben ir en paralelo quedando su extremo negativo conectado a tierra y su extremo positivo uno a la entrada de 9 V y el otro a la salida de 5 V del transistor, el transistor lm consta de 3 pines uno de los cuales es la entrada de +9V, el pin de la mitad es tierra o GND y el pin extremo es la salida a 5V; tal como se muestra en la figura 1.A.; en la figura 1.B. se le coloco un enchufe de salida de poder.
 El modulo bluetooth se debe conectar de la siguiente manera: el pin 2 de la tarjeta arduino es el Rx este va conectado al Tx del blueetooth, el pin 3 del microcontrolador es el Tx y va conectado al pin Rx del bluetooth, como se muestra en la figura 2.A y 2.B , conectamos el GND del bluetooth al pin 8  o 16 de nuestro microcontrolador , ahora conectamos el pin de Vcc del bluetooth al pin 7 o 14 del microcontrolador. \\\\
-Necesitamos colocar un oscilador de 16 mHz el cual lo dejaremos siempre en el microcontrolador, esto  con el fin de ajustar los tres relojes internos que trae nuestro integrado atmega 328 P-Pu, para esto utilizamos el cristal de 16 mHz junto con los dos condensadores cerámicos de 12 picofaradios \footnote{Ver figura 2.A y 2.B}, uno de los pines del cristal debe conectarse al pin 9 del microcontrolador y el otro extremo del cristal al pin 10, conectamos un capacitor a cada extremo del cristal y estos al pin 8 o 16 del microcontrolador de tal forma que los capacitores quedan en paralelo. \\\\
-Colocamos un botón\footnote{Como se muestra en la figura 2.A y 2.B} para reiniciar nuestro microcontrolador en caso de que lo necesitamos, esto lo hacemos colocando uno de los extremos del botón al pin 1 del microcontrolador que es el pin de reset, el otro extremo del botón lo conectamos a una resistencia de 1 Komhs y el extremo de la resistencia a tierra.\\\\
+Necesitamos colocar un oscilador de 16 mHz el cual lo dejaremos siempre en el microcontrolador, esto  con el fin de ajustar los tres relojes internos que trae nuestro integrado atmega 328 P-Pu, para esto utilizamos el cristal de 16 mHz junto con los dos condensadores cerámicos de 12 picofaradios \footnote{Ver figura 2.A y 2.B.}, uno de los pines del cristal debe conectarse al pin 9 del microcontrolador y el otro extremo del cristal al pin 10, conectamos un capacitor a cada extremo del cristal y estos al pin 8 o 16 del microcontrolador de tal forma que los capacitores quedan en paralelo. \\\\
+Colocamos un botón\footnote{Como se muestra en la figura 2.A y 2.B.} para reiniciar nuestro microcontrolador en caso de que lo necesitamos, esto lo hacemos colocando uno de los extremos del botón al pin 1 del microcontrolador que es el pin de reset, el otro extremo del botón lo conectamos a una resistencia de 1 Komhs y el extremo de la resistencia a tierra.\\\\
 
 \begin{Figure}
 \center
@@ -128,7 +129,7 @@ Las conexiones del motor son las siguientes, como vamos a utilizar un transistor
 \item[*] El pin de la derecha es el emisor.
 \end{enumerate}
 
-Conectamos una resistencia de 1 $k \Omega $ al pin base del transistor y este a su vez al pin numero 5 del integrado atmega328P-PU\footnote{Como se aprecia en la figura 2.B}, luego conectamos el pin del colector del tip122 a +5V, asegurandonos de colocar el diodo regulador entre el colector y uno de los extremos del motor; a continuación conectamos el pin emisor del transistor  junto con el otro extremo de la conexión del motor a tierra; ahora colocamos las conexiones del condensador ceramico entre las conexiones del motor.\footnote{Observar figuras 2.A. y 2.B.}
+Conectamos una resistencia de 1 $k \Omega $ al pin base del transistor y este a su vez al pin numero 5 del integrado atmega328P-PU\footnote{Como se aprecia en la figura 2.B.}, luego conectamos el pin del colector del tip122 a +5V, asegurándonos de colocar el diodo regulador entre el colector y uno de los extremos del motor; a continuación conectamos el pin emisor del transistor  junto con el otro extremo de la conexión del motor a tierra; ahora colocamos las conexiones del condensador cerámico entre las conexiones del motor.\footnote{Observar figuras 2.A. y 2.B.}
 
 
 \begin{Figure}
@@ -142,9 +143,9 @@ Conectamos una resistencia de 1 $k \Omega $ al pin base del transistor y este a 
 \label{fig:g3}
 \end{Figure}
 
-Procedemos hacer las conexiones del sensor receptor lateral \footnote{Se aprecia en la figura 4.A. y en la figura 4.B.} el cual es un diodo led receptor de luz infrarroja \cite{INFRARED}, conectamos una resistencia de $1 k\Omega$ al ánodo del led y el otro extremo de la resistencia a tierra, luego conectamos el pin 28 \footnote{Este pin es la entrada analógica numero cero del microcontrolador atmega} del microcontrolador en un punto intermedio entre la resistencia y el ánodo del diodo led, el cátodo del diodo lo conectamos a +5V.\\\\
-Para las conexiones del sensor receptor frontal \footnote{Se aprecia en la figura 4.A. y en la figura 4.B., en la parte donde estan los dos diodos led} el cual es un diodo led receptor de luz infrarroja \cite{INFRARED}, conectamos una resistencia de $1 k\Omega$ al ánodo del led y el otro extremo de la resistencia a tierra, luego conectamos el pin 22 \footnote{Este pin es la entrada analógica numero cinco del microcontrolador atmega} del microcontrolador en un punto intermedio entre la resistencia y el ánodo del diodo led, el cátodo del diodo lo conectamos a +5V.\\\\
-Para la conexión de la fuente\footnote{Ver figura 4.B. y su esquema en la figura 4.A.} emisora de fotones infrarrojos o radiación infrarroja se utiliza un diodo led emisor en el infrarrojo, el cátodo del diodo lo conectamos a una resistencia de $350 \Omega$ a $500 \Omega$ y el otro extremo de la resistencia lo conectamos a tierra, el ánodo del diodo lo conectamos al pin 12\footnote{Salida D6 PWM} del microcontrolador.
+Procedemos hacer las conexiones del sensor receptor lateral \footnote{Se aprecia en la figura 4.A. y en la figura 4.B.} el cual es un diodo led receptor de luz infrarroja \cite{INFRARED}, conectamos una resistencia de $1 k\Omega$ al ánodo del led y el otro extremo de la resistencia a tierra, luego conectamos el pin 28 \footnote{Este pin es la entrada analógica numero cero del microcontrolador atmega.} del microcontrolador en un punto intermedio entre la resistencia y el ánodo del diodo led, el cátodo del diodo lo conectamos a +5V.\\\\
+Para las conexiones del sensor receptor frontal \footnote{Se aprecia en la figura 4.A. y en la figura 4.B., en la parte donde están los dos diodos led.} el cual es un diodo led receptor de luz infrarroja \cite{INFRARED}, conectamos una resistencia de $1 k\Omega$ al ánodo del led y el otro extremo de la resistencia a tierra, luego conectamos el pin 22 \footnote{Este pin es la entrada analógica numero cinco del microcontrolador atmega.} del microcontrolador en un punto intermedio entre la resistencia y el ánodo del diodo led, el cátodo del diodo lo conectamos a +5V.\\\\
+Para la conexión de la fuente\footnote{Ver figura 4.B. y su esquema en la figura 4.A.} emisora de fotones infrarrojos o radiación infrarroja se utiliza un diodo led emisor en el infrarrojo, el cátodo del diodo lo conectamos a una resistencia de $350 \Omega$ a $500 \Omega$ y el otro extremo de la resistencia lo conectamos a tierra, el ánodo del diodo lo conectamos al pin 12\footnote{Salida D6 PWM.} del microcontrolador.
 
 \begin{Figure}
 \center
@@ -153,7 +154,7 @@ Para la conexión de la fuente\footnote{Ver figura 4.B. y su esquema en la figur
 \includegraphics[width=4cm, height=4cm]{img/ledesq.png} & \includegraphics[width=4cm, height=4cm]{img/ledmont.png} \\ \hline
 4.A. & 4.B. \\ \hline
 \end{tabular}
-\captionof{figure}{En la figura 4.A se observa las conexiones de los diodos tanto receptores como el emisor, conectanos al microcontrolador atmega328P-PU. En la figura 4.B esta  el montaje en protoboard, los cables negros son tierra, los cables rojos son voltaje, el cable azul es la conexión entre el ánodo del diodo led emisor infrarrojo frontal y el pin 6 del microcontrolador, el cable naranja es la conexión entre el pin 23 del microcontrolador y el punto de conexión entre el ánodo del  diodo receptor infrarrojo lateral con la resistencia, el cable gris  es la conexión entre el pin 28 del microcontrolador y el punto de conexión entre el ánodo del diodo receptor infrarrojo frontal con la resistencia.}
+\captionof{figure}{En la figura 4.A se observa las conexiones de los diodos tanto receptores como el emisor, conectamos al microcontrolador atmega328P-PU. En la figura 4.B esta  el montaje en protoboard, los cables negros son tierra, los cables rojos son voltaje, el cable azul es la conexión entre el ánodo del diodo led emisor infrarrojo frontal y el pin 6 del microcontrolador, el cable naranja es la conexión entre el pin 23 del microcontrolador y el punto de conexión entre el ánodo del  diodo receptor infrarrojo lateral con la resistencia, el cable gris  es la conexión entre el pin 28 del microcontrolador y el punto de conexión entre el ánodo del diodo receptor infrarrojo frontal con la resistencia.}
 \label{fig:g4}
 \end{Figure}
 
@@ -180,7 +181,7 @@ Esa era la parte eléctrica ahora los esquemas eléctricos deben unirse para for
 \item[e.] Al terminar el programa le pedira si desea reiniciar el ordenador, escriba n y luego presione enter.
 \item[f.] Escriba sin las comillas “exit” y oprima enter, luego escriba “arduino” y oprima enter, abrirá una ventana donde debe seleccionar la opción add. Luego de esto vera la IDE de arduino, ciérrela y reinicie el ordenador.
 \item[g.] Desde nuestro navegador de archivos del sistema\footnote{Puede estar utilizando los siguientes en su distribución linux, nautilus, thunar o algún otro.}  entramos a la carpeta Modulo\_Motorizado/1. Inicio/ 1.2 programar arduino y sensores, allí encontraremos el archivo sensores2.ino, lo seleccionamos y oprimimos enter.
-\item[h.] Conectamos la tarjeta arduino junto con el microcontrolador que vamos a dejar en el proyecto, en la IDE de arduino vamos a la opción herramientas,  tarjeta y seleccionamos arduino uno;  ahora nuevamente en herramientas, damos click en puerto serial y seleccionamos el puerto que nos aparece,  ahora oprimimos la tecla ctrl y la tecla “u” \footnote{Sin las comillas} al mismo tiempo y esperamos mientras carga el sketch, una vez cargado retiramos el microcontrolador y lo colocamos en la parte del proyecto donde se le dispuso su sitio.   
+\item[h.] Conectamos la tarjeta arduino junto con el microcontrolador que vamos a dejar en el proyecto, en la IDE de arduino vamos a la opción herramientas,  tarjeta y seleccionamos arduino uno;  ahora nuevamente en herramientas, damos click en puerto serial y seleccionamos el puerto que nos aparece,  ahora oprimimos la tecla ctrl y la tecla “u” \footnote{Sin las comillas.} al mismo tiempo y esperamos mientras carga el sketch, una vez cargado retiramos el microcontrolador y lo colocamos en la parte del proyecto donde se le dispuso su sitio.   
 \end{enumerate}
 
 \begin{Figure}	
@@ -196,7 +197,7 @@ Esa era la parte eléctrica ahora los esquemas eléctricos deben unirse para for
 \vspace{0.6 cm}
 
 {\bf{2.2.1 Montaje mecánico}}\\\\
-Lo primero sera tomar la tabla de madera o acrílico y hacer un chasis  como el que aparece en la figura 7, para montar nuestro sistema de transmisión\footnote{Ver figura 8.B}, el circuito eléctrico, y el sistema de rodamiento delantero\footnote{Ver figura 8.A. y 8.B.}.
+Lo primero sera tomar la tabla de madera o acrílico y hacer un chasis  como el que aparece en la figura 7, para montar nuestro sistema de transmisión\footnote{Ver figura 8.B.}, el circuito eléctrico, y el sistema de rodamiento delantero\footnote{Ver figura 8.A. y 8.B.}.
 \begin{Figure}	
 \center
 \includegraphics[width=9cm, height=5.7cm]{img/chasis.png} 
@@ -204,7 +205,7 @@ Lo primero sera tomar la tabla de madera o acrílico y hacer un chasis  como el 
 \label{fig:g7}
 \end{Figure}
 \vspace{0.6 cm}
-
+Ahora colocamos las llantas del vehículo para esto colocamos dos llantas de 1.5 cm de radio en el eje delantero y luego colocamos dos llantas de 2.5 cm de radio en los ejes traseros; esto con el fin de reducir la rapidez angular de las llantas, la cual se manifestara en una disminución significativa de la rapidez del vehículo.\\\\
 Después de tener todo montado como se aprecia en la figura 9, hemos terminado toda la parte del montaje del modulo motorizado.\\\\
 
 \begin{Figure}	
@@ -214,7 +215,7 @@ Después de tener todo montado como se aprecia en la figura 9, hemos terminado t
 \includegraphics[width=4cm, height=4cm]{img/montaje1.png} & \includegraphics[width=4cm, height=4cm]{img/montaje2.png} \\ \hline
 8.A. & 8.B. \\ \hline
 \end{tabular}
-\captionof{figure}{En la figura 8.A. se muestra la vista superior del montaje del vehiculo motorizado, solo falta colocar la parte electrica. En la figura 8.B se muestra el montaje del vehiculo motorizado con una vista inferior, junto al sistema de transmisión, y el rodamiento delantero. Las figuras fueron modeladas en python visual.}
+\captionof{figure}{En la figura 8.A. se muestra la vista superior del montaje del vehículo motorizado, solo falta colocar la parte eléctrica. En la figura 8.B se muestra el montaje del vehículo motorizado con una vista inferior, junto al sistema de transmisión, y el rodamiento delantero. Las figuras fueron modeladas en python visual.}
 \label{fig:g8}
 \end{Figure}
 \vspace{0.6 cm}
@@ -232,6 +233,101 @@ Este vehículo se encuentra en una etapa alpha, de esta manera hace falta montar
 \section{Experiencia de laboratorio}
 
 Una vez descargado nuestro repositorio del proyecto, y teniendo listo el montaje del mismo, es necesario hacer las respectivas pruebas de rapidez e intensidad de radiación del vehículo, para poder realizar estos análisis fue necesario crear una interfaz gráfica en python\cite{PYTHON} que fuera capaz de controlar el  vehículo, obtener datos de este y hacer sus respectivos análisis.\\\\
+{\bf{3.1 Pruebas de rapidez}} \\\\
+Lo primero que debemos hacer es desde una terminal dirigirnos hasta la carpeta donde hemos descargado nuestro repositorio, luego escribimos cd “Modulo\_Motorizado/2. Interfaz/2.2 Grafica”; ahora escribimos python Gverificar.py  y oprimimos enter, nos debe aparecer la interfaz gráfica de bienvenida, en la que encontraremos una imagen con nuestro vehículo, damos click en la imagen e inmediatamente se nos abrirá otra ventana en donde encontraremos las opciones que necesitamos, damos click en la opción que dice prueba 1, esto nos abrirá otra ventana en la que nos pide la ruta al dispositivo, para esto  escribimos en la terminal blueman-manager, damos al icono de la lupa y nos buscara los dispositivos bluetooth disponibles, apenas veamos nuestro modulo bluetooth, que por lo general siempre aparece como HC-06 o HC-05, damos click derecho sobre este, seleccionamos la opción de emparejar y escribimos la clave de paso, por default es 1234; ahora una vez emparejado procedemos hacer click derecho nuevamente sobre el dispositivo y damos click en la opción “dev B”, si todo sale bien nos dará vía libre al puerto serial y nos dirá la ruta al dispositivo; una vez tengamos el nombre de la ruta al dispositivo la escribimos en la ventana de nuestro programa y damos enter\footnote{Ver figura 10.}, a lo que nos aparecerá, múltiples opciones  para calibrar la rapidez a la que se mueve nuestro modulo. En la primera parte nos aparece las opciones de rapidez sin pausa, por lo que al dar click en cualquiera de estas opciones sin pausa el vehículo se moverá durante 5 segundos a lo que debemos medir la distancia que se desplazo el vehículo, esto lo debemos hacer con cada una de las opciones y de esta manera saber cual es la rapidez a la que se mueve nuestro vehículo. Acto seguido nos aparece las opciones de rapidez con pausa, en esta parte el vehículo se moverá pausadamente 20 veces, por lo que debemos medir la distancia final del vehículo y dividir esta distancia por el numero de veces que se movió, de esta manera conseguimos el desplazamiento en cada pausa. 
+
+
+\begin{Figure}	
+\center
+\includegraphics[width=9cm, height=5.7cm]{img/prueba1.png} 
+\captionof{figure}{Este es el programa para realizar las pruebas de rapidez con y sin pausa.}
+\label{fig:g10}
+\end{Figure}
+\vspace{0.6 cm}
+
+{\bf{3.2 Pruebas sensor lateral}}\\\\
+Una vez terminada la prueba de rapidez en el vehículo, damos click en la imagen de una onda electromagnética, luego oprimimos en el botón que dice prueba 2, una vez allí volvemos a colocar la ruta a nuestro dispositivo, que es la misma que la prueba 1; damos click y nos aparecen dos pruebas una con rapidez sin pausa y otra de rapidez con pausa; el principio que utilizamos aquí es el de electro-recepción pasiva\cite{CIRCUITOS}, pues nuestro diodo receptor\cite{INFRARED} solo esta recibiendo la radiación y este a su vez se comporta como un  transductor\cite{CIRCUITOS}, pues convierte nuestra radiación electromagnética\footnote{Parte clásica.} o los fotones\footnote{Parte cuántica.}, en electricidad, que es interpretada  por nuestro microcontrolador como aumento en la corriente en uno de sus pines receptores análogos,  causando una diferencia de potencial\cite{CIRCUITOS}, con esta diferencia de potencial se trabajara para calibrar nuestro instrumento y poder hacer de el lo más confiable que se pueda en cuanto a sus mediciones refiere.\\\\
+
+\begin{Figure}	
+\center
+\includegraphics[width=9cm, height=5.7cm]{img/prueba2.png} 
+\captionof{figure}{Este es el programa para realizar las pruebas del sensor lateral.}
+\label{fig:g11}
+\end{Figure}
+\vspace{0.6 cm}
+
+Para realizar la prueba de rapidez sin pausa es necesario un ambiente\footnote{No debe estar presente la luz solar ni ninguna fuente que genere cantidades significativas de radiación infrarroja.} controlado,\footnote{Una temperatura ambiente inferior a los 18 $C^{0}$, las hojas de datos de estas piezas electrónicas indican que a temperaturas superiores la corriente no es lineal.} ahora lo primero sera medir la cantidad de datos que es capaz de procesar nuestro ordenador por segundo, para esto oprimimos el botón de rapidez 0 y cambiamos a la ventana de la terminal que esta ejecutando el programa, una vez allí el programa empezara hacer una medición del tiempo que tarda nuestro ordenador en procesar 200 datos\footnote{Para mayor información de esta parte, favor oprimir el botón de ayuda del programa.}, este resultado aparece en nuestra terminal\footnote{El programa va calibrado para trabajar en un ordenador toshiba satellite de 4 Gb de ram.}, mientras captura los datos los gráfica en tiempo real\footnote{Esta parte del código fue creada por mi al no tener un graficador en tiempo real para el puerto serial en GNU-Linux con python.};  una vez hecho esto cerramos la gráfica y cambiamos algunas partes del código\footnote{Ver la sección ayuda del proyecto.} para medir nuevamente  la distancia a la que se desplaza nuestro vehículo después de un tiempo prudencial y de esta manera obtener la rapidez a la que se desplaza nuestro modulo,  ahora es necesario volver a cambiar nuestro código\footnote{Ver sección ayuda del proyecto.}, esto con el fin de obtener unos buenos datos, por ultimo el programa nos mostrara la cantidad de ruido que interfiere en el experimento.  \\\\
+Ahora hacemos lo mismo con la parte de rapidez con pausa\footnote{Ver sección ayuda del proyecto.}.\\
+
+{\bf{3.3 Pruebas dispositivo frontal}}\\
+
+Una vez terminada la prueba 2, damos click en la imagen de una onda electromagnética, luego oprimimos en el botón que dice prueba 3, una vez allí volvemos a colocar la ruta a nuestro dispositivo, que es la misma que la prueba 2; damos click y nos aparecen dos pruebas una con rapidez sin pausa y otra de rapidez con pausa; el principio que utilizamos aquí es el de electro-recepción activa\cite{CIRCUITOS}, este consiste en enviar una señal, y luego por las propiedades\cite{BERKELEY} de reflexión\cite{HECHT}, absorción\cite{HECHT}, atenuación\cite{HECHT}, esta llega a nuestro diodo receptor\cite{INFRARED}, osea que es necesario enviar energía, para que esta vaya y vuelva rebotando de los obstáculos a nuestro sensor y este a su vez se comporta como un  transductor\cite{CIRCUITOS}, pues convierte nuestra radiación electromagnética\footnote{Parte clásica.} o los fotones\footnote{Parte cuántica.}, en electricidad, que es interpretada  por nuestro microcontrolador como aumento en la corriente en uno de sus pines receptores análogos,  causando una diferencia de potencial\cite{CIRCUITOS}, con esta diferencia de potencial se trabajara para calibrar nuestro instrumento y poder hacer de el lo más confiable que se pueda en cuanto a sus mediciones refiere.
+
+\begin{Figure}	
+\center
+\includegraphics[width=9cm, height=5.7cm]{img/prueba2.png} 
+\captionof{figure}{Este es el programa para realizar las pruebas del sensor lateral.}
+\label{fig:g11}
+\end{Figure}
+\vspace{0.4 cm}
+
+Para realizar la prueba de rapidez sin pausa es necesario un ambiente\footnote{No debe estar presente la luz solar ni ninguna fuente que genere cantidades significativas de radiación infrarroja.} controlado,\footnote{Una temperatura ambiente inferior a los 18 $C^{0}$, las hojas de datos de estas piezas electrónicas indican que a temperaturas superiores la corriente no es lineal.} ahora lo primero sera medir la cantidad de datos que es capaz de procesar nuestro ordenador por segundo, para esto oprimimos el botón de rapidez 0 y cambiamos a la ventana de la terminal que esta ejecutando el programa, una vez allí el programa empezara hacer una medición del tiempo que tarda nuestro ordenador en procesar 200 datos\footnote{Para mayor información de esta parte, favor oprimir el botón de ayuda del programa.}, este resultado aparece en nuestra terminal\footnote{El programa va calibrado para trabajar en un ordenador toshiba satellite de 4 Gb de ram.}, mientras captura los datos los gráfica en tiempo real\footnote{Esta parte del código fue creada por mi al no tener un graficador en tiempo real para el puerto serial en GNU-Linux con python.};  una vez hecho esto cerramos la gráfica y cambiamos algunas partes del código\footnote{Ver la sección ayuda del proyecto.} para medir nuevamente  la distancia a la que se desplaza nuestro vehículo después de un tiempo prudencial y de esta manera obtener la rapidez a la que se desplaza nuestro modulo,  ahora es necesario volver a cambiar nuestro código\footnote{Ver sección ayuda del proyecto.}, esto con el fin de obtener unos buenos datos, por ultimo el programa nos mostrara la cantidad de ruido que interfiere en el experimento.  \\\\
+Ahora hacemos lo mismo con la parte de rapidez con pausa\footnote{Ver sección ayuda del proyecto.}.
+
+\section{Analisis de resultados}
+{\bf{4.1 Análisis de la Prueba 1}}\\\\
+Después de cerca de 100 mediciones en cada una de las opciones de esa sección del proyecto se llegan a las siguientes conclusiones: \\\\
+{\bf{4.1.1 Rapidez sin pausa}}\\
+
+En la tabla 1 se puede apreciar los resultados de la prueba de rapidez sin pausa en cada opción del programa, se trabaja con un corriente menor que la salida del pin analógico que es de 35 mA.\\\\
+El error en la medida de los datos de rapidez es la misma que nos ofrece nuestro instrumento de medición que en este caso es un metro cuyo error es $\frac{+}{-} 1 mm$, el error en la medida de la corriente es de $\frac{+}{-} 1 mA$.\\
+
+\begin{tabular}{|l|c|c|} 
+\hline
+\bf{Opción} &  \bf{Rapidez $(\frac{m}{s})$} & \bf{Corriente (mA)}\\
+\hline
+Rapidez 1 & 0.103 & 20 \\
+\hline
+Rapidez 2 & 0.130 & 23 \\
+\hline
+Rapidez 3 & 0.138 & 24 \\
+\hline 
+Rapidez 4 & 0.154 & 25 \\
+\hline
+\end{tabular}
+\\
+\textbf{Tabla 1.} Datos obtenidos de la Prueba 1, rapidez sin pausa, la corrientes es la que circula por el motor con cada opción. \\
+
+{\bf{4.1.2 Rapidez con pausa}} \\
+En la tabla 2 se puede apreciar los resultados de la prueba de rapidez con pausa en cada opción del programa, se trabaja con un corriente menor que la salida del pin analógico que es de 35 mA.\\\\
+El error en la medida de los datos de rapidez es la misma que nos ofrece nuestro instrumento de medición que en este caso es un metro cuyo error es $\frac{+}{-} 1 mm$, no se calcula la corriente pues varia demasiado rapido para ser medida.\\
+
+\begin{tabular}{|l|c|c|} 
+\hline
+\bf{Opción} & Distancia final (cm) & Avance (cm)\\
+\hline
+Rapidez 1 & 9 &0.45 \\
+\hline
+Rapidez 2 & 8 &0.4 \\
+\hline
+Rapidez 3 & 6.5 &0.325 \\
+\hline 
+Rapidez 4 & 6 & 0.3 \\
+\hline
+\end{tabular}
+\\
+\textbf{Tabla 2.} Datos obtenidos de la Prueba 1, rapidez con pausa, la distancia final es la distancia después de 20 repeticiones, y la distancia de avance es la distancia final dividida 20 repeticiones. \\
+
+{\bf{4.2 Sensor lateral}} \\\\
+{\bf{4.2.1 Rapidez sin pausa}}\\\\
+En la tabla 1 se puede apreciar los resultados de la prueba de rapidez sin pausa en cada opción del programa, se trabaja con un corriente menor que la salida del pin analógico que es de 35 mA.\\\\
+El error en la medida de los datos de rapidez es la misma que nos ofrece nuestro instrumento de medición que en este caso es un metro cuyo error es $\frac{+}{-} 1 mm$, el error en la medida de la corriente es de $\frac{+}{-} 1 mA$.\\
+
+
+
+
+
+
 
 \begin{thebibliography}{99}
 \bibitem{ARDUINO} Arduino, pagina oficial, proyecto arduino. http://www.arduino.cc/
@@ -242,9 +338,12 @@ Una vez descargado nuestro repositorio del proyecto, y teniendo listo el montaje
 \bibitem{FRITZING} Pagina oficial del proyecto fritzing http://fritzing.org/home/ 
 \bibitem{PYTHON} Notas del curso, python para el computo científico, curso de actualización académica de la DGAPA-UNAM, Facultad de ciencias, Dr. David P. Sanders, 5 de agosto de 2013. 
 \bibitem{CIRCUITOS} Fundamentos de circuitos eléctricos, tercera edición, editorial Mc Graw Hill, Charles K. Alexander and Matthew N. O. Sadiku. 
+\bibitem{BERKELEY} Berkeley Physics Course, volumen 3, Ondas (Crawford).
+\bibitem{HECHT} Óptica, Eugene Hecht, tercera edición
 \end{thebibliography}
 \end{multicols}
 \end{document}
+
 
 
 

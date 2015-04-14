@@ -47,7 +47,7 @@ class Gramo():
          
         def Conteo1():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 93):
+            for n in range (0, 111):
                 #time.sleep(2)
                 arduino= serial.Serial(puerto.get(), 9600)
                 os.system('rm Datos_C/dat1/datos_1.dat')
@@ -65,7 +65,7 @@ class Gramo():
                     archi = open('Datos_C/dat1/datos_1.dat', 'a+')
                     time.sleep(0.000005)
                     x = arduino.readline()
-                    z = 0.27*2*(104-n)
+                    z = 0.27*2*(122-n)
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
@@ -91,6 +91,7 @@ class Gramo():
                 os.system('rm Datos_C/dat1/datos_1.dat')  
                     
             else:
+                os.system("octave Datos_C/estadistica.m")
                 os.system('sync')
                 arduino.close()
                 arduino.close()
@@ -129,11 +130,13 @@ class Gramo():
             
         def LoL1():
             gp = Gnuplot.Gnuplot()
-            gp("set title 'ESPACIO VS VOLTAJE'")
+            gp("set title 'VOLTAJE  EN EL DIODO RECEPTOR VS DISTANCIA RECORRIDA'")
             gp("set xlabel 'Espacio en cm'") 
             gp("set ylabel 'Voltaje en milivoltios'")
+            gp("set xrange[-5:60]")
+            gp("set y range [-5:4000]")
             gp("set grid")
-            gp("plot 'Datos_C/dat1/datos1_.dat' title ' ' ")
+            gp("plot 'Datos_C/dat1/xy.dat' title ' ' ")
             gp("pause mouse")
             gp("set term png")
             gp("set output '../../Image/agraf1.png'")

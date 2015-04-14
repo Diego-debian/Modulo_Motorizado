@@ -1,8 +1,8 @@
 int motor = 3;
-const int sensor1 = A3;
-const int sensor2 = A0;
+const int sensor1 = A0;
+const int sensor2 = A5;
 const int ledRojo = 12;
-const int ledAzul = 11;
+const int ledAzul = 9;
 const int ledVerde = 10;
 const int ledEmisor = 6;
 

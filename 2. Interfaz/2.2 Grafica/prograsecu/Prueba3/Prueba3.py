@@ -1,5 +1,8 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
+#Programa creado por Diego ALberto Parra Garzon 
+#Universidad Distrital Francisco Jose de Caldas
+#Colombia, Bogota.
 
 import serial
 import os
@@ -12,7 +15,7 @@ import tkMessageBox
 import Tkinter
 
 class Gramo():
-    def Prueba2(self):
+    def Prueba3(self):
         bicho = Tk()
         bicho.geometry("810x500+0+0")
         bicho.config(bg="white")
@@ -37,30 +40,117 @@ class Gramo():
                 arduino.close()  
         
         def Valido():
-            lblRapidez = Label(bicho, text="PRUEBA DE INTENSIDAD CON RAPIDEZ SIN PAUSA", fg = ("red"), font = ("Century Schoolbook L",10)).place(x=30, y=180)
-            btnVelo0= Button(bicho, text= "Rapidez_0", width=5, height=1, command= Sen_Lat0).place(x=20, y=230)         
-            btnVelo1= Button(bicho, text= "Rapidez_1", width=5, height=1, command= Sen_Lat1).place(x=90, y=230)
-            btnVelo2= Button(bicho, text= "Rapidez_2", width=5, height=1, command= Sen_Lat2).place(x=160, y=230)
-            btnVelo3= Button(bicho, text= "Rapidez_3", width=5, height=1, command= Sen_Lat3).place(x=230, y=230)
-            btnVelo4= Button(bicho, text= "Rapidez_4", width=5, height=1, command= Sen_Lat4).place(x=300, y=230)
-   
+            rx = 0
+            ry = 0
+#------------------------------------------------Botones----------------------------------------------------------
+            lblRapidez = Label(bicho, text="PRUEBA DE INTENSIDAD, RAPIDEZ SIN PAUSA", fg = ("red"), font = ("Century Schoolbook L",10)).place(x=30, y=180-ry/2)
+            btnVelo0= Button(bicho, text= "Rapidez_0", width=5, height=1, command= Sen_Lat0).place(x=20+rx, y=230+ry)         
+            btnVelo1= Button(bicho, text= "Rapidez_1", width=5, height=1, command= Sen_Lat1).place(x=90+rx, y=230+ry)
+            btnVelo2= Button(bicho, text= "Rapidez_2", width=5, height=1, command= Sen_Lat2).place(x=160+rx, y=230+ry)
+            btnVelo3= Button(bicho, text= "Rapidez_3", width=5, height=1, command= Sen_Lat3).place(x=230+rx, y=230+ry)	
+            btnVelo4= Button(bicho, text= "Rapidez_4", width=5, height=1, command= Sen_Lat4).place(x=300+rx, y=230+ry)
+            btnVelo4= Button(bicho, text= "Reiniciar todo", width=10, height=1, command= Reiniciar).place(x=300+rx, y=440+ry)
 
+#=========================================================REINICIAR TODO ====================================================       
+        def Reiniciar():
+            os.system("rm Datos/dat0/datos_0.dat")
+            os.system("rm Datos/dat0/promRad.dat")
+            os.system("rm Datos/dat1/datos_1.dat")
+            os.system("rm Datos/dat2/datos_2.dat")
+            os.system("rm Datos/dat2/promRad.dat")
+            os.system("rm Datos/dat3/datos_3.dat")
+            os.system("rm Datos/dat3/promRad.dat")
+            os.system("rm Datos/dat4/datos_4.dat")
+            os.system("rm Datos/dat4/promRad.dat")
+            os.system("rm Datos_C/dat1/datos_1.dat Datos_C/dat1/datos1_.dat Datos_C/dat1/prom.dat")
+            os.system("rm Datos_C/dat2/datos_2.dat Datos_C/dat2/datos2_.dat Datos_C/dat2/prom.dat")
+            os.system("rm Datos_C/dat3/datos_3.dat Datos_C/dat3/datos3_.dat Datos_C/dat3/prom.dat")
+            os.system("rm Datos_C/dat4/datos_4.dat Datos_C/dat4/datos4_.dat Datos_C/dat4/prom.dat")
+            os.system("rm Datos_C/dat5/datos_5.dat Datos_C/dat5/datos5_.dat Datos_C/dat5/prom.dat")
+
+#=============================================================Estadistica====================================================
+
+        def Esta_0():
+            os.system("rm Datos/estadistica0.m")
+            archi = open('Datos/estadistica0.m', 'a+')
+            archi.write("f = load ('Datos/dat0/datos_0.dat');")
+            archi.write("\n")
+            archi.write("Y = f(:,2)/1000; \n")
+            archi.write("Yp = sum(Y) /200")
+            archi.write("; \n")
+            archi.write("save -ascii 'Datos/dat0/promRad.dat' Yp");
+            archi.close()     
+        
+        def Esta_1():
+            os.system("rm Datos/estadistica1.m")
+            z = str(self.N1)
+            archi = open('Datos/estadistica1.m', 'a+')
+            archi.write("f = load ('Datos/dat1/datos_1.dat');")
+            archi.write("\n")
+            archi.write("Y = f(:,2)/1000; \n")
+            archi.write("Yp = sum(Y) /")
+            archi.write(z)
+            archi.write("; \n")
+            archi.write("save -ascii 'Datos/dat1/promRad.dat' Yp");
+            archi.close()      
+
+        def Esta_2():
+            os.system("rm Datos/estadistica2.m")
+            z = str(self.N2)
+            archi = open('Datos/estadistica2.m', 'a+')
+            archi.write("f = load ('Datos/dat2/datos_2.dat');")
+            archi.write("\n")
+            archi.write("Y = f(:,2)/1000; \n")
+            archi.write("Yp = sum(Y) /")
+            archi.write(z)
+            archi.write("; \n")
+            archi.write("save -ascii 'Datos/dat2/promRad.dat' Yp");
+            archi.close() 
+
+        def Esta_3():
+            os.system("rm Datos/estadistica3.m")
+            z = str(self.N3)
+            archi = open('Datos/estadistica3.m', 'a+')
+            archi.write("f = load ('Datos/dat3/datos_3.dat');")
+            archi.write("\n")
+            archi.write("Y = f(:,2)/1000; \n")
+            archi.write("Yp = sum(Y) /")
+            archi.write(z)
+            archi.write("; \n")
+            archi.write("save -ascii 'Datos/dat3/promRad.dat' Yp");
+            archi.close() 
+
+        def Esta_4():
+            os.system("rm Datos/estadistica4.m")
+            z = str(self.N4)
+            archi = open('Datos/estadistica4.m', 'a+')
+            archi.write("f = load ('Datos/dat4/datos_4.dat');")
+            archi.write("\n")
+            archi.write("Y = f(:,2)/1000; \n")
+            archi.write("Yp = sum(Y) /")
+            archi.write(z)
+            archi.write("; \n")
+            archi.write("save -ascii 'Datos/dat4/promRad.dat' Yp");
+            archi.close() 
+   
+#=======================================================Pruebas en sensores sin pausa ==================================
+        
         def Sen_Lat0():
             gp = Gnuplot.Gnuplot()
-            gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO LATERAL'")
-            gp("set xlabel 'Tiempo en milesimas de segundos'") 
+            gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO FRONTAL'")
+            gp("set xlabel 'Dato '") 
             gp("set ylabel 'Voltaje en milivoltios'")
-            gp("set xrange [-10: 80000] ")
-            gp("set yrange [-10: 4000] ")
+            gp("set yrange[0:4000]")
             arduino=serial.Serial(puerto.get(), 9600)
             time.sleep(2)
             arduino.write('zz')
             time.sleep(2)
-            for i in range(0, 1000):
+            self.t1 = float(time.time())
+            for i in range(0, 200):
                 archi = open('Datos/dat0/datos_0.dat', 'a+')
             #   time.sleep(0.00005)
                 x = arduino.readline()
-                z = int(i*60)
+                z = int (i)
                 xo = str(z)
                 yo = str(x)
                 print('{0} {1}').format(xo, yo)
@@ -71,38 +161,76 @@ class Gramo():
                 archi.close()
                 gp("plot 'Datos/dat0/datos_0.dat' with lines")
             else:
+                self.t2 = float(time.time())
+                self.tt = self.t2 -self.t1
+                self.Cd = 200/self.tt
+                self.t0 = float(self.tt/200)
+                print "El tiempo total en la captura de datos fue",self.tt
+                print "Se captura 1 dato cada" , self.t0 , "segundos"
                 gp("plot 'Datos/dat0/datos_0.dat' with lines")
                 gp("pause mouse")
                 gp("set term png")
-                gp("set output '../../Image/graf20.png'")
+                gp("set output '../../prograsecu/Articulos/Montaje Modulo/img/graf20.png'")
                 gp("replot")
                 gp("pause mouse")
-                os.system("rm '../../Image/graf20.gif' ")
-                os.system("convert  '../../Image/graf20.png' '../../Image/graf20.gif'  &")
+                os.system("rm '../../prograsecu/Articulos/Montaje Modulo/img/graf20.gif' ")
+                os.system("convert  '../../prograsecu/Articulos/Montaje Modulo/img/graf20.png' '../../prograsecu/Articulos/Montaje Modulo/img/graf20.gif'  &")
                 gp("exit")
                 arduino.write('aa')
                 print "El ciclo termino"
                 os.system('sync')
                 arduino.close()
                 arduino.close()
+            self.t0 = float(self.tt/200)
+            #            self.N1 = (5/self.to)
+            #            self.N2 = (5/self.to)
+            #            self.N3 = (5/self.to)
+            #            self.N4 = (5/self.to)
+            #Rapidez sin pausa
+            self.R1 = 0.0795
+            self.R2 = 0.0965
+            self.R3 = 0.1005
+            self.R4 = 0.1180
+            #Rapidez con pausa
+            self.R5 = 0.45
+            self.R6 = 0.35
+            self.R7 = 0.27
+            self.R8 = 0.309
+            self.R9 = 0.37
+            self.M1=float((0.3/self.R1))
+            self.M2=float((0.3/self.R2))
+            self.M3=float((0.3/self.R3))
+            self.M4=float((0.3/self.R4))
+            self.N1=int(self.M1/self.t0)
+            self.N2=int(self.M2/self.t0)
+            self.N3=int(self.M3/self.t0)
+            self.N4=int(self.M4/self.t0)
+            Esta_0()
+            os.system("octave Datos/estadistica0.m")
+            archi1 = open('Datos/dat0/promRad.dat',  'a+')
+            self.Dat0 = archi1.read()
+            archi1.close()
+
+            print "El tiempo total en captura de datos es: ", self.tt, " Segundos"
+            print "Se captura 1 dato cada" , self.t0 , "Segundos" 
+            print "El ruido promedio en el diodo frontal es de: ", self.Dat0 , " Voltios "
                 
                 
         def Sen_Lat1():
             gp = Gnuplot.Gnuplot()
-            gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO LATERAL'")
-            gp("set xlabel 'Tiempo en milesimas de segundos'") 
+            gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO FRONTAL'")
+            gp("set xlabel 'Distancia en metros'") 
             gp("set ylabel 'Voltaje en milivoltios'")
-            gp("set xrange [-10: 100] ")
-            gp("set yrange [-10: 1500] ")
+            gp("set yrange[0:4000]")
             arduino=serial.Serial(puerto.get(), 9600)
             time.sleep(2)
             arduino.write('oo')
             time.sleep(2)
-            for i in range(0, 58):
+            for i in range(0, self.N1):
                 archi = open('Datos/dat1/datos_1.dat', 'a+')
-            #     time.sleep(0.00005)
+                #     time.sleep(0.00005)
                 x = arduino.readline()
-                z = int(i*58/40)
+                z = float(self.R1*i*self.t0)
                 xo = str(z)
                 yo = str(x)
                 print('{0} {1}').format(xo, yo)
@@ -116,38 +244,43 @@ class Gramo():
                 gp("plot 'Datos/dat1/datos_1.dat' with lines")
                 gp("pause mouse")
                 gp("set term png")
-                gp("set output '../../Image/graf21.png'")
+                gp("set output '../../prograsecu/Articulos/Montaje Modulo/img/graf21.png'")
                 gp("replot")
                 gp("pause mouse")
-                os.system("rm '../../Image/graf21.gif' ")
-                os.system("convert  '../../Image/graf21.png' '../../Image/graf21.gif'  &")
+                os.system("rm '../../prograsecu/Articulos/Montaje Modulo/img//graf21.gif' ")
+                os.system("convert  '../../prograsecu/Articulos/Montaje Modulo/img/graf21.png' '../../prograsecu/Articulos/Montaje Modulo/img/graf21.gif'  &")
                 gp("exit")
-            #time.sleep(1)
+                #time.sleep(1)
                 arduino.write('aa')
                 print "El ciclo termino"
                 os.system('sync')
                 arduino.close()
                 arduino.close()
+                Esta_1()
+                os.system("octave Datos/estadistica1.m")
+                archi1 = open('Datos/dat1/promRad.dat',  'a+')
+                self.Dat1 = archi1.read()
+                archi1.close()
+                print "El tiempo total en captura de datos es: ", self.M1, " Segundos"
+                print "el total de datos capturados fue: ", self.N1
+                print "El ruido promedio en el diodo frontal es de: ", self.Dat1 , " Voltios "
         
                 
         def Sen_Lat2():
-
-            print "la falla esta aca pendejo"
             gp = Gnuplot.Gnuplot()
-            gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO LATERAL'")
-            gp("set xlabel 'Tiempo en milesimas de segundos'") 
+            gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO FRONTAL'")
+            gp("set xlabel 'Distancia en metros'") 
             gp("set ylabel 'Voltaje en milivoltios'")
-            gp("set xrange [-10: 100] ")
-            gp("set yrange [-10: 1500] ")
+            gp("set yrange[0:4000]")
             arduino=serial.Serial(puerto.get(), 9600)
             time.sleep(2)
             arduino.write('pp')
             time.sleep(2)
-            for i in range(0, 50):
+            for i in range(0,   self.N2):
                 archi = open('Datos/dat2/datos_2.dat', 'a+')
             #        time.sleep(0.00005)
                 x = arduino.readline()
-                z = int(i*50/40)
+                z = float(self.R2*i*self.t0)
                 xo = str(z)
                 yo = str(x)
                 print('{0} {1}').format(xo, yo)
@@ -161,35 +294,43 @@ class Gramo():
                 gp("plot 'Datos/dat2/datos_2.dat' with lines")
                 gp("pause mouse")
                 gp("set term png")
-                gp("set output '../../Image/graf22.png'")
+                gp("set output '../../prograsecu/Articulos/Montaje Modulo/img/graf22.png'")
                 gp("replot")
                 gp("pause mouse")
-                os.system("rm '../../Image/graf22.gif' ")
-                os.system("convert  '../../Image/graf22.png' '../../Image/graf22.gif'  &")
+                os.system("rm '../../prograsecu/Articulos/Montaje Modulo/img/graf22.gif' ")
+                os.system("convert  '../../prograsecu/Articulos/Montaje Modulo/img/graf22.png' '../../prograsecu/Articulos/Montaje Modulo/img/graf22.gif'  &")
                 gp("exit")
                 arduino.write('aa')
                 print "El ciclo termino"
                 os.system('sync')
                 arduino.close()
                 arduino.close()
+                Esta_2()
+                os.system("octave Datos/estadistica2.m")
+                archi1 = open('Datos/dat2/promRad.dat',  'a+')
+                self.Dat2 = archi1.read()
+                archi1.close()
+                print "El tiempo total en captura de datos es: ", self.M2, " Segundos"
+                print "el total de datos capturados fue: ", self.N2
+                print "El ruido promedio en el diodo frontal es de: ", self.Dat2 , " Voltios "
+
                 
 
         def Sen_Lat3():
             gp = Gnuplot.Gnuplot()
-            gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO LATERAL'")
-            gp("set xlabel 'Tiempo en milesimas de segundos'") 
+            gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO FRONTAL'")
+            gp("set xlabel 'Distancia en metros'") 
             gp("set ylabel 'Voltaje en milivoltios'")
-            gp("set xrange [-10: 100] ")
-            gp("set yrange [-10: 1500] ")
+            gp("set yrange[0:4000]")
             arduino=serial.Serial(puerto.get(), 9600)
             time.sleep(2)
             arduino.write('qq')
             time.sleep(2)
-            for i in range(0, 44):
+            for i in range(0,   self.N3):
                 archi = open('Datos/dat3/datos_3.dat', 'a+')
                 time.sleep(0.00005)
                 x = arduino.readline()
-                z = int(i*44/40)
+                z = float(self.R3*i*self.t0)
                 xo = str(z)
                 yo = str(x)
                 print('{0} {1}').format(xo, yo)
@@ -203,35 +344,44 @@ class Gramo():
                 gp("plot 'Datos/dat3/datos_3.dat' with lines")
                 gp("pause mouse")
                 gp("set term png")
-                gp("set output '../../Image/graf23.png'")
+                gp("set output '../../prograsecu/Articulos/Montaje Modulo/img/graf23.png'")
                 gp("replot")
                 gp("pause mouse")
-                os.system("rm '../../Image/graf23.gif' ")
-                os.system("convert  '../../Image/graf23.png' '../../Image/graf23.gif'  &")
+                os.system("rm '../../prograsecu/Articulos/Montaje Modulo/img/graf23.gif' ")
+                os.system("convert  '../../prograsecu/Articulos/Montaje Modulo/img/graf23.png' '../../prograsecu/Articulos/Montaje Modulo/img/graf23.gif'  &")
                 gp("exit")
                 arduino.write('aa')
                 print "El ciclo termino"
                 os.system('sync')
                 arduino.close()
                 arduino.close()
+                Esta_3()
+                os.system("octave Datos/estadistica3.m")
+                archi1 = open('Datos/dat3/promRad.dat',  'a+')
+                self.Dat3 = archi1.read()
+                archi1.close()
+                print "El tiempo total en captura de datos es: ", self.M3, " Segundos"
+                print "el total de datos capturados fue: ", self.N3
+                print "El ruido promedio en el diodo frontal es de: ", self.Dat3, " Voltios "
+
     
 
+        
         def Sen_Lat4():
             gp = Gnuplot.Gnuplot()
-            gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO LATERAL'")
-            gp("set xlabel 'Tiempo en milesimas de segundos'") 
+            gp("set title 'TIEMPO VS VOLTAJE EN EL DIODO FRONTAL'")
+            gp("set xlabel 'Distancia en metros'") 
             gp("set ylabel 'Voltaje en milivoltios'")
-            gp("set xrange [-10: 100] ")
-            gp("set yrange [-10: 1500] ")
+            gp("set yrange[0:4000]")
             arduino=serial.Serial(puerto.get(), 9600)
             time.sleep(2)
             arduino.write('rr')
             time.sleep(2)
-            for i in range(0, 40):
+            for i in range(0,   self.N4):
                 archi = open('Datos/dat4/datos_4.dat', 'a+')
                 time.sleep(0.00005)
                 x = arduino.readline()
-                z = int(i)
+                z = float(self.R4*i*self.t0)
                 xo = str(z)
                 yo = str(x)
                 print('{0} {1}').format(xo, yo)
@@ -245,41 +395,45 @@ class Gramo():
                 gp("plot 'Datos/dat4/datos_4.dat' with lines")
                 gp("pause mouse")
                 gp("set term png")
-                gp("set output '../../Image/graf24.png'")
+                gp("set output '../../prograsecu/Articulos/Montaje Modulo/img/graf24.png'")
                 gp("replot")
                 gp("pause mouse")
-                os.system("rm '../../Image/graf24.gif' ")
-                os.system("convert  '../../Image/graf24.png' '../../Image/graf24.gif'  &")
+                os.system("rm '../../prograsecu/Articulos/Montaje Modulo/img/graf24.gif' ")
+                os.system("convert  '../../prograsecu/Articulos/Montaje Modulo/img/graf24.png' '../../prograsecu/Articulos/Montaje Modulo/img/graf24.gif'  &")
                 gp("exit")
                 arduino.write('aa')
                 print "El ciclo termino"
                 os.system('sync')
                 arduino.close()
                 arduino.close()
-        
+                Esta_4()
+                os.system("octave Datos/estadistica4.m")
+                archi1 = open('Datos/dat4/promRad.dat',  'a+')
+                self.Dat4 = archi1.read()
+                archi1.close()
+                print "El tiempo total en captura de datos es: ", self.M4, " Segundos"
+                print "el total de datos capturados fue: ", self.N4
+                print "El ruido promedio en el diodo frontal es de: ", self.Dat4, " Voltios "
 
-        
+       
 
+#===================================================================== Validando 1 ===================================================================
+                
         def Valido1():
             lblRapidez = Label(bicho, text="PRUEBA DE INTENSIDAD,  RAPIDEZ CON PAUSA", fg = ("red"), font = ("Century Schoolbook L",10)).place(x=30, y=300)
-            btnVelo0= Button(bicho, text= "Rapidez 0", width=5, height=1, command= Velo_0).place(x=20, y=350)         
-            btnVelo1= Button(bicho, text= "Rapidez 1", width=5, height=1, command= Velo_1).place(x=90, y=350)
-            btnVelo2= Button(bicho, text= "Rapidez 2", width=5, height=1, command= Velo_2).place(x=160, y=350)
-            btnVelo3= Button(bicho, text= "Rapidez 3", width=5, height=1, command= Velo_3).place(x=230, y=350)
-            btnVelo4= Button(bicho, text= "Rapidez 4", width=5, height=1, command= Velo_4).place(x=300, y=350)
-            btnVelo5= Button(bicho, text= "Rapidez 5", width=5, height=1, command= Velo_5).place(x=370, y=350)
+            btnVelo1= Button(bicho, text= "Rapidez 1", width=5, height=1, command= Velo_1).place(x=20, y=350)
+            btnVelo2= Button(bicho, text= "Rapidez 2", width=5, height=1, command= Velo_2).place(x=90, y=350)
+            btnVelo3= Button(bicho, text= "Rapidez 3", width=5, height=1, command= Velo_3).place(x=160, y=350)
+            btnVelo4= Button(bicho, text= "Rapidez 4", width=5, height=1, command= Velo_4).place(x=230, y=350)
+            btnVelo5= Button(bicho, text= "Rapidez 5", width=5, height=1, command= Velo_5).place(x=300, y=350)
 
-        def Velo_0():
-            arduino = serial.Serial(puerto.get(), 9600)
-            arduino.write("aa")
-            arduino.close()
-         
+             
+#=========================================================Prueba sensor lateral con pausa ==============================================================
             
-               
         
         def Velo_1():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 129):
+            for n in range (0, 20):
                 os.system('rm Datos_C/dat1/datos_1.dat')
                 print("aca va la pausa")
                 #arduino.write("bbbbb")
@@ -294,7 +448,7 @@ class Gramo():
                     archi = open('Datos_C/dat1/datos_1.dat', 'a+')
                 #   time.sleep(0.00005)
                     x = arduino.readline()
-                    z = 0.3*2*(133-n)
+                    z = self.R5*n
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
@@ -375,7 +529,7 @@ class Gramo():
 
         def Velo_2():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 129):
+            for n in range (0, 20):
                 os.system('rm Datos_C/dat2/datos_2.dat')
                 print("aca va la pausa")
                 arduino.write("2")
@@ -388,7 +542,7 @@ class Gramo():
                     archi = open('Datos_C/dat2/datos_2.dat', 'a+')
                 #   time.sleep(0.00005)
                     x = arduino.readline()
-                    z = 0.3*2*(133-n)
+                    z = self.R6*n
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
@@ -468,7 +622,7 @@ class Gramo():
 
         def Velo_3():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 49):
+            for n in range (0, 20):
                 os.system('rm Datos_C/dat3/datos_3.dat')
                 print("aca va la pausa")
                 #arduino.write("ee")
@@ -483,7 +637,7 @@ class Gramo():
                     archi = open('Datos_C/dat3/datos_3.dat', 'a+')
                 #   time.sleep(0.00005)
                     x = arduino.readline()
-                    z = 0.3*2*(129-n)
+                    z = self.R7*n
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
@@ -561,7 +715,7 @@ class Gramo():
     
         def Velo_4():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 129):
+            for n in range (0, 20):
                 os.system('rm Datos_C/dat4/datos_4.dat')
                 print("aca va la pausa")
                 #arduino.write("ff")
@@ -571,12 +725,12 @@ class Gramo():
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('zz')
-                for i in range(0, 50):
+                for i in range(0, 100):
                     arduino=serial.Serial(puerto.get(), 9600)
                     archi = open('Datos_C/dat4/datos_4.dat', 'a+')
                 #   time.sleep(0.00005)
                     x = arduino.readline()
-                    z = 0.3*2*(133-n)
+                    z = self.R8*n
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
@@ -657,7 +811,7 @@ class Gramo():
 
         def Velo_5():
             arduino= serial.Serial(puerto.get(), 9600)
-            for n in range (0, 123):
+            for n in range (0, 20):
                 os.system('rm Datos_C/dat5/datos_5.dat')
                 print("aca va la pausa")
                 #arduino.write("gg")
@@ -667,12 +821,12 @@ class Gramo():
                 arduino=serial.Serial(puerto.get(), 9600)
                 time.sleep(2)
                 arduino.write('zz')
-                for i in range(0, 20):
+                for i in range(0, 100):
                     arduino=serial.Serial(puerto.get(), 9600)
                     archi = open('Datos_C/dat5/datos_5.dat', 'a+')
                 #   time.sleep(0.00005)
                     x =  arduino.readline() 
-                    z =  0.3*2*(133-n)
+                    z =  self.R9*n
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
@@ -749,7 +903,7 @@ class Gramo():
             print "funciono"
 
 
-
+#====================================================MENU==============================================================
 
 #Volver al menu
         def Menu():
@@ -779,7 +933,7 @@ class Gramo():
 
     
     def __init__(self):
-        self.Prueba2()
+        self.Prueba3()
         self.__del__()
 
     def __del__(self):
