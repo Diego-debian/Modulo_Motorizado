@@ -50,11 +50,11 @@ class Instalacion:
 
     
     def Fedora(self):
-         os.system("yum -y install bluez* gcc g++ emacs eog gnuplot gnuplot-qt evince octave")
+         os.system("yum -y install bluez* gcc-c++.i686 emacs.i686 eog gnuplot.i686  evince octave.i686")
          time.sleep(1)
-         os.system("yum -y install python-matplotlib python-numpy python-tk python-gnuplot python-serial python-visual* libgtkglextmm*  ")
+         os.system("yum -y install python-matplotlib.i686 python-numpy* ScientificPython-tk.i686 gnuplot-py.noarch pyserial.noarch python-visual.i686 pygtkglext.i686  gtkglextmm.i686 gtkglextmm-devel.i686 gtkglext-libs.i686")
          time.sleep(1)
-         os.system("yum -y install kile texlive-latex-recommended texlive-latex-extra")
+         os.system("yum -y install kile.i686 texlive-latex*")
          os.system("yum -y install arduino fritzing ")
          time.sleep(1)
          os.system("exit")
