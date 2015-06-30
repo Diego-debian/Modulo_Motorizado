@@ -10,6 +10,7 @@ import Gnuplot
 from Tkinter import *
 import tkMessageBox
 import Tkinter
+import shutil
 
 class Gramo():
     def Atenua(self):
@@ -47,6 +48,7 @@ class Gramo():
          
         def Conteo1():
             arduino= serial.Serial(puerto.get(), 9600)
+            # MAXIMO 111 
             for n in range (0, 111):
                 #time.sleep(2)
                 arduino= serial.Serial(puerto.get(), 9600)
@@ -54,7 +56,7 @@ class Gramo():
                 print("aca va la pausa")
                 arduino.write("aa")
                 #time.sleep(1)
-                arduino.write('3')
+                arduino.write('2')
                 time.sleep(1.3)
                 arduino.close()
                 arduino=serial.Serial(puerto.get(), 9600)
@@ -65,7 +67,7 @@ class Gramo():
                     archi = open('Datos_C/dat1/datos_1.dat', 'a+')
                     time.sleep(0.000005)
                     x = arduino.readline()
-                    z = 0.27*2*(122-n)
+                    z = 0.27*2*(122.2-n)
                     xo = str(z)
                     yo = str(x)
                     print('{0} {1}').format(xo, yo)
@@ -124,7 +126,7 @@ class Gramo():
             lstLecturas.place(x=10, y=50) 
             btnGraf= Button(bicho1, text= "Grafica", width=5, height=1, command= LoL1).place(x=180, y=15)            
             btnInfo= Button(bicho1, text= "Información", width=8, height=1, command= Msg1).place(x=250, y=15)            
-
+	    self.Carpetas()	
         def Msg1():
             tkMessageBox.showinfo("Información ", message= "Los datos se encuentran en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba2/Datos_C/dat1/datos1_.dat' y la grafica se encuentra en 'Modulo_Motorizado/2. Interfaz/2.2 Grafica/prograsecu/Prueba2/Image/agraf1.gif'")
             
@@ -174,6 +176,10 @@ class Gramo():
         btnProbar= Button(bicho, text= "Verificar", width=5, height=1, command= Verifica).place(x=520, y=100)            
         bicho.mainloop()  
 
+#Crear carpeta de los datos segun su fecha
+    def Carpetas(self):
+	os.system("python Datos_C/Pruebas/prueba.py")
+	
 
     
     def __init__(self):
