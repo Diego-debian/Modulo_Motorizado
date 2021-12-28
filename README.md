@@ -23,7 +23,7 @@ Objetivos
  * Utilizar tecnologías libres para la realización de este proyecto.
  * Crear un modulo motorizado controlado vía bluetooth para ilustrar propiedades de la radiación infrarroja como lo son la difracción, la absorción y la atenuación. 
 
-##Específicos 
+## Específicos 
 
  * Utilizar un Sistema operativo GNU-Linux como plataforma para el desarrollo del software que va a controlar el hardware del dispositivo.
  * Con el microcontrolador atmega328P-PU  realizar la parte de control del hardware.
